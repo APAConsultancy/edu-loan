@@ -1,0 +1,70 @@
+.educate-btn {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    border: none;
+    outline: none !important;
+    background-color: #0aa6d7;
+    color: #0aa6d7;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-transform: capitalize;
+    padding: 12px 24px;
+    overflow: hidden;
+    width: fit-content;
+    z-index: 2;
+    position: relative;
+    -webkit-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+  }
+
+  .educate-btn .educate-btn__curve {
+    position: absolute;
+    right: -15px;
+    top: 0;
+    width: 33px;
+    height: 100%;
+    background: #F6F5F5;
+    opacity: 0.2;
+    z-index: 0;
+    -webkit-transform: skewX(-22deg);
+    transform: skewX(-22deg);
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+  }
+  .educate-btn:hover {
+    color: #fefcfb;
+  }
+  .educate-btn:hover .educate-btn__curve {
+    right: 0;
+    width: 100%;
+    -webkit-transform: skewX(0deg);
+    transform: skewX(0deg);
+  }
+  .educate-btn.sec {
+    background-color: #fefcfb;
+    color: #2a322d;
+    border: 2px solid #fefcfb;
+  }
+  .educate-btn.sec:hover {
+    color: #fefcfb !important;
+    background-color: #0aa6d7;
+    border: 2px solid #0aa6d7;
+  }
+  .educate-btn.sec-2 {
+    background-color: transparent;
+    color: #2a322d;
+    border: 2px solid #0aa6d7;
+  }
+  .educate-btn.sec-2:hover {
+    color: #fefcfb !important;
+    background: #0aa6d7;
+  }
+  .educate-btn.sm {
+    padding: 8px 16px;
+  }
