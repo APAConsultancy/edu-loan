@@ -11,11 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 export class Step3Component {
   testScores = [
-    { name: 'GRE', selected: '', score: '' },
-    { name: 'GMAT', selected: '', score: '' },
-    { name: 'Duolingo', selected: '', score: '' },
-    { name: 'IELTS', selected: '', score: '' },
-    { name: 'TOEFL', selected: '', score: '' },
-    { name: 'PTE', selected: '', score: '' }
+    { name: 'GRE', selected: 'Not Applicable', score: '' },
+    { name: 'GMAT', selected: 'Not Applicable', score: '' },
+    { name: 'Duolingo', selected: 'Not Applicable', score: '' },
+    { name: 'IELTS', selected: 'Not Applicable', score: '' },
+    { name: 'TOEFL', selected: 'Not Applicable', score: '' }
   ];
+
+   selectNone() {
+    this.testScores.forEach(test => test.selected = 'Not Applicable');
+  }
 }
