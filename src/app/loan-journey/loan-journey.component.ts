@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import { Step1Component } from './step1/step1.component';
 import { Step2Component } from './step2/step2.component';
@@ -11,10 +11,11 @@ import { Step8Component } from './step8/step8.component';
 import { Step9Component } from './step9/step9.component';
 import {NgStepperModule} from 'angular-ng-stepper';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-loan-journey',
-  imports: [CdkStepperModule,
+  imports: [CdkStepperModule, CommonModule,
     NgStepperModule,RouterOutlet, RouterLink, RouterLinkActive,
     Step1Component, Step2Component, Step3Component, Step4Component,
     Step5Component, Step6Component, Step7Component, Step8Component, Step9Component
@@ -22,6 +23,24 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   templateUrl: './loan-journey.component.html',
   styleUrl: './loan-journey.component.css'
 })
-export class LoanJourneyComponent {
+export class LoanJourneyComponent implements OnInit {
+  currentStep: number = 1;
 
+  constructor() { }
+
+  ngOnInit(): void {
+      
+  }
+
+  nextStep() {
+    if (this.currentStep < 9) {
+      this.currentStep++;
+    }
+  }
+
+  previousStep() {
+    if (this.currentStep > 1) {
+      this.currentStep--;
+    }
+  }
 }

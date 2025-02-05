@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class Step2Component  implements OnInit {
   public stepOneForm: FormGroup;
+  currentStep: number = 1;
   countries = [
     { name: 'UK', image: 'assets/media/images/uk.png' },
     { name: 'US', image: 'assets/media/images/us.png' },
@@ -47,6 +48,14 @@ export class Step2Component  implements OnInit {
       .filter(country => country.name !== 'Others')
       .sort((a, b) => a.name.localeCompare(b.name))
       .concat(this.countries.filter(country => country.name === 'Others'));
+  }
+
+  nextStep() {
+    this.currentStep++;
+  }
+
+  previousStep() {
+    this.currentStep--;
   }
 
 }
