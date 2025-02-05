@@ -1,0 +1,33 @@
+.container {
+    max-width: 600px;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-check {
+    margin-bottom: 0.5rem;
+  }
+  
+  .text-danger {
+    font-size: 0.875em;
+  }
+  
+  .form-check-input {
+    margin-right: 0.5rem;
+  }
+  
+  .form-control {
+    margin-bottom: 0.5rem;
+  }
+
+  .note {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    /* padding: 0.75rem 1.25rem; */
+    margin-top: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }

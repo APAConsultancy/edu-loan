@@ -36,9 +36,10 @@ export class Step7Component implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
     if (this.questionnaireForm.valid) {
       console.log(this.questionnaireForm.value);
+    } else {
+      this.submitted = true;
     }
   }
 }
