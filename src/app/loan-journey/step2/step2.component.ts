@@ -18,8 +18,9 @@ export class Step2Component  implements OnInit {
     { name: 'Canada', image: 'assets/media/images/canada.png' },
     { name: 'New Zealand', image: 'assets/media/images/new-zealand.png' },
     { name: 'Germany', image: 'assets/media/images/germany.png' },
-    { name: 'India', image: 'assets/media/images/india.png' },
-    { name: 'Others', image: 'assets/media/images/globe.jpg' }
+    // { name: 'India', image: 'assets/media/images/india.png' },
+    { name: 'Others', image: 'assets/media/images/globe.jpg' },
+    { name: 'Singapore', image: 'assets/media/images/singapore.png' }
   ];
 
   selectedCountry: string = '';
