@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-step2',
@@ -26,7 +27,8 @@ export class Step2Component  implements OnInit {
   selectedCountry: string = '';
   universityName: string = ''; 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.stepOneForm = this.fb.group({
       mobileno: this.fb.control('', Validators.required)
@@ -38,10 +40,14 @@ export class Step2Component  implements OnInit {
   }
 
   stepOneSubmit() {
+    sessionStorage.setItem('selectedCountry', this.selectedCountry);
   }
 
   selectCountry(country: any) {
     this.selectedCountry = country.name;
+    sessionStorage.setItem('selectedCountry', this.selectedCountry);
+    this.stepOneSubmit();
+    this.goToStep3();
   }
 
   sortCountries() {
@@ -57,6 +63,10 @@ export class Step2Component  implements OnInit {
 
   previousStep() {
     this.currentStep--;
+  }
+
+  goToStep3(): void {
+      this.router.navigate(['/step3']);
   }
 
 }
