@@ -1,4 +1,5 @@
-<!-- <div class="container">
+<div class="container">
+  <div style="margin-top: 150px;">
     <form [formGroup]="stepOneForm"
           (ngSubmit)="stepOneSubmit()"
           autocomplete="off"
@@ -6,23 +7,17 @@
           #formRef="ngForm">
   
       <div class="input">
-        <label for="fname">First name <span>*</span></label>
-        <input type="text" id="fname" placeholder="Enter First Name" formControlName="firstName"/>
-        <span class="error" *ngIf="stepOneForm.controls['firstName'].hasError('required') && formRef.submitted">First Name is a required field
+        <p class="note">If your file will qualify for login and sanction you will get rewarded.</p>
+        <input type="text" id="mobileno" placeholder="Mobile Number" formControlName="mobileno"/>
+        <span class="error" *ngIf="stepOneForm.controls['mobileno'].hasError('required') && formRef.submitted">Mobile Number is a required.
         </span>
       </div>
-  
-      <div class="input">
-        <label for="lname">Last name <span>*</span></label>
-        <input type="text" id="lname" placeholder="Enter Last Name" formControlName="lastName"/>
-        <span class="error" *ngIf="stepOneForm.controls['lastName'].hasError('required') && formRef.submitted">Last Name is a required field
-        </span>
-      </div>
-  
-      <div class="button">
-        <button class="button" cdkStepperNext>Next</button>
+   
+      <div class="button" style="margin-top: 50px;">
+        <button class="button" (click)="openOtpPopup()">Get OTP</button>
       </div>
   
     </form>
   </div>
-   -->
+  </div>
+  

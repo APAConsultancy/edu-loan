@@ -1,24 +1,8 @@
 <section class="hero-banner-1">
     <div class="container">
-<ng-stepper #cdkStepper [linear]="true" style="margin-top: 150px;">
- 
-    <cdk-step [stepControl]="stepOne.stepOneForm" [optional]="false">
-      <ng-template cdkStepLabel>
-        <div class="step-bullet">1</div>
-        <div class="step-title">Personal Details <span class="required">*</span></div>
-      </ng-template>
-      <app-step1 #stepOne></app-step1>
-    </cdk-step>
-    
-    <cdk-step [stepControl]="stepTwo.stepTwoForm" [optional]="true">
-      <ng-template cdkStepLabel>
-        <div class="step-bullet">2</div>
-        <div class="step-title">Address</div>
-      </ng-template>
-      <app-step2 #stepTwo></app-step2>
-    </cdk-step>
-    
- </ng-stepper>
+<div style="margin-top: 150px;">
+  Ashish Ranjan
+</div>
  <router-outlet />
  </div>
  </section>
