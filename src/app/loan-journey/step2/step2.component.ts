@@ -32,6 +32,7 @@ export class Step2Component  implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sortCountries();
   }
 
   stepOneSubmit() {
@@ -39,6 +40,13 @@ export class Step2Component  implements OnInit {
 
   selectCountry(country: any) {
     this.selectedCountry = country.name;
+  }
+
+  sortCountries() {
+    this.countries = this.countries
+      .filter(country => country.name !== 'Others')
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .concat(this.countries.filter(country => country.name === 'Others'));
   }
 
 }
