@@ -6,17 +6,46 @@
           novalidate
           #formRef="ngForm">
   
+    <div *ngIf="showMobileComponent">
       <div class="input">
         <p class="note">If your file will qualify for login and sanction you will get rewarded.</p>
-        <input type="text" id="mobileno" placeholder="Mobile Number" formControlName="mobileno"/>
-        <span class="error" *ngIf="stepOneForm.controls['mobileno'].hasError('required') && formRef.submitted">Mobile Number is a required.
+        <input type="text" id="mobileno" placeholder="Mobile Number" formControlName="mobileno" pattern="^\d{10}$" maxlength="10"/>
+        <span class="error" *ngIf="stepOneForm.controls['mobileno'].hasError('required') && formRef.submitted">
+          Mobile Number is required.
+        </span>
+        <span class="error" *ngIf="stepOneForm.controls['mobileno'].hasError('pattern') && formRef.submitted">
+          Mobile Number must contain exactly 10 digits.
         </span>
       </div>
    
       <div class="button" style="margin-top: 50px;">
-        <button class="button" (click)="openOtpPopup()">Get OTP</button>
+        <button class="enroll-btn" (click)="validateAndOpenOtpPopup()">Get OTP</button>
       </div>
-  
+
+      <div *ngIf="showOtpComponent" class="otp-container">
+        <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+      </div>
+    </div>
+    <div *ngIf="!showMobileComponent">
+      <p class="question">Where did you hear about us?</p>
+      <div class="options">
+        <label>
+          <input type="radio" formControlName="source" name="source" value="social_media"> Social Media
+        </label>
+        <label>
+          <input type="radio" formControlName="source" name="source" value="paper_media"> Paper Media
+        </label>
+        <label>
+          <input type="radio" formControlName="source" name="source" value="friends"> Friends/Others
+        </label>
+      </div>
+      <div class="button" style="margin-top: 50px;">
+        <!-- <a href="contact.html" class="educate-btn sm d-xl-flex d-none"><span
+          class="educate-btn__curve" (click)="goToStep2()"></span>Next</a> -->
+        <button class="enroll-btn" (click)="goToStep2()">Next</button>
+      </div>
+    </div>
+
     </form>
   </div>
   </div>
