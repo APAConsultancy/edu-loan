@@ -2043,14 +2043,14 @@ input[type=range]::-webkit-slider-thumb {
   background: #0aa6d7;
 }
 
-input[type=radio] {
+/* input[type=radio] {
   height: auto;
   width: auto;
 }
 
 input[type=radio]:checked {
   accent-color: #0aa6d7;
-}
+} */
 
 input[type=search]::-webkit-search-decoration,
 input[type=search]::-webkit-search-cancel-button,
