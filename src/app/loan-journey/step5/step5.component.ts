@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class Step5Component {
 
+  country = 'India';
 }

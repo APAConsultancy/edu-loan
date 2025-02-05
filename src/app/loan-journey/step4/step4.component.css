@@ -1,0 +1,61 @@
+.btn-group-toggle .btn {
+    margin: 0 5px;
+    /* Adjust margin between buttons */
+    padding: 3px 8px;
+    /* Decrease the padding to make the buttons smaller */
+    font-size: 12px;
+    /* Adjust the font size to make the buttons smaller */
+    background-color: transparent;
+    /* Make the buttons transparent by default */
+    border: 1px solid #007bff;
+    /* Add a border to the buttons */
+    color: #007bff;
+    /* Set the text color */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Add transition for smooth effect */
+}
+
+.btn-group-toggle .btn input[type="radio"] {
+    display: none;
+    /* Hide the radio inputs */
+}
+
+.btn-group-toggle .btn:hover {
+    background-color: #e0e0e0;
+    /* Change background color on hover */
+}
+
+.btn-group-toggle .btn-primary.active,
+.btn-group-toggle .btn-primary:active,
+.btn-group-toggle .btn-primary:focus {
+    background-color: #007bff;
+    /* Highlight the button on selection */
+    border-color: #007bff;
+    color: white;
+    /* Change text color on selection */
+    box-shadow: none;
+}
+
+
+
+
+.custom-btn {
+  background-color: #3b82f6; /* Blue color like "Enroll Now" */
+  color: white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+}
+
+.custom-btn:hover {
+  background-color: #2563eb; /* Slightly darker blue */
+}
+
+.custom-btn:active,
+.custom-btn:focus,
+.btn-check:checked + .custom-btn {
+  background-color: #1e40af; /* Darker shade for selected */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
