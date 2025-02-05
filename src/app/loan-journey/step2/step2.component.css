@@ -1,0 +1,13 @@
+.card {
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .selected-card {
+    /* border: 2px solid #007bff; */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  }

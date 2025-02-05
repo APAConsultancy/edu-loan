@@ -1,40 +1,26 @@
-<!-- <div class="main">
-    <div class="header">
-      <h1>Angular ng-stepper </h1>
-    </div>
-  
-    <ng-stepper #cdkStepper [linear]="true">
-      <cdk-step [stepControl]="stepOne.stepOneForm" [optional]="false">
-        <ng-template cdkStepLabel>
-          <div class="step-bullet">1</div>
-          <div class="step-title">Personal Details <span class="required">*</span></div>
-        </ng-template>
-        <app-step-one #stepOne></app-step-one>
-      </cdk-step>
-  
-      <cdk-step [stepControl]="stepTwo.stepTwoForm" [optional]="true">
-        <ng-template cdkStepLabel>
-          <div class="step-bullet">2</div>
-          <div class="step-title">Address</div>
-        </ng-template>
-        <app-step-two #stepTwo></app-step-two>
-      </cdk-step>
-  
-      <cdk-step [stepControl]="stepThree.stepThreeForm" [optional]="false">
-        <ng-template cdkStepLabel>
-          <div class="step-bullet">3</div>
-          <div class="step-title">Payment Information <span class="required">*</span></div>
-        </ng-template>
-        <app-step-three #stepThree></app-step-three>
-      </cdk-step>
-  
-      <cdk-step [stepControl]="stepFour.stepFourForm" [optional]="true" [state]="stepFour.state">
-        <ng-template cdkStepLabel>
-          <div class="step-bullet">4</div>
-          <div class="step-title">Contact Information</div>
-        </ng-template>
-        <app-step-four #stepFour></app-step-four>
-      </cdk-step>
-    </ng-stepper>
+<!-- <div class="container">
+  <div style="margin-top: 150px;">
+    <h1>Step 2</h1>
+    <p>Step 2 content goes here</p>
+    <button class="btn btn-primary" (click)="goToStep3()">Go to Step 3</button>
+  </div>
   </div>
    -->
+
+<div class="container" style="margin-top: 10rem !important;margin-bottom: 5rem !important;">
+<div class="row">
+   <label class="text-center">Pick Your <strong>Dream Destination</strong> To Study Abroad</label>
+  <div class="col-md-3 mb-3" *ngFor="let country of countries" (click)="selectCountry(country)" [ngClass]="{'selected-card': selectedCountry === country.name}">
+    <div class="card h-100">
+      <div class="card-body d-flex align-items-center">
+        <img [src]="country.image" alt="{{country.name}}" class="img-fluid mr-3" style="width: 25px;">
+        <h5 class="card-title mb-0">{{country.name}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectedCountry === 'India'" class="mt-3">
+  <label for="universityName">Enter University Name:</label>
+  <input type="text" id="universityName" class="form-control" [(ngModel)]="universityName">
+</div>
+</div>

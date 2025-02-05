@@ -1,25 +1,44 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-step2',
-  imports: [],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './step2.component.html',
   styleUrl: './step2.component.css'
 })
 export class Step2Component  implements OnInit {
-  public stepTwoForm: FormGroup;
+  public stepOneForm: FormGroup;
+  countries = [
+    { name: 'UK', image: 'assets/media/images/uk.png' },
+    { name: 'US', image: 'assets/media/images/us.png' },
+    { name: 'Australia', image: 'assets/media/images/australia.png' },
+    { name: 'Canada', image: 'assets/media/images/canada.png' },
+    { name: 'New Zealand', image: 'assets/media/images/new-zealand.png' },
+    { name: 'Germany', image: 'assets/media/images/germany.png' },
+    { name: 'India', image: 'assets/media/images/india.png' },
+    { name: 'Others', image: 'assets/media/images/globe.jpg' }
+  ];
 
-  constructor(private fb: FormBuilder) {
-    this.stepTwoForm = this.fb.group({
-      city: this.fb.control(''),
-      country: this.fb.control('')
+  selectedCountry: string = '';
+  universityName: string = ''; 
+  constructor(
+    private fb: FormBuilder
+  ) {
+    this.stepOneForm = this.fb.group({
+      mobileno: this.fb.control('', Validators.required)
     });
   }
 
   ngOnInit(): void {
   }
 
-  stepTwoSubmit() {
+  stepOneSubmit() {
   }
+
+  selectCountry(country: any) {
+    this.selectedCountry = country.name;
+  }
+
 }
