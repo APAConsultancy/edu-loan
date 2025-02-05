@@ -56,6 +56,6 @@
 .custom-btn:active,
 .custom-btn:focus,
 .btn-check:checked + .custom-btn {
-  background-color: #1e40af; /* Darker shade for selected */
+  background-color: #0aa6d7; /* Darker shade for selected */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }

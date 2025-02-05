@@ -9,7 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './step5.component.css'
 })
 export class Step5Component {
-
-  country = sessionStorage.getItem('selectedCountry');
   Universities = ['ABC','XYZ'];
+  country = sessionStorage.getItem('selectedCountry');
 }

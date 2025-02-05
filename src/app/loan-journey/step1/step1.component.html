@@ -17,8 +17,8 @@
         </span>
       </div>
    
-      <div class="button" style="margin-top: 50px;">
-        <button class="enroll-btn" (click)="validateAndOpenOtpPopup()">Get OTP</button>
+      <div class="d-flex justify-content-center mt-3" style="margin-top: 50px;">
+        <button class="educate-btn sm d-xl-flex d-none" (click)="validateAndOpenOtpPopup()"><span class="educate-btn__curve" ></span>Get OTP</button>
       </div>
 
       <div *ngIf="showOtpComponent" class="otp-container">
@@ -37,11 +37,9 @@
           <input type="radio" formControlName="source" name="source" value="friends"> Friends/Others
         </label>
       </div>
-      <div class="button" style="margin-top: 50px;">
-        <!-- <a href="contact.html" class="educate-btn sm d-xl-flex d-none"><span
-          class="educate-btn__curve" (click)="goToStep2()"></span>Next</a> -->
-        <button class="enroll-btn" (click)="goToStep2()">Next</button>
-      </div>
+        <div class="d-flex justify-content-center mt-3" style="margin-top: 50px;">
+          <button class="educate-btn sm d-xl-flex d-none" (click)="goToStep2()"><span class="educate-btn__curve" ></span>Next</button>
+        </div>
     </div>
 
     </form>
