@@ -1,1 +1,24 @@
-<p>step3 works!</p>
+<div class="container d-flex justify-content-center">
+    <div class="test-scores col-md-6">
+      <h2 class="text-center">Test Scores (Better to share if you have)</h2>
+      <div class="row">
+        <div *ngFor="let test of testScores; let last = last" class="test-score-row row align-items-center py-2" [ngClass]="{'border-bottom': !last}">
+          <div class="col-md-4">
+            <label class="test-label">{{ test.name }}</label>
+          </div>
+          <div class="col-md-5 d-flex">
+            <div class="radio-group btn-group" role="group">
+              <input type="radio" class="btn-check" name="{{ test.name }}" id="{{ test.name }}-not-applicable" [(ngModel)]="test.selected" [value]="'Not Applicable'">
+              <label class="btn btn-primary" for="{{ test.name }}-not-applicable">Not Applicable</label>
+              
+              <input type="radio" class="btn-check" name="{{ test.name }}" id="{{ test.name }}-taken" [(ngModel)]="test.selected" [value]="'Taken'">
+              <label class="btn btn-light" for="{{ test.name }}-taken">Taken</label>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <input *ngIf="test.selected === 'Taken'" type="text" [(ngModel)]="test.score" placeholder="Enter Score" class="form-control score-input">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
