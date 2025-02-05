@@ -16,7 +16,7 @@ export class Step1Component  implements OnInit {
   public stepOneForm: FormGroup;
   otp: string | undefined;
   showOtpComponent = false;
-  showMobileComponent = true;
+  showMobileComponent = false;
   correctOtp = '12345'; // Example correct OTP for validation
 
   constructor(
@@ -50,7 +50,7 @@ export class Step1Component  implements OnInit {
   }
   validateOtp(): void {
     if (this.otp === this.correctOtp) {
-      this.showMobileComponent = false;
+      this.showMobileComponent = true;
     } else {
       alert('Invalid OTP. Please try again.');
     }

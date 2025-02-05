@@ -6,7 +6,6 @@
           novalidate
           #formRef="ngForm">
   
-    <div *ngIf="showMobileComponent">
       <div class="input">
         <p class="note">If your file will qualify for login and sanction you will get rewarded.</p>
         <input type="text" id="mobileno" placeholder="Mobile Number" formControlName="mobileno" pattern="^\d{10}$" maxlength="10"/>
@@ -25,8 +24,7 @@
       <div *ngIf="showOtpComponent" class="otp-container">
         <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
       </div>
-    </div>
-    <div *ngIf="!showMobileComponent">
+    <div *ngIf="showMobileComponent">
       <p class="question">Where did you hear about us?</p>
       <div class="options">
         <label>

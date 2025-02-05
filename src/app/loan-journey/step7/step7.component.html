@@ -1,1 +1,73 @@
-<p>step7 works!</p>
+<div class="container mt-5">
+    <form [formGroup]="questionnaireForm" (ngSubmit)="onSubmit()">
+      <!-- Question 1 -->
+      <div class="form-group row align-items-center ">
+        <label class="col-sm-4 col-form-label">What's your intake? <span class="text-danger">*</span></label>
+        <div class="col-sm-8">
+          <div class="form-check form-check-inline">
+            <input class="" type="radio" formControlName="intake" value="Fall Intake" id="fallIntake">
+            <label class="form-check-label" for="fallIntake">Fall Intake</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="" type="radio" formControlName="intake" value="Spring Intake" id="springIntake">
+            <label class="form-check-label" for="springIntake">Spring Intake</label>
+          </div>
+          <div *ngIf="submitted && questionnaireForm?.get('intake')?.invalid" class="text-danger">
+            Please select your intake.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Question 2 -->
+      <div class="form-group row align-items-center">
+        <label class="col-sm-4 col-form-label">When are you starting your program? <span class="text-danger">*</span></label>
+        <div class="col-sm-8">
+          <select class="form-control" formControlName="startMonth">
+            <option value="" disabled selected>Select a month</option>
+            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+          </select>
+          <div *ngIf="submitted && questionnaireForm?.get('startMonth')?.invalid" class="text-danger">
+            Please select a start month.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Question 3 -->
+      <div class="form-group row align-items-center">
+        <label class="col-sm-4 col-form-label">What's the loan amount you are looking for? <span class="text-danger">*</span></label>
+        <div class="col-sm-8">
+          <select class="form-control" formControlName="loanAmount">
+            <option value="" disabled selected>Select a loan amount</option>
+            <option *ngFor="let amount of loanAmounts" [value]="amount">{{ amount }}</option>
+          </select>
+          <div *ngIf="submitted && questionnaireForm?.get('loanAmount')?.invalid" class="text-danger">
+            Please select a loan amount.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Question 4 -->
+      <div class="form-group row align-items-center">
+        <label class="col-sm-4 col-form-label">Loan type <span class="text-danger">*</span></label>
+        <div class="col-sm-8">
+          <div class="form-check form-check-inline">
+            <input class="" type="radio" formControlName="loanType" value="Secured" id="secured">
+            <label class="form-check-label" for="secured">Secured</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="" type="radio" formControlName="loanType" value="Unsecured" id="unsecured">
+            <label class="form-check-label" for="unsecured">Unsecured</label>
+          </div>
+          <div *ngIf="submitted && questionnaireForm?.get('loanType')?.invalid" class="text-danger">
+            Please select a loan type.
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group row align-items-center">
+        <div class="col-sm-8 offset-sm-4">
+          <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
