@@ -1,1 +1,32 @@
-<p>step9 works!</p>
+<div class="container d-flex flex-column align-items-center">
+    <div class="mt-4">
+      <label>Have you already approached any bank for your Education Loan process? *</label>
+      <select class="form-select" [(ngModel)]="selectedOption" (change)="onOptionChange()">
+        <option value="">Choose one option</option>
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+  
+    <div *ngIf="selectedOption === 'No'" class="mt-3">
+      <img src="../../../assets/media/BankImages/bank.jpg" alt="Bank Image" class="img-fluid" />
+    </div>
+  
+    <div *ngIf="selectedOption === 'Yes'" class="mt-3 multi-select-width">
+      <label>Select Banks</label>
+      <!-- <select class="form-select" multiple [(ngModel)]="selectedBanks" (change)="onBankSelectionChange()">
+        <option *ngFor="let bank of bankList" [value]="bank">{{ bank }}</option>
+      </select> -->
+      <ng-select [items]="bankList" 
+               bindLabel="bank"
+               [(ngModel)]="selectedBanks"
+               [multiple]="true"
+               (change)="onBankSelectionChange()">
+    </ng-select>
+    </div>
+  
+    <div *ngIf="selectedBanks.length > 0" class="mt-3">
+      <img src="../../../assets/media/BankImages/bank.jpg" alt="Bank Image" class="img-fluid" />
+    </div>
+  </div>
+  
