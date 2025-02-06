@@ -63,6 +63,20 @@
           </div>
         </div>
       </div>
+
+      <!-- Question 5 -->
+      <div class="form-group row align-items-center">
+        <label class="col-sm-4 col-form-label">Course Start Month <span class="text-danger">*</span></label>
+        <div class="col-sm-8">
+          <select class="form-control" formControlName="courseStartMonth">
+            <option value="" disabled selected>Select a course start month</option>
+            <option *ngFor="let sm of courseStartMonth" [value]="sm">{{ sm }}</option>
+          </select>
+          <div *ngIf="submitted && questionnaireForm?.get('courseStartMonth')?.invalid" class="text-danger">
+            Please select a course start month.
+          </div>
+        </div>
+      </div>
   
       <div class="form-group row align-items-center">
         <div class="col-sm-8 offset-sm-4">

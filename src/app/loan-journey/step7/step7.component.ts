@@ -13,13 +13,15 @@ export class Step7Component implements OnInit {
   months: string[] = [];
   loanAmounts: string[] = ['Upto 12 Lakhs', '10-20 Lakhs', '20-50 Lakhs', '50-1cr', 'Above 1 cr'];
   submitted = false;
+  courseStartMonth: string[] = ['January-March', 'April-June', 'July-September', 'October-December'];
 
   constructor(private fb: FormBuilder) {
     this.questionnaireForm = this.fb.group({
       intake: ['', Validators.required],
       startMonth: ['', Validators.required],
       loanAmount: ['', Validators.required],
-      loanType: ['', Validators.required]
+      loanType: ['', Validators.required],
+      courseStartMonth: ['', Validators.required],
     });
   }
 
