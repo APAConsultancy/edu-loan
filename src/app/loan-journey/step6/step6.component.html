@@ -1,1 +1,39 @@
-<p>step6 works!</p>
+<div class="container d-flex flex-column align-items-center">
+    <div class="row text-center mb-4">
+      <div class="col">
+        <img src="/assets/icons/book_reading.png" alt="Program Icon" class="program-icon">
+        <h3>Program you are interested in</h3>
+      </div>
+    </div>
+  
+    <div class="mt-4 position-relative">
+      <div class="select-container">
+        <div class="floating-label">Degree</div>
+        <select class="form-select custom-select" [(ngModel)]="selectedDegree" (change)="onDegreeChange()">
+          <option *ngFor="let degree of degrees" [value]="degree">{{ degree }}</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="mt-3 position-relative">
+      <div class="select-container">
+        <div class="floating-label">Program Name</div>
+        <select class="form-select custom-select" [(ngModel)]="selectedProgramName" (change)="onProgramNameChange()">
+          <option *ngFor="let program of programNames" [value]="program">{{ program }}</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="mt-3 position-relative">
+      <div class="select-container">
+        <div class="floating-label">Course Duration</div>
+        <select class="form-select custom-select" [(ngModel)]="selectedDuration" (change)="onDurationChange()">
+          <option value="12">12</option>
+          <option value="24">24</option>
+          <option value="36">36</option>
+        </select>
+        <div class="months-label">months</div>
+      </div>
+      <small class="text-muted">max upto 36 months</small>
+    </div>
+  </div>

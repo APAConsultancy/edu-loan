@@ -1,0 +1,59 @@
+.container {
+    max-width: 600px; /* Adjust the width as needed */
+  }
+  
+  .mt-4, .mt-3 {
+    margin-top: 1.5rem; width: 100%;
+    max-width: 400px;/* Adjust the spacing as needed */
+  }
+
+  .select-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background-color: white;
+    width: 100%;
+    min-width: 300px;
+  }
+  
+  .floating-label {
+    position: absolute;
+    top: 2px;
+    left: 12px;
+    font-size: 12px;
+    color: #6c757d;
+  }
+  
+  .custom-select {
+    border: none;
+    padding-top: 20px;
+    padding-bottom: 8px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+  }
+  
+  .custom-select:focus {
+    box-shadow: none;
+    border-color: none;
+    outline: none;
+  }
+  
+  .months-label {
+    position: absolute;
+    right: 35px;
+    color: #212529;
+  }
+  
+  .select-container:focus-within {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+  
+  .select-container:hover {
+    border-color: #86b7fe;
+  }
