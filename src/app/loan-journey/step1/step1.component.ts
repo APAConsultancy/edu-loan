@@ -86,10 +86,6 @@ export class Step1Component  implements OnInit {
   }
 
   goToStep2(): void {
-    if (this.stepOneForm.controls['source'].valid) {
       this.router.navigate(['/step2']);
-    } else {
-      alert('Please select an option.');
-    }
   }
 }
