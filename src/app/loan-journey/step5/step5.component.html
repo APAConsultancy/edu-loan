@@ -1,18 +1,13 @@
 <div class="container" style="margin-top: 10rem !important; margin-bottom: 5rem !important;">
   <div class="row">
-    <label class="text-center">Which <strong>University in {{selectedCountry || 'Select Country'}}</strong> are you considering?</label>
+    <label class="text-center">Which <strong>University in {{country}}</strong> are you considering?</label>
 </div>
     <div class="row justify-content-center" style="margin-top: 2rem;">
         <div class="select-container">
-          <!-- <select class="form-control" formControlName="universityName">
+          <select class="form-select" [(ngModel)]="selectedUniversity" (change)="onUniversityChange()">
             <option value="" disabled selected>Select a University</option>
-            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
-          </select> -->
-          <select class="form-select" [(ngModel)]="selectedCountry" (change)="onCountryChange()">
-            <option value="" disabled selected>Select a Country</option>
-            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+            <option *ngFor="let university of Universities" [value]="university">{{ university }}</option>
           </select>
-          <span class="select-arrow">&#9662;</span> <!-- Unicode for down arrow -->
         </div>
     </div>
 </div>

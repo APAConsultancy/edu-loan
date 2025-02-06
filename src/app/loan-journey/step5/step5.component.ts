@@ -9,24 +9,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './step5.component.css'
 })
 export class Step5Component {
-  countries: string[] = [
-    'United States',
-    'United Kingdom',
-    'Canada',
-    'Australia',
-    'Germany',
-    'France',
-    'Japan',
-    'Singapore',
-    'New Zealand',
-    'Netherlands'
-  ];
+  Universities: string[] = ['ABC','XYZ'];
+  country = sessionStorage.getItem('selectedCountry');
 
-  selectedCountry: string = '';
+  selectedUniversity: string = '';
 
-  onCountryChange() {
+  constructor() { }
+
+  onUniversityChange() {
     // You can add additional logic here if needed
-    console.log('Selected country:', this.selectedCountry);
+    console.log('Selected University:', this.selectedUniversity);
   }
-  // country = sessionStorage.getItem('selectedCountry');
 }
