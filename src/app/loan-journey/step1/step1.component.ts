@@ -70,10 +70,13 @@ export class Step1Component  implements OnInit {
       //alert('Please enter a valid mobile number.');
     }
   }
-  // openOtpPopup(): void {
-  //   this.dialog.open(OtpPopupComponent, {
-  //     width: '250px'
-  //   });
+ 
+  nextStep() {
+    this.router.navigate(['/step2']);
+  }
+
+  // previousStep() {
+  //   this.router.navigate(['/step2']);
   // }
 
   onlyDigitsValidator(control: AbstractControl): ValidationErrors | null {

@@ -1,48 +1,66 @@
 <div class="container">
-  <div>
-    <form [formGroup]="stepOneForm"
-          (ngSubmit)="stepOneSubmit()"
-          autocomplete="off"
-          novalidate
-          #formRef="ngForm">
-  
-      <div class="input">
-        <p class="note">If your file will qualify for login and sanction you will get rewarded.</p>
-        <input type="text" id="mobileno" placeholder="Mobile Number" formControlName="mobileno" pattern="^\d{10}$" maxlength="10"/>
-        <span class="error" *ngIf="stepOneForm.controls['mobileno'].hasError('required') && formRef.submitted">
-          Mobile Number is required.
-        </span>
-        <span class="error" *ngIf="stepOneForm.controls['mobileno'].hasError('pattern') && formRef.submitted">
-          Mobile Number must contain exactly 10 digits.
-        </span>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="mt-3 d-flex justify-content-end">
+        
+        <button class="educate-btn sm d-xl-flex d-none ml-auto" (click)="nextStep()">
+          <span class="educate-btn__curve"></span>Next
+        </button>
       </div>
-   
-      <div class="d-flex justify-content-center mt-3" style="margin-top: 50px;">
-        <button class="educate-btn sm d-xl-flex d-none" (click)="validateAndOpenOtpPopup()"><span class="educate-btn__curve" ></span>Get OTP</button>
-      </div>
+      <form [formGroup]="stepOneForm"
+            (ngSubmit)="stepOneSubmit()"
+            autocomplete="off"
+            novalidate
+            #formRef="ngForm"
+            class="d-flex flex-column align-items-center">
+        
+        <div class="col-12 col-sm-4 col-md-3 text-center">
+          <p class="text-muted mb-3 fw-bold">If your file will qualify for login and sanction you will get rewarded.</p>
+          
+          <div class="mb-3 d-flex flex-column align-items-center">
+            <input type="text" 
+                   class="form-control form-control-sm"
+                   id="mobileno" 
+                   placeholder="Mobile Number" 
+                   formControlName="mobileno" 
+                   pattern="^\d{10}$" 
+                   maxlength="10"/>
+            <div class="invalid-feedback d-block" *ngIf="stepOneForm.controls['mobileno'].hasError('required') && formRef.submitted">
+              Mobile Number is required.
+            </div>
+            <div class="invalid-feedback d-block" *ngIf="stepOneForm.controls['mobileno'].hasError('pattern') && formRef.submitted">
+              Mobile Number must contain exactly 10 digits.
+            </div>
+          </div>
 
-      <div *ngIf="showOtpComponent" class="otp-container">
-        <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
-      </div>
-    <div *ngIf="showMobileComponent">
-      <p class="question">Where did you hear about us?</p>
-      <div class="options">
-        <label>
-          <input type="radio" formControlName="source" name="source" value="social_media"> Social Media
-        </label>
-        <label>
-          <input type="radio" formControlName="source" name="source" value="paper_media"> Paper Media
-        </label>
-        <label>
-          <input type="radio" formControlName="source" name="source" value="friends"> Friends/Others
-        </label>
-      </div>
-        <div class="d-flex justify-content-center mt-3" style="margin-top: 50px;">
-          <button class="educate-btn sm d-xl-flex d-none" (click)="goToStep2()"><span class="educate-btn__curve" ></span>Next</button>
+          <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-info text-white px-4" (click)="validateAndOpenOtpPopup()">Get OTP</button>
+          </div>
         </div>
-    </div>
 
-    </form>
+        <div *ngIf="showOtpComponent" class="col-12 col-sm-4 col-md-3 d-flex justify-content-center mb-4">
+          <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+        </div>
+
+        <div *ngIf="showMobileComponent" >
+          <p class="mb-4 text-center">Where did you hear about us?</p>
+          <div class="d-flex gap-3 mb-3">
+            <div class="form-check form-check-inline">
+              <input class="radio-checkbox" type="radio" formControlName="source" name="source" value="social_media" id="social" style="border-radius: 50%;">
+              <label class="form-check-label" for="social">Social Media</label>
+              
+            </div>
+            <div class="form-check">
+              <input class="radio-checkbox" type="radio" formControlName="source" name="source" value="paper_media" id="paper" style="border-radius: 50%;">
+              <label class="form-check-label ms-2" for="paper">Paper Media</label>
+            </div>
+            <div class="form-check">
+              <input class="radio-checkbox" type="radio" formControlName="source" name="source" value="friends" id="friends" style="border-radius: 50%;">
+              <label class="form-check-label ms-2" for="friends">Friends/Others</label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-  </div>
-  
+</div>
