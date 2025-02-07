@@ -1,6 +1,15 @@
-<div class="container d-flex flex-column align-items-center">
+<div class="container main">
+  <div class="mt-3 d-flex justify-content-start">
+    <button class="educate-btn sm d-xl-flex d-none" (click)="previousStep()"><span
+        class="educate-btn__curve"></span>Previous</button>
+    <!-- <button class="educate-btn sm d-xl-flex d-none" (click)="nextStep()"><span
+        class="educate-btn__curve"></span>Next</button> -->
+  </div>
+
+<div class="d-flex flex-column align-items-center">
+
   <div *ngIf="showQuestionDiv">
-    <div class="mt-4">
+    <div class="">
       <label>Have you already approached any bank for your Education Loan process? *</label>
       <select class="form-select" [(ngModel)]="selectedOption" (change)="onOptionChange()">
         <option value="">Choose one option</option>
@@ -29,10 +38,13 @@
       </div>
     </div>
   </div>
-  
-  <div *ngIf="!showQuestionDiv" class="mt-3">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh;">
+  <div *ngIf="!showQuestionDiv">
       <label class="text-center">We will have you connected to our<strong> Partner Banks</strong> based on your eligiblity.</label>
       <img src="../../../assets/media/BankImages/bank.jpg" alt="Bank Image" class="img-fluid" />
   </div>
+</div>
+</div>
+
 </div>
   

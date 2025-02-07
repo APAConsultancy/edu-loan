@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
@@ -22,7 +23,7 @@ export class Step9Component {
   showQuestionDiv = true;
   bankList: string[] = ['SBI', 'PNB', 'AXIS', 'Indusland','HDFC','ICICI','Credila','InCred','IDFC','Auxilo','Prodigy'];
   
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.dropdownSettings = {
@@ -62,5 +63,13 @@ export class Step9Component {
       this.showBankImage = this.selectedBanks.length > 0;
       if(this.showBankImage) this.showQuestionDiv = false;
     }
+  }
+
+  nextStep() {
+    this.router.navigate(['/step10']);
+  }
+
+  previousStep() {
+    this.router.navigate(['/step8']);
   }
 }

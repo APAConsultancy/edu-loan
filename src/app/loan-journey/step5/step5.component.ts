@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-step5',
@@ -14,10 +15,18 @@ export class Step5Component {
 
   selectedUniversity: string = '';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   onUniversityChange() {
     // You can add additional logic here if needed
     console.log('Selected University:', this.selectedUniversity);
+  }
+
+  nextStep() {
+    this.router.navigate(['/step6']);
+  }
+
+  previousStep() {
+    this.router.navigate(['/step4']);
   }
 }

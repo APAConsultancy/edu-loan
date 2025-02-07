@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './step3.component.html',
   styleUrl: './step3.component.css'
 })
-export class Step3Component {
+export class Step3Component implements OnInit {
   testScores = [
     { name: 'GRE', selected: 'Not Applicable', score: '' },
     { name: 'GMAT', selected: 'Not Applicable', score: '' },
@@ -18,7 +19,21 @@ export class Step3Component {
     { name: 'TOEFL', selected: 'Not Applicable', score: '' }
   ];
 
-   selectNone() {
+  constructor(private router: Router) { }
+  
+  ngOnInit(): void {
+      
+  }
+
+  selectNone() {
     this.testScores.forEach(test => test.selected = 'Not Applicable');
+  }
+
+  nextStep() {
+    this.router.navigate(['/step4']);
+  }
+
+  previousStep() {
+    this.router.navigate(['/step2']);
   }
 }

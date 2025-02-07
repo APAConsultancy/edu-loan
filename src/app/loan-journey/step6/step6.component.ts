@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-step6',
@@ -29,6 +30,8 @@ export class Step6Component implements OnInit {
   selectedProgramName: string = 'STEM';
   selectedDuration: string = '12';
 
+  constructor(private router: Router) { }
+
   ngOnInit() {
     // Optional: You can set default values or perform any initialization here
     console.log('Degrees:', this.degrees);
@@ -47,5 +50,13 @@ export class Step6Component implements OnInit {
 
   onDurationChange() {
     console.log('Selected Duration:', this.selectedDuration);
+  }
+
+  nextStep() {
+    this.router.navigate(['/step7']);
+  }
+
+  previousStep() {
+    this.router.navigate(['/step5']);
   }
 }

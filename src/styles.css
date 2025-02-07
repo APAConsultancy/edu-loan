@@ -6135,3 +6135,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .radio-checkbox:focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
+
+.main {
+  margin-top: 10rem !important;margin-bottom: 5rem !important;
+}

@@ -58,11 +58,11 @@ export class Step2Component  implements OnInit {
   }
 
   nextStep() {
-    this.currentStep++;
+    this.router.navigate(['/step3']);
   }
 
   previousStep() {
-    this.currentStep--;
+    this.router.navigate(['/step1']);
   }
 
   goToStep3(): void {

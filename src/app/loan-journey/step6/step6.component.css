@@ -1,8 +1,6 @@
-.container {
-    max-width: 600px; /* Adjust the width as needed */
-  }
+
   
-  .mt-4, .mt-3 {
+  .mt-4 {
     margin-top: 1.5rem; width: 100%;
     max-width: 400px;/* Adjust the spacing as needed */
   }

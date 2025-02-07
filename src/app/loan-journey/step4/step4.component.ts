@@ -19,5 +19,13 @@ export class Step4Component {
   
     ngOnInit(): void {
     }
+
+    nextStep() {
+      this.router.navigate(['/step5']);
+    }
+  
+    previousStep() {
+      this.router.navigate(['/step3']);
+    }
   
 }

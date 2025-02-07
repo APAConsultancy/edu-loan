@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-step8',
@@ -13,7 +14,7 @@ export class Step8Component implements OnInit {
   submitted = false;
   showWhatsappNumber = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -47,5 +48,13 @@ export class Step8Component implements OnInit {
     } else {
       this.submitted = true;
     }
+  }
+
+  nextStep() {
+    this.router.navigate(['/step9']);
+  }
+
+  previousStep() {
+    this.router.navigate(['/step7']);
   }
 }

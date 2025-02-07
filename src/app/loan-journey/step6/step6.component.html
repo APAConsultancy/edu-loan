@@ -1,4 +1,12 @@
-<div class="container d-flex flex-column align-items-center">
+<div class="container main">
+
+<div class="mt-3 d-flex justify-content-between">
+    <button class="educate-btn sm d-xl-flex d-none" (click)="previousStep()"><span
+        class="educate-btn__curve"></span>Previous</button>
+    <button class="educate-btn sm d-xl-flex d-none" (click)="nextStep()"><span
+        class="educate-btn__curve"></span>Next</button>
+  </div>
+<div class="d-flex flex-column align-items-center">
     <div class="row text-center mb-4">
       <div class="col">
         <img src="/assets/icons/book_reading.png" alt="Program Icon" class="program-icon">
@@ -15,7 +23,7 @@
       </div>
     </div>
   
-    <div class="mt-3 position-relative">
+    <div class="mt-4 position-relative">
       <div class="select-container">
         <div class="floating-label">Program Name</div>
         <select class="form-select custom-select" [(ngModel)]="selectedProgramName" (change)="onProgramNameChange()">
@@ -24,7 +32,7 @@
       </div>
     </div>
   
-    <div class="mt-3 position-relative">
+    <div class="mt-4 position-relative">
       <div class="select-container">
         <div class="floating-label">Course Duration</div>
         <select class="form-select custom-select" [(ngModel)]="selectedDuration" (change)="onDurationChange()">
@@ -37,3 +45,5 @@
       <small class="text-muted">max upto 36 months</small>
     </div>
   </div>
+
+</div>

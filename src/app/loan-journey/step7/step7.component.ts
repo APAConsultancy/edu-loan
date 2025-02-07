@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-step7',
@@ -15,7 +16,7 @@ export class Step7Component implements OnInit {
   submitted = false;
   courseStartMonth: string[] = ['January-March', 'April-June', 'July-September', 'October-December'];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.questionnaireForm = this.fb.group({
       intake: ['', Validators.required],
       startMonth: ['', Validators.required],
@@ -43,5 +44,13 @@ export class Step7Component implements OnInit {
     } else {
       this.submitted = true;
     }
+  }
+
+  nextStep() {
+    this.router.navigate(['/step8']);
+  }
+
+  previousStep() {
+    this.router.navigate(['/step6']);
   }
 }
