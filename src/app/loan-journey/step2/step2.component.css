@@ -8,6 +8,6 @@
   }
   
   .selected-card {
-    border: 2px solid #007bff;
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    background-color:#0aa6d7;
+    color: white
   }

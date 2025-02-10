@@ -2,10 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SessionService } from '../../common/services/session.service';
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-step2',
   imports: [ReactiveFormsModule, FormsModule, CommonModule],
+  // providers: [SessionService],
   templateUrl: './step2.component.html',
   styleUrl: './step2.component.css'
 })
@@ -29,7 +32,8 @@ export class Step2Component  implements OnInit {
   universityName: string = ''; 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private sessionService: SessionService
   ) {
     this.stepOneForm = this.fb.group({
       mobileno: this.fb.control('', Validators.required)
@@ -38,15 +42,21 @@ export class Step2Component  implements OnInit {
 
   ngOnInit(): void {
     this.sortCountries();
+    if (this.sessionService) {
+      const selectedCountry = this.sessionService.getItem('selectedCountry');
+      if (selectedCountry) {
+        this.selectedCountry = selectedCountry;
+      }
+    }
   }
 
   stepOneSubmit() {
-    sessionStorage.setItem('selectedCountry', this.selectedCountry);
+    this.sessionService.setItem('selectedCountry', this.selectedCountry);
   }
 
   selectCountry(country: any) {
     this.selectedCountry = country.name;
-    sessionStorage.setItem('selectedCountry', this.selectedCountry);
+    this.sessionService.setItem('selectedCountry', this.selectedCountry);
     this.stepOneSubmit();
     this.goToStep3();
   }

@@ -7,12 +7,11 @@
         class="educate-btn__curve"></span>Next</button>
   </div>
   <div class="row mt-5">
-    <div class="col-md-4 mb-3" *ngFor="let country of countries" (click)="selectCountry(country)"
-      [ngClass]="{'selected-card': selectedCountry === country.name}">
-      <div class="card h-100">
+    <div class="col-md-4 mb-3" *ngFor="let country of countries" (click)="selectCountry(country)">
+      <div class="card h-100" [ngClass]="{'selected-card': selectedCountry === country.name}">
         <div class="card-body d-flex align-items-center">
           <img [src]="country.image" alt="{{country.name}}" class="img-fluid mr-3" style="width: 25px;">
-          <h5 class="card-title mb-0" style="margin-left: 3rem;">{{country.name}}</h5>
+            <h5 class="card-title mb-0 text-center w-100">{{country.name}}</h5>
         </div>
       </div>
     </div>

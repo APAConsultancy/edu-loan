@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-step6',
-  imports: [FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './step6.component.html',
   styleUrl: './step6.component.css'
 })
 export class Step6Component implements OnInit {
+
+  programForm: FormGroup;
   degrees: string[] = [
     'UG',
     'PG',
@@ -24,20 +26,32 @@ export class Step6Component implements OnInit {
     'Other'
   ];
 
-  courseDurations: number[] = [12, 24, 36];
+  courseDurations: number[] = [9, 12, 18, 24, 36, 48, 60];
 
-  selectedDegree: string = 'UG';
-  selectedProgramName: string = 'STEM';
-  selectedDuration: string = '12';
+  selectedDegree: string = '';
+  selectedProgramName: string = '';
+  selectedDuration: string = '';
+  
+  submitted = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.programForm = this.fb.group({
+      degree: ['', Validators.required],
+      programName: ['', Validators.required],
+      courseDuration: ['', Validators.required]
+});
+   }
 
   ngOnInit() {
     // Optional: You can set default values or perform any initialization here
     console.log('Degrees:', this.degrees);
     console.log('Program Names:', this.programNames);
     console.log('Course Durations:', this.courseDurations);
+    
   }
+
 
   // Optional: Add methods to log selections
   onDegreeChange() {
@@ -58,5 +72,13 @@ export class Step6Component implements OnInit {
 
   previousStep() {
     this.router.navigate(['/step5']);
+  }
+
+  onSubmit() {
+    if (this.programForm.valid) {
+      console.log(this.programForm.value);
+    } else {
+      this.submitted = true;
+    }
   }
 }

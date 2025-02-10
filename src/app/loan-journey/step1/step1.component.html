@@ -1,14 +1,15 @@
 <div class="container main">
   <div class="row mt-3">
-    <div class="col-12 d-flex justify-content-end">
-      <button class="educate-btn sm d-xl-flex d-none ml-auto" (click)="nextStep()">
+    <div class="col-12 d-flex justify-content-center">
+      <!-- <button class="educate-btn sm d-xl-flex d-none ml-auto" (click)="nextStep()">
         <span class="educate-btn__curve"></span>Next
-      </button>
+      </button> -->
+      <p class="fancy-text">If your file will qualify for login and sanction you will get rewarded.</p>
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="col-10 text-center">
-      <p class="fancy-text">If your file will qualify for login and sanction you will get rewarded.</p>
+      <!-- <p class="fancy-text">If your file will qualify for login and sanction you will get rewarded.</p> -->
       <form [formGroup]="stepOneForm"
             (ngSubmit)="stepOneSubmit()"
             autocomplete="off"
@@ -62,6 +63,13 @@
           </div>
         </div>
       </form>
+    </div>
+  </div>
+  <div class="row mt-3" *ngIf="showMobileComponent" >
+    <div class="col-12 d-flex justify-content-center">
+      <button class="educate-btn sm d-xl-flex d-none ml-auto" (click)="nextStep()">
+        <span class="educate-btn__curve"></span>Proceed
+      </button>
     </div>
   </div>
 </div>
