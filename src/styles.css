@@ -6209,5 +6209,10 @@ padding-bottom: 10px; /* Optional: Add some padding for spacing */
   color: #ffffff; /* Change this to your desired text color */
 }
 
+.custom-placeholder {
+  color: #b7bdbb !important; /* Change this to your desired color */
+  font-family: "Inter", sans-serif !important; /* Change this to your desired font */
+  font-size: 17px !important; /* Change this to your desired font size */
+}
 
 

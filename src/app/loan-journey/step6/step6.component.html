@@ -22,8 +22,8 @@
       <div class="form-group row align-items-center">
         <label class="col-sm-4 col-form-label">Degree <span class="text-danger">*</span></label>
         <div class="col-sm-8">
-          <select class="form-control" formControlName="degree" (change)="onDegreeChange()">
-            <option value="" disabled selected>Select a Degree</option>
+          <select class="form-select custom-placeholder" formControlName="degree" (change)="onDegreeChange()">
+            <option value="" disabled selected hidden>Select a Degree</option>
             <option *ngFor="let degree of degrees" [value]="degree">{{ degree }}</option>
           </select>
           <div *ngIf="submitted && programForm?.get('degree')?.invalid" class="text-danger">
@@ -34,8 +34,8 @@
       <div class="form-group row align-items-center">
         <label class="col-sm-4 col-form-label">Program Name <span class="text-danger">*</span></label>
         <div class="col-sm-8">
-          <select class="form-control" formControlName="programName" (change)="onProgramNameChange()">
-            <option value="" disabled selected>Select a Program Name</option>
+          <select class="form-select custom-placeholder" formControlName="programName" (change)="onProgramNameChange()">
+            <option value="" disabled selected hidden>Select a Program Name</option>
           <option *ngFor="let program of programNames" [value]="program">{{ program }}</option>
           </select>
           <div *ngIf="submitted && programForm?.get('programName')?.invalid" class="text-danger">
@@ -46,8 +46,8 @@
       <div class="form-group row align-items-center">
         <label class="col-sm-4 col-form-label">Course Duration <span class="text-danger">*</span></label>
         <div class="col-sm-8">
-          <select class="form-control" formControlName="courseDuration" (change)="onDurationChange()">
-            <option value="" disabled selected>Select a Course Duration</option>
+          <select class="form-select custom-placeholder"  formControlName="courseDuration" (change)="onDurationChange()">
+            <option value="" disabled selected hidden>Select a Course Duration</option>
             <option *ngFor="let cd of courseDurations" [value]="cd">{{ cd }}</option>
           </select>
           <div *ngIf="submitted && programForm?.get('courseDuration')?.invalid" class="text-danger">
@@ -57,7 +57,7 @@
       </div>
       <div class="form-group row align-items-center">
         <div class="col-sm-8 offset-sm-4">
-          <button type="submit" class="educate-btn btn-primary mt-3"><span class="educate-btn__curve"></span>Submit</button>
+          <button type="submit" class="educate-btn sm btn-primary mt-3"><span class="educate-btn__curve"></span>Submit</button>
         </div>
       </div>
     </form>
