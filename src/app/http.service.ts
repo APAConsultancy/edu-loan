@@ -38,4 +38,9 @@ export class HttpService {
   delete<T>(endpoint: string): Observable<T> {
     return this.http.delete<T>(`${this.apiUrl}/${endpoint}`);
   }
+
+  // GET method
+  getOTP<T>(endpoint: string): Observable<T> {
+    return this.http.get<T>(`${endpoint}`);
+  }
 }
