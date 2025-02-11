@@ -6173,7 +6173,7 @@ body { margin: 0; font-family: "Inter", sans-serif; }
   outline: 0;
   box-shadow: unset !important;
 }
-.custom-placeholder::placeholder, .form-control::placeholder, .form-select::placeholder {
+.custom-placeholder::placeholder, .form-control::placeholder, .form-select::placeholder  {
   color: #b7bdbb !important; /* Change this to your desired color */
   font-family: "Inter", sans-serif !important; /* Change this to your desired font */
   font-size: 17px !important; /* Change this to your desired font size */
@@ -6189,6 +6189,7 @@ appearance: auto !important;
 background-color: #0aa6d7; /* Change this to your theme color */
 border-color: #0aa6d7; /* Change this to your theme color */
 }
+.form-check-input:focus{ box-shadow: none !important; }
 
 .btn-custom-primary {
   color: #ffffff !important;
@@ -6207,4 +6208,6 @@ padding-bottom: 10px; /* Optional: Add some padding for spacing */
   background-color: #0aa6d7; /* Change this to your theme color */
   color: #ffffff; /* Change this to your desired text color */
 }
+
+
 

@@ -11,8 +11,8 @@
 </div> -->
     <div class="row justify-content-center" style="margin-top: 2rem;">
         <div class="select-container">
-          <select class="form-select" [(ngModel)]="selectedUniversity" (change)="onUniversityChange()">
-            <option value="" disabled selected>Select a University</option>
+          <select class="form-select custom-placeholder" [(ngModel)]="selectedUniversity" (change)="onUniversityChange()">
+            <option value="" disabled selected hidden>Select a University</option>
             <option *ngFor="let university of Universities" [value]="university">{{ university }}</option>
           </select>
         </div>
