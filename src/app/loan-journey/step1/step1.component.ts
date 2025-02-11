@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { Router } from '@angular/router';
 import { OtpPopupComponent } from '../../common/otp-popup/otp-popup.component';
+import { LoanJourneyService } from '../loan-journey.service';
 
 @Component({
   selector: 'app-step1',
@@ -17,12 +18,13 @@ export class Step1Component  implements OnInit {
   otp: string | undefined;
   showOtpComponent = false;
   showMobileComponent = false;
-  correctOtp = '12345'; // Example correct OTP for validation
+  correctOtp: string | undefined;
 
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private loanJourneyService: LoanJourneyService,
   ) {
     this.stepOneForm = this.fb.group({
       //mobileno: this.fb.control('', Validators.required)
@@ -62,9 +64,10 @@ export class Step1Component  implements OnInit {
   stepOneSubmit() {
   }
 
-  validateAndOpenOtpPopup(): void {
+  getOTP(): void {
     if (this.stepOneForm.controls['mobileno'].valid) {
       //this.openOtpPopup();
+      this.sendOTP()
       this.showOtpComponent = true;
     } else {
       //alert('Please enter a valid mobile number.');
@@ -91,4 +94,20 @@ export class Step1Component  implements OnInit {
   goToStep2(): void {
       this.router.navigate(['/step2']);
   }
+
+
+  sendOTP(): void {
+    const mobileNumber = this.stepOneForm.get('mobileno')?.value;
+    this.correctOtp = Math.floor(10000 + Math.random() * 90000).toString();
+    const textInput = `Your OTP for Account Login is ${this.correctOtp}`; 
+    console.log(this.correctOtp);
+  //   this.loanJourneyService.sendMessage(mobileNumber, textInput).subscribe(
+  //     (response) => {
+  //       console.log(response);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  // });
+  }
+
 }
