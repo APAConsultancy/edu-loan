@@ -2,9 +2,15 @@
     font-style: italic;
     font-size: 1.2em;
     color: #2c3e50; /* Darker shade for better readability */
-    background-color: #ecf0f1; /* Light background shade */
+    background-color:transparent;/* Light background shade */
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  }
+
+  .custom-placeholder::placeholder {
+    color: #b7bdbb; /* Change this to your desired color */
+    font-family: "Inter", sans-serif !important; /* Change this to your desired font */
+    font-size: 17px; /* Change this to your desired font size */
   }

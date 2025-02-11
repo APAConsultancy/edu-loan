@@ -524,7 +524,7 @@ strong {
 }
 
 .fm-sec {
-  font-family: "Courgette", cursive !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 /*----------------------------------------*/
@@ -1890,7 +1890,7 @@ strong {
 .scroll-top::after {
   position: absolute;
   content: "";
-  font-family: "Font Awesome 5 Pro" !important;
+  font-family: "Inter", sans-serif !important;
   text-align: center;
   line-height: 50px;
   font-size: 20px;
@@ -2441,7 +2441,7 @@ input[type=search]::-webkit-search-results-decoration {
   border-radius: 0;
   font-size: 11px;
   font-weight: 600;
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Inter", sans-serif;
   content: "";
   color: inherit;
   line-height: 10px;
@@ -2503,7 +2503,7 @@ input[type=search]::-webkit-search-results-decoration {
   border-radius: 0;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Inter", sans-serif;
   content: "";
   color: #fefcfb;
   visibility: hidden;
@@ -5847,7 +5847,7 @@ footer .copyright_row P {
 .faq .faq-block .accordion-button.collapsed::after {
   background-image: none !important;
   content: "";
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Inter", sans-serif;
 }
 .faq .faq-block .accordion-button:not(.collapsed) {
   color: #2a322d;
@@ -5861,7 +5861,7 @@ footer .copyright_row P {
 }
 .faq .faq-block .accordion-button::after {
   content: "";
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Inter", sans-serif;
   background-image: none !important;
   position: absolute;
   right: -24px;
@@ -6116,7 +6116,7 @@ footer .copyright_row P {
 /*# sourceMappingURL=app.css.map */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "Inter", sans-serif; }
 .radio-checkbox {
   width: 1.25em;
   height: 1.25em;
@@ -6138,4 +6138,29 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .main {
   margin-top: 10rem !important;margin-bottom: 5rem !important;
+}
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: unset !important;
+}
+
+.form-control {
+  display: block !important;
+  width: 150% !important;
+  padding: .375rem .75rem;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none !important;
+  border-radius: .25rem !important;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
 }
