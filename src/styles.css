@@ -6182,6 +6182,7 @@ body { margin: 0; font-family: "Inter", sans-serif; }
 border-radius: 50%; /* Makes the radio button round */
 width: 1.2em;
 height: 1.2em;
+appearance: auto !important;
 }
 
 .form-check-input[type="radio"]:checked {
