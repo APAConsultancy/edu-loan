@@ -67,6 +67,8 @@ export class Step1Component  implements OnInit {
   getOTP(): void {
     if (this.stepOneForm.controls['mobileno'].valid) {
       //this.openOtpPopup();
+      const mobile = this.stepOneForm.get('mobileno')?.value;
+      this.savePreDetails(mobile, null, null);
       this.sendOTP()
       this.showOtpComponent = true;
     } else {
@@ -108,6 +110,16 @@ export class Step1Component  implements OnInit {
   //     (error) => {
   //       console.log(error);
   // });
+  }
+
+  savePreDetails(mobileNumber: any, status: any, hearAboutUs: any): void { 
+    this.loanJourneyService.savePreDetails(mobileNumber, status, hearAboutUs).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+    });
   }
 
 }
