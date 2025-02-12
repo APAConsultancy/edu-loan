@@ -26,11 +26,13 @@ export class Step3Component implements OnInit {
   ) { }
   
   ngOnInit(): void {
-      
+    const testScoresString = this.sessionService.getItem('testScores');
+    this.testScores = testScoresString ? JSON.parse(testScoresString) : this.testScores;
   }
 
   selectNone() {
     this.testScores.forEach(test => test.selected = 'Not Applicable');
+    this.router.navigate(['/step4']);
   }
 
   nextStep() {
