@@ -3,11 +3,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 
 @Component({
   selector: 'app-step3',
-  imports: [CommonModule,ReactiveFormsModule, FormsModule],
+  imports: [CommonModule,ReactiveFormsModule, FormsModule, ProgressBarComponent],
   templateUrl: './step3.component.html',
   styleUrl: './step3.component.css'
 })

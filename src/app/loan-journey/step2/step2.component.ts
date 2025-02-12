@@ -4,10 +4,11 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import { NgModule } from '@angular/core';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 @Component({
   selector: 'app-step2',
-  imports: [ReactiveFormsModule, FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule, ProgressBarComponent],
   // providers: [SessionService],
   templateUrl: './step2.component.html',
   styleUrl: './step2.component.css'

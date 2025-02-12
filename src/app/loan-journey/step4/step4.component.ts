@@ -3,10 +3,11 @@ import { FormBuilder, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import { CommonModule } from '@angular/common';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 @Component({
   selector: 'app-step4',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ProgressBarComponent],
   templateUrl: './step4.component.html',
   styleUrl: './step4.component.css',
   providers: [SessionService]

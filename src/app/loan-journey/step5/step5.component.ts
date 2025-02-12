@@ -5,10 +5,11 @@ import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { LoanJourneyService } from '../loan-journey.service';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 @Component({
   selector: 'app-step5',
-  imports: [FormsModule,ReactiveFormsModule, CommonModule, AutocompleteLibModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, AutocompleteLibModule, ProgressBarComponent],
   templateUrl: './step5.component.html',
   styleUrl: './step5.component.css'
 })

@@ -4,12 +4,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import { LoanJourneyService } from '../loan-journey.service';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 @Component({
   selector: 'app-step8',
   templateUrl: './step8.component.html',
   styleUrls: ['./step8.component.css'],
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, ProgressBarComponent]
 })
 export class Step8Component implements OnInit {
   contactForm: FormGroup;
