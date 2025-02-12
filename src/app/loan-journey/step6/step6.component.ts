@@ -51,20 +51,31 @@ export class Step6Component implements OnInit {
     if (this.sessionService) {
     const programDetails = this.sessionService.getItem('programDetails');
     this.programValue = programDetails ? JSON.parse(programDetails) : this.programValue;
+    this.selectedDegree = this.programValue?.degree;
+    this.selectedProgramName = this.programValue?.programName;
+    this.selectedDuration = this.programValue?.courseDuration;
+    this.programForm.patchValue({
+      degree: this.programValue?.degree,
+      programName: this.programValue?.programName,
+      courseDuration: this.programValue?.courseDuration
+    });
     }
   }
 
 
   // Optional: Add methods to log selections
   onDegreeChange() {
+    this.selectedDegree =   this.programForm?.get('degree')?.value;
     console.log('Selected Degree:', this.selectedDegree);
   }
 
   onProgramNameChange() {
+    this.selectedProgramName = this.programForm?.get('programName')?.value;
     console.log('Selected Program Name:', this.selectedProgramName);
   }
 
   onDurationChange() {
+    this.selectedDuration = this.programForm?.get('courseDuration')?.value;
     console.log('Selected Duration:', this.selectedDuration);
   }
 
