@@ -18,13 +18,13 @@
 </div> -->
     <div class="row justify-content-center" style="margin-top: 2rem;">
         <div class="select-container">
-          <select class="form-select custom-placeholder" [(ngModel)]="selectedUniversity" (change)="onUniversityChange()">
+          <!-- <select class="form-select custom-placeholder" [(ngModel)]="selectedUniversity" (change)="onUniversityChange()">
             <option value="" disabled selected hidden>Select a University</option>
             <option *ngFor="let university of Universities" [value]="university">{{ university }}</option>
-          </select>
+          </select> -->
 
           <div class="ng-autocomplete">
-            <ng-autocomplete 
+            <ng-autocomplete
               [data]="Universities"
               [searchKeyword]="UniversityName"
               placeholder="Select a University"
@@ -32,11 +32,12 @@
               (inputChanged)='onChangeSearch($event)'
               (inputFocused)='onFocused($event)'
               [itemTemplate]="itemTemplate"
-              [notFoundTemplate]="notFoundTemplate">                                 
+              [notFoundTemplate]="notFoundTemplate"
+              >                                 
             </ng-autocomplete>
             
             <ng-template #itemTemplate let-item>
-            <a [innerHTML]="item.name"></a>
+            <a [innerHTML]="item.UniversityName"></a>
             </ng-template>
             
             <ng-template #notFoundTemplate let-notFound>
