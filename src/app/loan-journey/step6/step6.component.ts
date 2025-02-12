@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { SessionService } from '../../common/services/session.service';
 
 @Component({
   selector: 'app-step6',
@@ -33,9 +34,11 @@ export class Step6Component implements OnInit {
   selectedDuration: string = '';
   
   submitted = false;
+  programValue: any;
 
   constructor(private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private sessionService: SessionService
   ) {
     this.programForm = this.fb.group({
       degree: ['', Validators.required],
@@ -46,10 +49,8 @@ export class Step6Component implements OnInit {
 
   ngOnInit() {
     // Optional: You can set default values or perform any initialization here
-    console.log('Degrees:', this.degrees);
-    console.log('Program Names:', this.programNames);
-    console.log('Course Durations:', this.courseDurations);
-    
+    const programDetails = this.sessionService.getItem('programDetails');
+    this.programValue = programDetails ? JSON.parse(programDetails) : null;
   }
 
 
@@ -67,6 +68,7 @@ export class Step6Component implements OnInit {
   }
 
   nextStep() {
+    this.sessionService.setItem('programDetails', JSON.stringify(this.programForm.value));
     this.router.navigate(['/step7']);
   }
 

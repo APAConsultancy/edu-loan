@@ -30,7 +30,7 @@
         </div>
 
         <!-- Question 2 -->
-        <div class="form-group row align-items-center">
+        <!-- <div class="form-group row align-items-center">
           <label class="col-sm-4 col-form-label text-sm-right">When are you starting your program? <span class="text-danger">*</span></label>
           <div class="col-sm-8 d-flex justify-content-start">
             <select class="form-control" formControlName="startMonth">
@@ -40,6 +40,33 @@
           </div>
           <div *ngIf="submitted && questionnaireForm?.get('startMonth')?.invalid" class="text-danger col-sm-8 offset-sm-4">
             Please select a start month.
+          </div>
+        </div> -->
+
+        <div class="form-group row align-items-center">
+          <label class="col-sm-4 col-form-label text-sm-right">When are you starting your program? <span class="text-danger">*</span></label>
+          <div class="col-sm-8 d-flex justify-content-start">
+            <select class="form-control" formControlName="startYear">
+              <option value="" disabled selected>Select a Year</option>
+              <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            </select>
+          </div>
+          <div *ngIf="submitted && questionnaireForm?.get('startYear')?.invalid" class="text-danger col-sm-8 offset-sm-4">
+            Please select a start year.
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="form-group row align-items-center">
+          <label class="col-sm-4 col-form-label text-sm-right">Course Start Month <span class="text-danger">*</span></label>
+          <div class="col-sm-8 d-flex justify-content-start">
+            <select class="form-control" formControlName="courseStartMonth">
+              <option value="" disabled selected>Select a course start month</option>
+              <option *ngFor="let sm of courseStartMonth" [value]="sm">{{ sm }}</option>
+            </select>
+          </div>
+          <div *ngIf="submitted && questionnaireForm?.get('courseStartMonth')?.invalid" class="text-danger col-sm-8 offset-sm-4">
+            Please select a course start month.
           </div>
         </div>
 
@@ -72,20 +99,6 @@
           </div>
           <div *ngIf="submitted && questionnaireForm?.get('loanType')?.invalid" class="text-danger col-sm-8 offset-sm-4">
             Please select a loan type.
-          </div>
-        </div>
-
-        <!-- Question 5 -->
-        <div class="form-group row align-items-center">
-          <label class="col-sm-4 col-form-label text-sm-right">Course Start Month <span class="text-danger">*</span></label>
-          <div class="col-sm-8 d-flex justify-content-start">
-            <select class="form-control" formControlName="courseStartMonth">
-              <option value="" disabled selected>Select a course start month</option>
-              <option *ngFor="let sm of courseStartMonth" [value]="sm">{{ sm }}</option>
-            </select>
-          </div>
-          <div *ngIf="submitted && questionnaireForm?.get('courseStartMonth')?.invalid" class="text-danger col-sm-8 offset-sm-4">
-            Please select a course start month.
           </div>
         </div>
 

@@ -6,6 +6,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { Router } from '@angular/router';
 import { OtpPopupComponent } from '../../common/otp-popup/otp-popup.component';
 import { LoanJourneyService } from '../loan-journey.service';
+import { SessionService } from '../../common/services/session.service';
 
 @Component({
   selector: 'app-step1',
@@ -25,10 +26,12 @@ export class Step1Component  implements OnInit {
     public dialog: MatDialog,
     private router: Router,
     private loanJourneyService: LoanJourneyService,
+    private sessionService: SessionService
   ) {
     this.stepOneForm = this.fb.group({
       //mobileno: this.fb.control('', Validators.required)
-      mobileno: ['', [Validators.required, Validators.pattern(/^\d{10}$/), this.onlyDigitsValidator]]
+      mobileno: ['', [Validators.required, Validators.pattern(/^\d{10}$/), this.onlyDigitsValidator]],
+      source: ['']
     });
   }
 
@@ -46,7 +49,7 @@ export class Step1Component  implements OnInit {
   };
   onOtpChange(otp: string): void {
     this.otp = otp;
-    if (otp.length === this.config.length) {
+    if (otp?.length === this.config.length) {
       this.validateOtp();
     }
   }
@@ -59,6 +62,7 @@ export class Step1Component  implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sessionService.removeAll();
   }
 
   stepOneSubmit() {
@@ -68,6 +72,7 @@ export class Step1Component  implements OnInit {
     if (this.stepOneForm.controls['mobileno'].valid) {
       //this.openOtpPopup();
       const mobile = this.stepOneForm.get('mobileno')?.value;
+      this.sessionService.setItem('mobile', mobile);
       this.savePreDetails(mobile, null, null);
       this.sendOTP()
       this.showOtpComponent = true;

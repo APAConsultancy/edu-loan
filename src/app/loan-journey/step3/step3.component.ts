@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { SessionService } from '../../common/services/session.service';
 
 
 @Component({
@@ -20,7 +21,9 @@ export class Step3Component implements OnInit {
     { name: 'PEL', selected: 'Not Applicable', score: '' }
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private sessionService: SessionService
+  ) { }
   
   ngOnInit(): void {
       
@@ -31,6 +34,7 @@ export class Step3Component implements OnInit {
   }
 
   nextStep() {
+    this.sessionService.setItem('testScores', JSON.stringify(this.testScores));
     this.router.navigate(['/step4']);
   }
 

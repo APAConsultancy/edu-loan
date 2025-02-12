@@ -22,5 +22,11 @@ export class LoanJourneyService {
     savePreDetails(phoneNumber: string, status: string, hearAboutUs: string): Observable<any> {
     const endpoint = `PreCustomerDetails/AddPreDetails?phoneNumber=${phoneNumber}&status=${status}&hearAboutUs=${hearAboutUs}`;
     return this.httpService.get<any>(endpoint);
-  }
+    }
+
+    // Method to phone Number
+    saveCustomerDetails(data: any): Observable<any> {
+      const endpoint = `CustomerDetails/AddCustomerDetails`;
+      return this.httpService.post<any>(endpoint, data);
+    }
 }
