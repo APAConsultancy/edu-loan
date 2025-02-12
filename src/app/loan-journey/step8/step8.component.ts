@@ -16,6 +16,7 @@ export class Step8Component implements OnInit {
   submitted = false;
   showWhatsappNumber = false;
   contactFormDetail: any;
+  pinCodeValue: string = '';
 
   constructor(private fb: FormBuilder, private router: Router,
     private sessionService: SessionService,
@@ -30,14 +31,15 @@ export class Step8Component implements OnInit {
       pinCode: ['', Validators.required],
       cityName: ['', Validators.required],
       familyIncome: ['', Validators.required],
-      coApplicantPinCode: ['', Validators.required],
-      coApplicantMobile: ['', Validators.required],
       gender: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
-    this.contactForm.get('mobile')?.patchValue(this.sessionService.getItem('mobile'));
+    console.log(this.sessionService.getItem('mobile'));
+    this.contactForm.patchValue({
+      mobile: this.sessionService.getItem('mobile')
+    })
     const contactDetails = this.sessionService.getItem('contactDetails');
     this.contactFormDetail = contactDetails ? JSON.parse(contactDetails) : null;
     this.contactForm.get('whatsappCheckbox')?.valueChanges.subscribe(checked => {
@@ -48,6 +50,27 @@ export class Step8Component implements OnInit {
       }
       this.contactForm.get('whatsappNumber')?.updateValueAndValidity();
     });
+
+    this.contactForm.get('pinCode')!.valueChanges.subscribe(value => {
+      this.pinCodeValue = value;
+      if (this.pinCodeValue) {
+        this.loanJourneyService.getCityName(this.pinCodeValue).subscribe((response) => {
+          console.log(response);
+          this.contactForm.patchValue({
+            cityName: response.District // Assuming the response has a property called cityName
+          });
+          this.contactForm.get('cityName')?.disable(); // Disable the cityName field
+        },
+        (error) => { 
+          console.log(error);
+          this.contactForm.get('cityName')?.enable(); // Enable the cityName field if the API call fails
+        });
+      } else {
+        this.contactForm.get('cityName')?.enable(); // Enable the cityName field if the pin code is cleared
+      }
+    });
+
+    
   }
 
   onSubmit() {

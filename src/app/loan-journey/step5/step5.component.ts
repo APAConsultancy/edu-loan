@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { LoanJourneyService } from '../loan-journey.service';
 
 @Component({
   selector: 'app-step5',
@@ -13,18 +14,23 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 })
 export class Step5Component implements OnInit {
   UniversityName = 'UniversityName';
-  Universities: { Id: number; UniversityName: string; }[] = [{"Id":12,"UniversityName":"Isenberg School of Management, University of Massachusetts-Amhe"},{"Id":13,"UniversityName":"Mendoza College of Business, University of Notre Dame"},{"Id":14,"UniversityName":"Robert H. Smith School of Business, University of Maryland, College"},{"Id":15,"UniversityName":"USC Marshall School of Business, University of Southern California"},{"Id":16,"UniversityName":"Arizona State University"},{"Id":17,"UniversityName":"Babson College"},{"Id":18,"UniversityName":"Boston College"},{"Id":19,"UniversityName":"Boston University"},{"Id":20,"UniversityName":"Brown University"},{"Id":21,"UniversityName":"California Institute of Technology"},{"Id":22,"UniversityName":"Carnegie Mellon University"},{"Id":23,"UniversityName":"Case Western Reserve University"},{"Id":24,"UniversityName":"Columbia Business School, Columbia University"},{"Id":25,"UniversityName":"Columbia University"},{"Id":26,"UniversityName":"Cornell University"},{"Id":27,"UniversityName":"D'Amore-McKim School of Business, Northeastern University"},{"Id":28,"UniversityName":"Dartmouth college"},{"Id":29,"UniversityName":"Duke Fuqua School of Business - Duke University"},{"Id":30,"UniversityName":"Duke University"},{"Id":31,"UniversityName":"Eli Broad College of Business, Michigan State University"},{"Id":32,"UniversityName":"Emory University"},{"Id":33,"UniversityName":"Foster School of Business, University of Washington"}];
-  country = sessionStorage.getItem('selectedCountry');
+  Universities: { Id: number; UniversityName: string; }[] =[];
+  
 
   selectedUniversity: string = '';
 
   constructor(private router: Router,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private loanJourneyService: LoanJourneyService
   ) { }
 
   ngOnInit(): void {
     if (this.sessionService) {
         this.selectedUniversity = this.sessionService.getItem('selectedUniversity') || '';
+    }
+    const country = this.sessionService.getItem('selectedCountry');
+    if (country) {
+      this.getUniversityDetails(country);
     }
   }
 
@@ -55,5 +61,17 @@ export class Step5Component implements OnInit {
   
   onFocused(e : any){
     // do something when input is focused
+  }
+
+  getUniversityDetails(countryName: string): void {
+    this.loanJourneyService.getUniversityDetailsByCountryName(countryName).subscribe(
+      (response) => {
+        console.log('University details:', response);
+        this.Universities = response;
+      },
+      (error) => {
+        console.error('Error fetching university details', error);
+      }
+    );
   }
 }
