@@ -26,4 +26,10 @@
     font-size: 25px;
     color: #333;
   }
+
+  .custom-placeholder {
+    color: #b7bdbb !important; /* Change this to your desired color */
+    font-family: "Inter", sans-serif !important; /* Change this to your desired font */
+    font-size: 17px !important; /* Change this to your desired font size */
+  }
   
