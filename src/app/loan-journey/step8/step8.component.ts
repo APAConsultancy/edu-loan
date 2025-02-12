@@ -28,6 +28,7 @@ export class Step8Component implements OnInit {
   selectedFamilyIncome: string = '';
   selectedGender: string = '';
   selectedCoApplicantMobile: string = '';
+  
 
   constructor(private fb: FormBuilder, private router: Router,
     private sessionService: SessionService,
@@ -49,6 +50,9 @@ export class Step8Component implements OnInit {
 
   ngOnInit(): void {
     if (this.sessionService) {
+      this.contactForm.patchValue({
+        mobile: this.sessionService.getItem('mobile') ? this.sessionService.getItem('mobile') : '',
+      });
       const contactDetails = this.sessionService.getItem('contactDetails');
       this.contactFormDetail = contactDetails ? JSON.parse(contactDetails) : this.contactFormDetail;
       this.selectedName = this.contactFormDetail.name ? this.contactFormDetail?.name : '';
@@ -66,7 +70,7 @@ export class Step8Component implements OnInit {
     this.contactForm.patchValue({
       name: this.contactFormDetail?.name,
       email: this.contactFormDetail?.email,
-      mobile: this.sessionService.getItem('mobile'),
+      mobile: this.contactFormDetail?.mobile,
       whatsappCheckbox: this.contactFormDetail?.whatsappCheckbox,
       whatsappNumber: this.contactFormDetail?.whatsappNumber,
       pinCode: this.contactFormDetail?.pinCode,
