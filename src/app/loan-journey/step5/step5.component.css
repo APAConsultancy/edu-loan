@@ -33,3 +33,16 @@
     font-size: 17px !important; /* Change this to your desired font size */
   }
 
+  ::ng-deep .ng-autocomplete .autocomplete-container .input-container input  {
+    /* Your CSS styles here */
+    border: 1px solid gray;
+    }
+
+    ::ng-deep .ng-autocomplete .autocomplete-container .input-container input:focus  {
+      /* Your CSS styles here */
+      border: 2px solid #86b7fe;
+      }
+
+    ::ng-deep .ng-autocomplete .autocomplete-container {
+      box-shadow: unset;
+    }

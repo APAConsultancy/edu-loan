@@ -48,9 +48,10 @@ export class Step6Component implements OnInit {
    }
 
   ngOnInit() {
-    // Optional: You can set default values or perform any initialization here
+    if (this.sessionService) {
     const programDetails = this.sessionService.getItem('programDetails');
-    this.programValue = programDetails ? JSON.parse(programDetails) : null;
+    this.programValue = programDetails ? JSON.parse(programDetails) : this.programValue;
+    }
   }
 
 
@@ -79,6 +80,8 @@ export class Step6Component implements OnInit {
   onSubmit() {
     if (this.programForm.valid) {
       console.log(this.programForm.value);
+      this.sessionService.setItem('programDetails', JSON.stringify(this.programForm.value));
+      this.router.navigate(['/step7']);
     } else {
       this.submitted = true;
     }

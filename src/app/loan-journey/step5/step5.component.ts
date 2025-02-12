@@ -45,7 +45,7 @@ export class Step5Component implements OnInit {
 
   selectEvent(item: any) {
     console.log('Selected item:', item);
-    // do something with selected item
+    this.router.navigate(['/step6']);
   }
 
   onChangeSearch(val: string) {
