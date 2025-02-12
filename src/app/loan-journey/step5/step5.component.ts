@@ -15,7 +15,7 @@ import { LoanJourneyService } from '../loan-journey.service';
 export class Step5Component implements OnInit {
   UniversityName = 'UniversityName';
   Universities: { Id: number; UniversityName: string; }[] =[];
-  
+   country = sessionStorage.getItem('selectedCountry');
 
   selectedUniversity: string = '';
 

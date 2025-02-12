@@ -55,9 +55,9 @@ export class Step6Component implements OnInit {
     this.selectedProgramName = this.programValue?.programName;
     this.selectedDuration = this.programValue?.courseDuration;
     this.programForm.patchValue({
-      degree: this.programValue?.degree,
-      programName: this.programValue?.programName,
-      courseDuration: this.programValue?.courseDuration
+      degree: this.programValue.degree?this.programValue.degree:'',
+      programName: this.programValue.programName?this.programValue.programName:'',
+      courseDuration: this.programValue.courseDuration?this.programValue.courseDuration:'',
     });
     }
   }
