@@ -45,4 +45,5 @@
 
     ::ng-deep .ng-autocomplete .autocomplete-container {
       box-shadow: unset;
+      max-width: 500px;
     }
