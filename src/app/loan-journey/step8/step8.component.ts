@@ -54,7 +54,7 @@ export class Step8Component implements OnInit {
 
     this.contactForm.get('pinCode')!.valueChanges.subscribe(value => {
       this.pinCodeValue = value;
-      if (this.pinCodeValue) {
+      if (this.pinCodeValue && this.pinCodeValue.length === 6) {
         this.loanJourneyService.getCityName(this.pinCodeValue).subscribe((response) => {
           console.log(response);
           this.contactForm.patchValue({
