@@ -18,7 +18,7 @@ export class Step3Component implements OnInit {
     { name: 'Duolingo', selected: 'Not Applicable', score: '' },
     { name: 'IELTS', selected: 'Not Applicable', score: '' },
     { name: 'TOEFL', selected: 'Not Applicable', score: '' },
-    { name: 'PEL', selected: 'Not Applicable', score: '' }
+    { name: 'PTE', selected: 'Not Applicable', score: '' }
   ];
 
   constructor(private router: Router,

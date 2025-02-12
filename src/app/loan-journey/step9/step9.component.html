@@ -37,9 +37,11 @@
             [settings]="dropdownSettings" 
             [data]="bankList"
             [(ngModel)]="selectedBanks" 
-            (onSelect)="onBankSelectionChange()" 
-            (onSelectAll)="onSelectAll($event)">
+            (onSelect)="onBankSelect($event)"
+            (onDeSelect)="onBankDeSelect($event)"
+            >
           </ng-multiselect-dropdown>
+          <!-- (onSelectAll)="onSelectAll($event)" -->
         </div>
       </div>
     </div>

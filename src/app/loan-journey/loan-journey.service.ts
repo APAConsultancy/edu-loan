@@ -29,4 +29,24 @@ export class LoanJourneyService {
       const endpoint = `CustomerDetails/AddCustomerDetails`;
       return this.httpService.post<any>(endpoint, data);
     }
+
+    // Method to add already applied details with dynamic parameters
+  addAlreadyAppliedDetails(phoneNumber: string, bankName: string[]): Observable<any> {
+    const url = `CustomerDetails/AddAlreadyAppliedDetails?phoneNumber=${phoneNumber}&bankName=${bankName.join(',')}`;
+    return this.httpService.get<any>(url);
+  }
+
+  // Method to get university details by country name
+  getUniversityDetailsByCountryName(countryName: string): Observable<any> {
+    const url = `Universities/DetailsByCountryName?countryName=${countryName}`;
+    return this.httpService.get<any>(url);
+  }
+
+    // Method to get bank names
+    getBankNames(): Observable<any> {
+      const url = `BankNames/GetBankNames`;
+      return this.httpService.get<any>(url);
+    }
+  
+  
 }
