@@ -79,6 +79,7 @@ export class Step8Component implements OnInit {
     if (this.contactForm.valid) {
       console.log(this.contactForm.value);
       this.sessionService.setItem('contactDetails', JSON.stringify(this.contactForm.value));
+      this.router.navigate(['/step9']);
     } else {
       this.submitted = true;
     }
