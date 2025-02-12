@@ -24,6 +24,7 @@
     "@angular/router": "^19.0.0",
     "@angular/ssr": "^19.0.5",
     "@ng-select/ng-select": "^14.2.0",
+    "angular-ng-autocomplete": "^2.0.12",
     "angular-ng-stepper": "^2.0.0",
     "bootstrap": "^5.0.0-beta3",
     "edu-loan": "file:",
