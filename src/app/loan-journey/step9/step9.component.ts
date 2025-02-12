@@ -46,7 +46,8 @@ export class Step9Component {
   onOptionChange() {
     if (this.selectedOption === 'No') {
       this.selectedBanks = [];
-      this.showQuestionDiv = false;
+      // this.showQuestionDiv = false;
+      this.showBankImageWithDelay();
     }
   }
 
@@ -64,7 +65,7 @@ export class Step9Component {
     const dropdown = document.querySelector('.multiselect-dropdown');
     if (dropdown && !dropdown.contains(event.target as Node)) {
       this.showBankImage = this.selectedBanks.length > 0;
-      if(this.showBankImage) this.showQuestionDiv = false;
+      if(this.showBankImage) this.showBankImageWithDelay();
     }
   }
 
@@ -97,6 +98,7 @@ export class Step9Component {
   onBankSelect(event: any): void {
     const bankName = event.name;
     this.addAlreadyAppliedDetails();
+    this.showBankImageWithDelay();
   }
 
   onBankDeSelect(event: any): void {
@@ -113,5 +115,12 @@ export class Step9Component {
         console.error('Error fetching bank names', error);
       }
     );
+  }
+
+  showBankImageWithDelay(): void {
+    setTimeout(() => {
+      // this.showBankImage = true;
+      this.showQuestionDiv = false;
+    }, 3000); // 3 seconds delay
   }
 }
