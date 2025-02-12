@@ -37,6 +37,7 @@ export class Step8Component implements OnInit {
   }
 
   ngOnInit(): void {
+    this.contactForm.get('mobile')?.patchValue(this.sessionService.getItem('mobile'));
     const contactDetails = this.sessionService.getItem('contactDetails');
     this.contactFormDetail = contactDetails ? JSON.parse(contactDetails) : null;
     this.contactForm.get('whatsappCheckbox')?.valueChanges.subscribe(checked => {
