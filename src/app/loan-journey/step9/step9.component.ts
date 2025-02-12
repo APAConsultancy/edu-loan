@@ -24,6 +24,9 @@ export class Step9Component {
   showBankImage = false;
   showQuestionDiv = true;
   bankList: any= [];
+  bankLogoList: any = [];
+  originalBankList: any = [];
+  filteredBankList: any = [];
   isLoading = false; 
   // bankList: string[] = ['SBI', 'PNB', 'AXIS', 'Indusland','HDFC','ICICI','Credila','InCred','IDFC','Auxilo','Prodigy'];
   
@@ -111,6 +114,8 @@ export class Step9Component {
     this.loanJourneyService.getBankNames().subscribe(
       (response) => {
         this.bankList = response.map((bank: any) => bank.BankName1);
+        // this.bankLogoList = response.map((bank: any) => bank.BankLogoUrl);
+        this.originalBankList = response;
       },
       (error) => {
         console.error('Error fetching bank names', error);
@@ -120,6 +125,11 @@ export class Step9Component {
 
   showBankImageWithDelay(): void {
     this.isLoading = true; 
+    this.selectedBanks.push('None of the above')
+    // this.filteredBankList = this.originalBankList.filter((bank: any) => !this.selectedBanks.includes(bank.BankName1)).map((bank: any) => {bank.BankLogoUrl, bank.BankName1});
+    this.filteredBankList = this.originalBankList
+        .filter((bank: any) => !this.selectedBanks.includes(bank.BankName1))
+        .map((bank: any) => ({ BankLogoUrl: bank.BankLogoUrl, BankName1: bank.BankName1 }));
     setTimeout(() => {
       this.isLoading = false;
       // this.showBankImage = true;

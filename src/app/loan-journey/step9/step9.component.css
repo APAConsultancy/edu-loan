@@ -24,3 +24,30 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .marquee-content {
+    display: flex;
+    animation: marquee 10s linear infinite;
+  }
+  
+  .marquee-item {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+  .circular-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }

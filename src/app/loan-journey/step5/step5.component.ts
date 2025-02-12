@@ -52,6 +52,8 @@ export class Step5Component implements OnInit {
 
   selectEvent(item: any) {
     console.log('Selected item:', item);
+    this.selectedUniversity = item.UniversityName;
+    this.sessionService.setItem('selectedUniversity', this.selectedUniversity);
     this.router.navigate(['/step6']);
   }
 

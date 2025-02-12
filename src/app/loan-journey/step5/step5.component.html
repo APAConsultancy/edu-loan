@@ -28,6 +28,7 @@
             <ng-autocomplete
               [data]="Universities"
               [searchKeyword]="UniversityName"
+              [(ngModel)]="selectedUniversity"
               placeholder="Select a University"
               (selected)='selectEvent($event)'
               (inputChanged)='onChangeSearch($event)'

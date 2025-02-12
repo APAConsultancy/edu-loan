@@ -18,6 +18,16 @@ export class Step8Component implements OnInit {
   showWhatsappNumber = false;
   contactFormDetail: any;
   pinCodeValue: string = '';
+  selectedName: string = '';
+  selectedEmail: string = '';
+  selectedMobile:   string = '';
+  selectedWhatsappCheckbox: boolean = false;
+  selectedWhatsappNumber: string = '';
+  selectedPinCode: string = '';
+  selectedCityName: string = '';
+  selectedFamilyIncome: string = '';
+  selectedGender: string = '';
+  selectedCoApplicantMobile: string = '';
 
   constructor(private fb: FormBuilder, private router: Router,
     private sessionService: SessionService,
@@ -38,16 +48,25 @@ export class Step8Component implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.sessionService.getItem('mobile'));
+    if (this.sessionService) {
+      const contactDetails = this.sessionService.getItem('contactDetails');
+      this.contactFormDetail = contactDetails ? JSON.parse(contactDetails) : this.contactFormDetail;
+      this.selectedName = this.contactFormDetail.name ? this.contactFormDetail?.name : '';
+      this.selectedEmail = this.contactFormDetail.email ? this.contactFormDetail?.email : '';
+      this.selectedMobile = this.contactFormDetail.mobile ? this.contactFormDetail?.mobile : '';
+      this.selectedWhatsappCheckbox = this.contactFormDetail.whatsappCheckbox ? this.contactFormDetail?.whatsappCheckbox : false;
+      this.selectedWhatsappNumber = this.contactFormDetail.whatsappNumber ? this.contactFormDetail?.whatsappNumber : '';
+      this.selectedPinCode = this.contactFormDetail.pinCode ? this.contactFormDetail?.pinCode : '';
+      this.selectedCityName = this.contactFormDetail.cityName ? this.contactFormDetail?.cityName : '';
+      this.selectedFamilyIncome = this.contactFormDetail.familyIncome ? this.contactFormDetail?.familyIncome : '';
+      this.selectedGender = this.contactFormDetail.gender ? this.contactFormDetail?.gender : '';
+      this.selectedCoApplicantMobile = this.contactFormDetail.coApplicantMobile ? this.contactFormDetail?.coApplicantMobile : '';
+    }
     
-    const contactDetails = this.sessionService.getItem('contactDetails');
-    this.contactFormDetail = contactDetails ? JSON.parse(contactDetails) : null;
     this.contactForm.patchValue({
-      // mobile: this.sessionService.getItem('mobile'),
-
       name: this.contactFormDetail?.name,
       email: this.contactFormDetail?.email,
-      mobile: this.contactFormDetail?.mobile,
+      mobile: this.sessionService.getItem('mobile'),
       whatsappCheckbox: this.contactFormDetail?.whatsappCheckbox,
       whatsappNumber: this.contactFormDetail?.whatsappNumber,
       pinCode: this.contactFormDetail?.pinCode,
@@ -84,6 +103,7 @@ export class Step8Component implements OnInit {
       }
     });
 
+
     
   }
 
@@ -92,6 +112,16 @@ export class Step8Component implements OnInit {
     if (this.contactForm.valid) {
       console.log(this.contactForm.value);
       this.sessionService.setItem('contactDetails', JSON.stringify(this.contactForm.value));
+      this.selectedName = this.contactForm.value.name ? this.contactForm.value?.name : '';
+      this.selectedEmail = this.contactForm.value.email ? this.contactForm.value?.email : '';
+      this.selectedMobile = this.contactForm.value.mobile ? this.contactForm.value?.mobile : '';
+      this.selectedWhatsappCheckbox = this.contactForm.value.whatsappCheckbox ? this.contactForm.value?.whatsappCheckbox : false;
+      this.selectedWhatsappNumber = this.contactForm.value.whatsappNumber ? this.contactForm.value?.whatsappNumber : '';
+      this.selectedPinCode = this.contactForm.value.pinCode ? this.contactForm.value?.pinCode : '';
+      this.selectedCityName = this.contactForm.value.cityName ? this.contactForm.value?.cityName : '';
+      this.selectedFamilyIncome = this.contactForm.value.familyIncome ? this.contactForm.value?.familyIncome : '';
+      this.selectedGender = this.contactForm.value.gender ? this.contactForm.value?.gender : '';
+      this.selectedCoApplicantMobile = this.contactForm.value.coApplicantMobile ? this.contactForm.value?.coApplicantMobile : '';
       this.router.navigate(['/step9']);
     } else {
       this.submitted = true;
