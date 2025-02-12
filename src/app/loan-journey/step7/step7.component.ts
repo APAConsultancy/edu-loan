@@ -18,25 +18,44 @@ export class Step7Component implements OnInit {
   submitted = false;
   courseStartMonth: string[] = ['January-March', 'April-June', 'July-September', 'October-December'];
   questionnaireFormDetails: any;
+  selectedIntake: any;
+  selectedStartMonth: any;
+  selectedLoanAmount: any;
+  selectedLoanType: any;
+  selectedStartYear: any;
 
   constructor(private fb: FormBuilder, private router: Router,
     private sessionService: SessionService
   ) {
     this.questionnaireForm = this.fb.group({
       intake: ['', Validators.required],
-      startMonth: ['', Validators.required],
+      // startMonth: ['', Validators.required],
       loanAmount: ['', Validators.required],
       loanType: ['', Validators.required],
-      courseStartMonth: ['', Validators.required],
+      startMonth: ['', Validators.required],
       startYear: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
-    const questionnaireDetails = this.sessionService.getItem('questionnaireDetails');
-    this.questionnaireFormDetails = questionnaireDetails ? JSON.parse(questionnaireDetails) : null;
     this.generateMonths();
     this.generateYears();
+    const questionnaireDetails = this.sessionService.getItem('questionnaireDetails');
+    this.questionnaireFormDetails = questionnaireDetails ? JSON.parse(questionnaireDetails) : this.questionnaireFormDetails;
+    this.selectedIntake = this.questionnaireFormDetails.intake ? this.questionnaireFormDetails.intake : '';
+      this.selectedStartMonth = this.questionnaireFormDetails.startMonth ? this.questionnaireFormDetails?.startMonth : '';
+      this.selectedLoanAmount = this.questionnaireFormDetails.loanAmount ? this.questionnaireFormDetails?.loanAmount : '';
+      this.selectedLoanType = this.questionnaireFormDetails.loanType ? this.questionnaireFormDetails?.loanType : '';
+      this.selectedStartYear = this.questionnaireFormDetails.startYear ? this.questionnaireFormDetails?.startYear : '';
+    this.questionnaireForm.patchValue({
+      intake: this.questionnaireFormDetails?.intake,
+      // startMonth: this.questionnaireFormDetails?.startMonth,
+      loanAmount: this.questionnaireFormDetails?.loanAmount,
+      loanType: this.questionnaireFormDetails?.loanType,
+      startMonth: this.questionnaireFormDetails?.startMonth,
+      startYear: this.questionnaireFormDetails?.startYear,
+    });
+    
   }
 
   generateMonths() {
@@ -57,7 +76,13 @@ export class Step7Component implements OnInit {
   onSubmit() {
     if (this.questionnaireForm.valid) {
       console.log(this.questionnaireForm.value);
+      this.selectedIntake = this.questionnaireForm.value.intake;
+      this.selectedStartMonth = this.questionnaireForm.value.startMonth;
+      this.selectedLoanAmount = this.questionnaireForm.value.loanAmount;
+      this.selectedLoanType = this.questionnaireForm.value.loanType;
+      this.selectedStartYear = this.questionnaireForm.value.startYear;
       this.sessionService.setItem('questionnaireDetails', JSON.stringify(this.questionnaireForm.value));
+      this.nextStep();
     } else {
       this.submitted = true;
     }
