@@ -47,6 +47,7 @@ export class Step4Component {
     selectStatus(status: any) {
       this.selectedAdmissionStatus = status;
       this.sessionService.setItem('selectedAdmissionStatus', this.selectedAdmissionStatus);
+      this.router.navigate(['/step5']);
     }
   
 }

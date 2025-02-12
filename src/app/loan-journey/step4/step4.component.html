@@ -4,12 +4,12 @@
         <button class="educate-btn sm d-xl-flex d-none" (click)="previousStep()"><span
             class="educate-btn__curve"></span>Previous</button>
       </div>
-      <div class="flex-grow-1" [ngClass]="{'text-center': selectedAdmissionStatus !== ''}">
+      <div class="flex-grow-1">
         <label class="text-center">What's Your <strong>Admission Status</strong>?</label>
       </div>
       <div [ngClass]="{
         'flex-grow-0': selectedAdmissionStatus !== ''}">
-        <button class="educate-btn sm d-xl-flex d-none" (click)="nextStep()"><span
+        <button *ngIf="selectedAdmissionStatus!== ''" class="educate-btn sm d-xl-flex d-none" (click)="nextStep()"><span
             class="educate-btn__curve"></span>Next</button>
       </div>
     </div>
