@@ -24,6 +24,7 @@ export class Step9Component {
   showBankImage = false;
   showQuestionDiv = true;
   bankList: any= [];
+  isLoading = false; 
   // bankList: string[] = ['SBI', 'PNB', 'AXIS', 'Indusland','HDFC','ICICI','Credila','InCred','IDFC','Auxilo','Prodigy'];
   
   constructor(private fb: FormBuilder, private router: Router,
@@ -118,7 +119,9 @@ export class Step9Component {
   }
 
   showBankImageWithDelay(): void {
+    this.isLoading = true; 
     setTimeout(() => {
+      this.isLoading = false;
       // this.showBankImage = true;
       this.showQuestionDiv = false;
     }, 3000); // 3 seconds delay
