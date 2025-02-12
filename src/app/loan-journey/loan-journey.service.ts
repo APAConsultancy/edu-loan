@@ -29,4 +29,9 @@ export class LoanJourneyService {
       const endpoint = `CustomerDetails/AddCustomerDetails`;
       return this.httpService.post<any>(endpoint, data);
     }
+
+    getCityName(pinCode: string): Observable<any> {
+      const endpoint = `BankNames/GetCityByPinCcode?pincode=${pinCode}`;
+      return this.httpService.get<any>(endpoint); 
+    }
 }
