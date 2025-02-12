@@ -32,17 +32,30 @@ export class Step8Component implements OnInit {
       pinCode: ['', Validators.required],
       cityName: ['', Validators.required],
       familyIncome: ['', Validators.required],
-      gender: ['', Validators.required]
+      gender: ['', Validators.required],
+      coApplicantMobile: ['']
     });
   }
 
   ngOnInit(): void {
     console.log(this.sessionService.getItem('mobile'));
-    this.contactForm.patchValue({
-      mobile: this.sessionService.getItem('mobile')
-    })
+    
     const contactDetails = this.sessionService.getItem('contactDetails');
     this.contactFormDetail = contactDetails ? JSON.parse(contactDetails) : null;
+    this.contactForm.patchValue({
+      // mobile: this.sessionService.getItem('mobile'),
+
+      name: this.contactFormDetail?.name,
+      email: this.contactFormDetail?.email,
+      mobile: this.contactFormDetail?.mobile,
+      whatsappCheckbox: this.contactFormDetail?.whatsappCheckbox,
+      whatsappNumber: this.contactFormDetail?.whatsappNumber,
+      pinCode: this.contactFormDetail?.pinCode,
+      cityName: this.contactFormDetail?.cityName,
+      familyIncome: this.contactFormDetail?.familyIncome,
+      gender: this.contactFormDetail?.gender,
+      coApplicantMobile: this.contactFormDetail?.coApplicantMobile
+    })
     this.contactForm.get('whatsappCheckbox')?.valueChanges.subscribe(checked => {
       if (checked) {
         this.contactForm.get('whatsappNumber')?.setValidators([Validators.required, Validators.pattern(/^\d{10}$/)]);
