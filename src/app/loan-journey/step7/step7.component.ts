@@ -48,14 +48,14 @@ export class Step7Component implements OnInit {
       this.selectedLoanAmount = this.questionnaireFormDetails.loanAmount ? this.questionnaireFormDetails?.loanAmount : '';
       this.selectedLoanType = this.questionnaireFormDetails.loanType ? this.questionnaireFormDetails?.loanType : '';
       this.selectedStartYear = this.questionnaireFormDetails.startYear ? this.questionnaireFormDetails?.startYear : '';
-    this.questionnaireForm.patchValue({
+    setTimeout(() => {     
+      this.questionnaireForm.patchValue({
       intake: this.questionnaireFormDetails?.intake,
-      // startMonth: this.questionnaireFormDetails?.startMonth,
       loanAmount: this.questionnaireFormDetails?.loanAmount,
       loanType: this.questionnaireFormDetails?.loanType,
       startMonth: this.questionnaireFormDetails?.startMonth,
       startYear: this.questionnaireFormDetails?.startYear,
-    });
+    });}, 0);
     
   }
 

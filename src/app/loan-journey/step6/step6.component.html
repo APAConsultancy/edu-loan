@@ -6,12 +6,12 @@
         class="educate-btn__curve"></span>Previous</button>
   </div>
   <div class="flex-grow-1">
-    <img src="assets/media/icons/book_reading.png" alt="Program Icon" class="program-icon">
+    <img src="assets/media/icons/book_reading.png" alt="Program Icon" class="program-icon" style = "margin-left: 75px;">
     <h3>Program you are interested in</h3>
   </div>
   <div [ngClass]="{
           'flex-grow-0': selectedDegree !== '' && selectedProgramName !== '' && selectedDuration !== ''}">
-    <button *ngIf="selectedDegree !== '' && selectedProgramName !== '' && selectedDuration !== ''"
+    <button *ngIf="selectedDegree && selectedProgramName && selectedDuration"
       class="educate-btn sm d-xl-flex d-none" (click)="nextStep()"><span class="educate-btn__curve"></span>Next</button>
   </div>
 </div>
