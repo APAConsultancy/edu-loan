@@ -41,21 +41,24 @@ export class Step7Component implements OnInit {
   ngOnInit(): void {
     this.generateMonths();
     this.generateYears();
+    
     const questionnaireDetails = this.sessionService.getItem('questionnaireDetails');
     this.questionnaireFormDetails = questionnaireDetails ? JSON.parse(questionnaireDetails) : this.questionnaireFormDetails;
+    setTimeout(() => {  
     this.selectedIntake = this.questionnaireFormDetails.intake ? this.questionnaireFormDetails.intake : '';
       this.selectedStartMonth = this.questionnaireFormDetails.startMonth ? this.questionnaireFormDetails?.startMonth : '';
       this.selectedLoanAmount = this.questionnaireFormDetails.loanAmount ? this.questionnaireFormDetails?.loanAmount : '';
       this.selectedLoanType = this.questionnaireFormDetails.loanType ? this.questionnaireFormDetails?.loanType : '';
       this.selectedStartYear = this.questionnaireFormDetails.startYear ? this.questionnaireFormDetails?.startYear : '';
-    setTimeout(() => {     
+       
       this.questionnaireForm.patchValue({
       intake: this.questionnaireFormDetails?.intake,
       loanAmount: this.questionnaireFormDetails?.loanAmount,
       loanType: this.questionnaireFormDetails?.loanType,
       startMonth: this.questionnaireFormDetails?.startMonth,
       startYear: this.questionnaireFormDetails?.startYear,
-    });}, 0);
+    });
+  }, 0);
     
   }
 
