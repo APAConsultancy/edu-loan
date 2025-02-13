@@ -126,6 +126,7 @@ export class Step8Component implements OnInit {
       this.selectedFamilyIncome = this.contactForm.value.familyIncome ? this.contactForm.value?.familyIncome : '';
       this.selectedGender = this.contactForm.value.gender ? this.contactForm.value?.gender : '';
       this.selectedCoApplicantMobile = this.contactForm.value.coApplicantMobile ? this.contactForm.value?.coApplicantMobile : '';
+      this.submitCustomerDetails();
       this.router.navigate(['/step9']);
     } else {
       this.submitted = true;
