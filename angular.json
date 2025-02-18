@@ -30,9 +30,25 @@
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
+              "src/assets/vendor/fontawesome/font-awesome.css",
+              "src/assets/vendor/slickslider/slick.css",
+              "src/assets/vendor/jquery-magnific-popup/jquery.magnific-popup.css",
+              "src/assets/vendor/animate/animate.min.css",
+              "src/assets/css/app.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "/src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+             "/src/assets/vendor/jquery/jquery-3.6.3.min.js",
+               "/src/assets/vendor/jquery-appear/jquery-appear.js",
+               "/src/assets/vendor/jquery-validator/jquery-validator.js",
+               "/src/assets/vendor/countdown/jquery.countdown.min.js",
+               "/src/assets/vendor/jquery-magnific-popup/jquery.magnific-popup.min.js",
+               "/src/assets/vendor/slickslider/slick.min.js",
+               "/src/assets/vendor/tilt/tilt.jquery.js",
+               "/src/assets/vendor/wow/wow.js"
+            ],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
@@ -44,8 +60,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "10MB",
+                  "maximumError": "10MB"
                 },
                 {
                   "type": "anyComponentStyle",

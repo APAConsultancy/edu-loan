@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  private apiUrl = 'http://devapi.theunifund.com'; // Replace with your API URL
-
+  private apiUrl = 'https://devapi.theunifund.com'; // Replace with your API URL
+  //private apiUrl = 'https://localhost:44365/';
   constructor(private http: HttpClient) { }
 
   // GET method

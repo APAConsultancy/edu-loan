@@ -10,6 +10,12 @@ import { Step6Component } from './loan-journey/step6/step6.component';
 import { Step7Component } from './loan-journey/step7/step7.component';
 import { Step8Component } from './loan-journey/step8/step8.component';
 import { Step9Component } from './loan-journey/step9/step9.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent} from './contact-us/contact-us.component';
+import {CommunityComponent} from './community/community.component';
+import {FaqComponent} from './faq/faq.component';
+import {ProcessComponent} from './process/process.component';
+import {BlogsComponent} from './blogs/blogs.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -24,4 +30,10 @@ export const routes: Routes = [
     {path: 'step7', component: Step7Component},
     {path: 'step8', component: Step8Component},
     {path: 'step9', component: Step9Component},
+    {path:'about-us', component:AboutUsComponent},
+    {path:'contact-us', component:ContactUsComponent},
+    {path:'community', component:CommunityComponent},
+    {path:'faq', component:FaqComponent},
+    {path:'process', component:ProcessComponent},
+    {path:'blogs', component:BlogsComponent}
 ];
