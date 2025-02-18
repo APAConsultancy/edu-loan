@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChildren, QueryList  } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -13,13 +13,15 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
   styleUrl: './step3.component.css'
 })
 export class Step3Component implements OnInit {
+  @ViewChildren('scoreInput') scoreInputs: QueryList<ElementRef> | undefined;
+  
   testScores = [
-    { name: 'GRE', selected: 'Not Applicable', score: '' },
-    { name: 'GMAT', selected: 'Not Applicable', score: '' },
-    { name: 'Duolingo', selected: 'Not Applicable', score: '' },
-    { name: 'IELTS', selected: 'Not Applicable', score: '' },
-    { name: 'TOEFL', selected: 'Not Applicable', score: '' },
-    { name: 'PTE', selected: 'Not Applicable', score: '' }
+    { name: 'GRE', selected: 'Not Applicable', score: '', touched: false },
+    { name: 'GMAT', selected: 'Not Applicable', score: '', touched: false },
+    { name: 'Duolingo', selected: 'Not Applicable', score: '', touched: false },
+    { name: 'IELTS', selected: 'Not Applicable', score: '', touched: false },
+    { name: 'TOEFL', selected: 'Not Applicable', score: '', touched: false },
+    { name: 'PTE', selected: 'Not Applicable', score: '', touched: false }
   ];
 
   constructor(private router: Router,
@@ -32,13 +34,51 @@ export class Step3Component implements OnInit {
   }
 
   selectNone() {
-    this.testScores.forEach(test => test.selected = 'Not Applicable');
-    this.router.navigate(['/step4']);
+    this.testScores.forEach(test => {
+      test.selected = 'Not Applicable';
+      test.score = '';
+      test.touched = false;
+    });
   }
 
   nextStep() {
     this.sessionService.setItem('testScores', JSON.stringify(this.testScores));
-    this.router.navigate(['/step4']);
+    if (this.isFormValid()){
+      this.router.navigate(['/step4']);
+    } else {
+      this.markAllAsTouched();
+    }
+  }
+
+  isFormValid(): boolean {
+    return this.testScores.every(test => {
+      if (test.selected === 'Taken') {
+        return this.isValidScore(test.score);
+      }
+      return true;
+    });
+  }
+
+  isValidScore(score: string): boolean {
+    const DECIMAL_REGEX = /^\d{1,3}(\.\d{1,2})?$/;
+    return DECIMAL_REGEX.test(score);
+  }
+
+  markAllAsTouched() {
+    this.testScores.forEach((test, index) => {
+      if (test.selected === 'Taken' && !this.isValidScore(test.score)) {
+        test.touched = true;
+        if (this.scoreInputs) {
+          const scoreInput = this.scoreInputs.toArray()[index];
+          if (scoreInput) {
+            scoreInput.nativeElement.focus();
+            scoreInput.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      } else {
+        test.touched = false;
+      }
+    });
   }
 
   previousStep() {

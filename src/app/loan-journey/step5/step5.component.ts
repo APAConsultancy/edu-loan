@@ -16,7 +16,7 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 export class Step5Component implements OnInit {
   UniversityName = 'UniversityName';
   Universities: { Id: number; UniversityName: string; }[] =[];
-   country = sessionStorage.getItem('selectedCountry');
+  country = sessionStorage.getItem('selectedCountry');
 
   selectedUniversity: string = '';
 
@@ -29,10 +29,11 @@ export class Step5Component implements OnInit {
     if (this.sessionService) {
         this.selectedUniversity = this.sessionService.getItem('selectedUniversity') || '';
     }
-    const country = this.sessionService.getItem('selectedCountry');
-    if (country) {
-      this.getUniversityDetails(country);
-    }
+    this.getUniversities();
+    // this.country = this.sessionService.getItem('selectedCountry');
+    // if (this.country) {
+    //   this.getUniversityDetails(this.country);
+    // }
   }
 
   onUniversityChange() {
@@ -66,15 +67,35 @@ export class Step5Component implements OnInit {
     // do something when input is focused
   }
 
-  getUniversityDetails(countryName: string): void {
-    this.loanJourneyService.getUniversityDetailsByCountryName(countryName).subscribe(
-      (response) => {
-        console.log('University details:', response);
-        this.Universities = response;
-      },
-      (error) => {
-        console.error('Error fetching university details', error);
+  // getUniversityDetails(countryName: string): void {
+  //   this.loanJourneyService.getUniversityDetailsByCountryName(countryName).subscribe(
+  //     (response) => {
+  //       console.log('University details:', response);
+  //       this.Universities = response;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching university details', error);
+  //     }
+  //   );
+  // }
+
+  getUniversities(): void {
+    const universitiesData = this.sessionService.getItem('universities');
+    if (universitiesData) {
+      this.Universities = JSON.parse(universitiesData);
+    } else {
+      // Fetch universities data if not available in session
+      if (this.country) {
+        this.loanJourneyService.getUniversityDetailsByCountryName(this.country).subscribe(
+        (response) => {
+          this.Universities = response;
+          this.sessionService.setItem('universities', JSON.stringify(this.Universities));
+        },
+        (error) => {
+          console.error('Error fetching universities', error);
+        });
       }
-    );
+    }
   }
 }
+
