@@ -145,7 +145,20 @@
     </div>
   </section>
   <!-- About Area End -->
-
+  <div class="container">
+    <!-- Background Image -->
+    <div class="image-section"></div>
+  
+    <!-- Text Sections -->
+    <div class="text-container">
+      <div 
+        *ngFor="let item of textBlocks; let i = index"
+        [class.active]="i === activeIndex"
+        class="text-block">
+        {{ item }}
+      </div>
+    </div>
+  </div>
   <!-- Brands Area Start -->
   <div class="py-80 bg-white">
     <div class="brands-slider">
