@@ -14,6 +14,7 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 })
 export class Step8Component implements OnInit {
   @ViewChild('emailInput') emailInput: ElementRef | undefined;
+  @ViewChild('whatsappNumberInput') whatsappNumberInput: ElementRef | undefined;
   
   contactForm: FormGroup;
   submitted = false;
@@ -121,6 +122,9 @@ export class Step8Component implements OnInit {
     if (this.contactForm.invalid) {
       if (this.contactForm.get('email')?.invalid) {
         this.emailInput?.nativeElement.focus(); // Focus the email input if it is invalid
+      }
+      if (this.contactForm.get('whatsappNumber')?.invalid) {
+        this.whatsappNumberInput?.nativeElement.focus(); // Focus the email input if it is invalid
       }
       return;
     }
