@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
@@ -13,6 +13,9 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
   imports: [ReactiveFormsModule, CommonModule, ProgressBarComponent]
 })
 export class Step8Component implements OnInit {
+  @ViewChild('emailInput') emailInput: ElementRef | undefined;
+  @ViewChild('whatsappNumberInput') whatsappNumberInput: ElementRef | undefined;
+  
   contactForm: FormGroup;
   submitted = false;
   showWhatsappNumber = false;
@@ -50,27 +53,30 @@ export class Step8Component implements OnInit {
 
   ngOnInit(): void {
     if (this.sessionService) {
-      this.contactForm.patchValue({
-        mobile: this.sessionService.getItem('mobile') ? this.sessionService.getItem('mobile') : '',
-      });
+      const mobile = this.sessionService.getItem('mobile');
+      if (mobile) {
+        this.contactForm.patchValue({
+          mobile: mobile
+        });
+      }
       const contactDetails = this.sessionService.getItem('contactDetails');
       this.contactFormDetail = contactDetails ? JSON.parse(contactDetails) : this.contactFormDetail;
-      this.selectedName = this.contactFormDetail.name ? this.contactFormDetail?.name : '';
-      this.selectedEmail = this.contactFormDetail.email ? this.contactFormDetail?.email : '';
-      this.selectedMobile = this.contactFormDetail.mobile ? this.contactFormDetail?.mobile : '';
-      this.selectedWhatsappCheckbox = this.contactFormDetail.whatsappCheckbox ? this.contactFormDetail?.whatsappCheckbox : false;
-      this.selectedWhatsappNumber = this.contactFormDetail.whatsappNumber ? this.contactFormDetail?.whatsappNumber : '';
-      this.selectedPinCode = this.contactFormDetail.pinCode ? this.contactFormDetail?.pinCode : '';
-      this.selectedCityName = this.contactFormDetail.cityName ? this.contactFormDetail?.cityName : '';
-      this.selectedFamilyIncome = this.contactFormDetail.familyIncome ? this.contactFormDetail?.familyIncome : '';
-      this.selectedGender = this.contactFormDetail.gender ? this.contactFormDetail?.gender : '';
-      this.selectedCoApplicantMobile = this.contactFormDetail.coApplicantMobile ? this.contactFormDetail?.coApplicantMobile : '';
+      this.selectedName = this.contactFormDetail?.name ? this.contactFormDetail?.name : '';
+      this.selectedEmail = this.contactFormDetail?.email ? this.contactFormDetail?.email : '';
+      this.selectedMobile = this.contactFormDetail?.mobile ? this.contactFormDetail?.mobile : '';
+      this.selectedWhatsappCheckbox = this.contactFormDetail?.whatsappCheckbox ? this.contactFormDetail?.whatsappCheckbox : false;
+      this.selectedWhatsappNumber = this.contactFormDetail?.whatsappNumber ? this.contactFormDetail?.whatsappNumber : '';
+      this.selectedPinCode = this.contactFormDetail?.pinCode ? this.contactFormDetail?.pinCode : '';
+      this.selectedCityName = this.contactFormDetail?.cityName ? this.contactFormDetail?.cityName : '';
+      this.selectedFamilyIncome = this.contactFormDetail?.familyIncome ? this.contactFormDetail?.familyIncome : '';
+      this.selectedGender = this.contactFormDetail?.gender ? this.contactFormDetail?.gender : '';
+      this.selectedCoApplicantMobile = this.contactFormDetail?.coApplicantMobile ? this.contactFormDetail?.coApplicantMobile : '';
     }
     
     this.contactForm.patchValue({
       name: this.contactFormDetail?.name,
       email: this.contactFormDetail?.email,
-      mobile: this.contactFormDetail?.mobile,
+      //mobile: this.contactFormDetail?.mobile,
       whatsappCheckbox: this.contactFormDetail?.whatsappCheckbox,
       whatsappNumber: this.contactFormDetail?.whatsappNumber,
       pinCode: this.contactFormDetail?.pinCode,
@@ -112,6 +118,16 @@ export class Step8Component implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
+    if (this.contactForm.invalid) {
+      if (this.contactForm.get('email')?.invalid) {
+        this.emailInput?.nativeElement.focus(); // Focus the email input if it is invalid
+      }
+      if (this.contactForm.get('whatsappNumber')?.invalid) {
+        this.whatsappNumberInput?.nativeElement.focus(); // Focus the email input if it is invalid
+      }
+      return;
+    }
     
     if (this.contactForm.valid) {
       console.log(this.contactForm.value);

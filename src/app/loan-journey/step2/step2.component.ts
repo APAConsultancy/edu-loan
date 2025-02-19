@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import { NgModule } from '@angular/core';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
+import { LoanJourneyService } from '../loan-journey.service';
 
 @Component({
   selector: 'app-step2',
@@ -28,13 +29,15 @@ export class Step2Component  implements OnInit {
     { name: 'Others', image: 'assets/media/images/globe.jpg' },
     // { name: 'Singapore', image: 'assets/media/images/singapore.png' }
   ];
+  Universities: { Id: number; UniversityName: string; }[] =[];
 
   selectedCountry: string = '';
   universityName: string = ''; 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private loanJourneyService: LoanJourneyService
   ) {
     this.stepOneForm = this.fb.group({
       mobileno: this.fb.control('', Validators.required)
@@ -53,6 +56,7 @@ export class Step2Component  implements OnInit {
 
   stepOneSubmit() {
     this.sessionService.setItem('selectedCountry', this.selectedCountry);
+    this.getUniversityDetails(this.selectedCountry);
   }
 
   selectCountry(country: any) {
@@ -79,6 +83,19 @@ export class Step2Component  implements OnInit {
 
   goToStep3(): void {
       this.router.navigate(['/step3']);
+  }
+
+  getUniversityDetails(countryName: string): void {
+    this.loanJourneyService.getUniversityDetailsByCountryName(countryName).subscribe(
+      (response) => {
+        console.log('University details:', response);
+        this.Universities = response;
+        this.sessionService.setItem('universities', JSON.stringify(this.Universities)); // Store universities data
+      },
+      (error) => {
+        console.error('Error fetching university details', error);
+      }
+    );
   }
 
 }

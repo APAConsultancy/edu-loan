@@ -20,6 +20,7 @@ export class Step1Component  implements OnInit {
   showOtpComponent = false;
   showMobileComponent = false;
   correctOtp: string | undefined;
+  mobile: any;
 
   constructor(
     private fb: FormBuilder,
@@ -56,6 +57,7 @@ export class Step1Component  implements OnInit {
   validateOtp(): void {
     if (this.otp === this.correctOtp) {
       this.showMobileComponent = true;
+      this.savePreDetails(this.mobile, null, null);
     } else {
       alert('Invalid OTP. Please try again.');
     }
@@ -71,9 +73,8 @@ export class Step1Component  implements OnInit {
   getOTP(): void {
     if (this.stepOneForm.controls['mobileno'].valid) {
       //this.openOtpPopup();
-      const mobile = this.stepOneForm.get('mobileno')?.value;
-      this.sessionService.setItem('mobile', mobile);
-      this.savePreDetails(mobile, null, null);
+      this.mobile = this.stepOneForm.get('mobileno')?.value;
+      this.sessionService.setItem('mobile', this.mobile);
       this.sendOTP()
       this.showOtpComponent = true;
     } else {

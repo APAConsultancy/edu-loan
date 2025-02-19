@@ -44,8 +44,10 @@
             </div>
           </div>
           <div class="col-md-3">
-            <input *ngIf="test.selected === 'Taken'" type="text" [(ngModel)]="test.score" placeholder="Enter Score"
-              class="form-control score-input">
+            <input *ngIf="test.selected === 'Taken'" type="text" [(ngModel)]="test.score" placeholder="Enter Score" class="form-control score-input" #scoreInput [ngClass]="{'is-invalid': test.touched && !isValidScore(test.score)}">
+            <div *ngIf="test.selected === 'Taken' && test.touched && !isValidScore(test.score)" class="text-danger">
+              Please enter a valid score.
+            </div>
           </div>
         </div>
       </div>

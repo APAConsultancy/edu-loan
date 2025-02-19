@@ -134,6 +134,6 @@ export class Step9Component {
       this.isLoading = false;
       // this.showBankImage = true;
       this.showQuestionDiv = false;
-    }, 3000); // 3 seconds delay
+    }, 10000); // 3 seconds delay
   }
 }
