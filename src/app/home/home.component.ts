@@ -14,6 +14,7 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     // Call initializeSlick once the view is initialized
     this.initializeSlick();
+    //this.initializeCountdown();
   }
 
   initializeSlick() {
@@ -119,4 +120,17 @@ export class HomeComponent implements AfterViewInit {
       }
     }
   }
+
+  initializeCountdown() {
+    // Check if the code is running in the browser environment
+    if (typeof window !== 'undefined') {
+      const $ = (window as any).$;
+
+      // Initialize countdown
+      if (typeof (window as any).Init !== 'undefined' && typeof (window as any).Init.countdownInit === 'function') {
+        (window as any).Init.countdownInit(".countdown", "2025/12/01");
+      }
+    }
+  }
+
 }

@@ -1928,7 +1928,7 @@ strong {
   border: none;
   outline: none !important;
   background-color: #0aa6d7;
-  color: #fefcfb;
+  color: #fefcfb !important;
   font-size: 16px;
   font-weight: 600;
   border-radius: 5px;
@@ -2442,7 +2442,7 @@ input[type=search]::-webkit-search-results-decoration {
   border-radius: 0;
   font-size: 11px;
   font-weight: 600;
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif; */
   content: "";
   color: inherit;
   line-height: 10px;
@@ -2504,7 +2504,7 @@ input[type=search]::-webkit-search-results-decoration {
   border-radius: 0;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif; */
   content: "";
   color: #fefcfb;
   visibility: hidden;
