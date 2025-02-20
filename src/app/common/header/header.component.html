@@ -1,90 +1,62 @@
-    <!-- Header Area start -->
-    <header>
-        <nav class="main-menu">
-          <div class="container">
-            <div class="main-menu__block">
-              <div class="main-menu__left">
-  
-                <div class="main-menu__logo">
-                  <a href="index.html">
-                    <img src="../../../assets/media/logo.png" alt="Educate">
-                  </a>
-                </div>
-  
-                <div class="main-menu__nav">
-                  <ul class="main-menu__list">
-                    <li class="dropdown">
-                      <a href="index.html" class="active">Home</a>
-                      <!-- <ul>
-                        <li><a href="index.html" class="active">Home 1</a></li>
-                        <li><a href="index-2.html">Home 2</a></li>
-                      </ul> -->
-                    </li>
-                    <li class="dropdown">
-                      <a routerLink = "/about-us">About Us</a>
-                      <!-- <ul>
-                        <li><a href="courses.html">Courses Page</a></li>
-                        <li><a href="course-detail.html">Course Detail</a></li>
-                      </ul> -->
-                    </li>
-                    <li class="dropdown">
-                      <a href="javascript:void(0);">Resources</a>
-                      <ul class="sub-menu">
-                        <li class="dropdown">
-                          <a routerLink = "/blogs">Blogs</a>
-                          <!-- <ul class="sub-menu">
-                            <li><a href="blog-grid.html">No Sidebar</a></li>
-                            <li><a href="blog-grid-left.html">Left Sidebar</a></li>
-                            <li><a href="blog-grid-right.html">Right Sidebar</a></li>
-                          </ul> -->
-                        </li>
-                        <li class="dropdown">
-                          <a routerLink = "/faq">FAQs</a>
-                          <!-- <ul class="sub-menu">
-                            <li><a href="blog-list-left.html">Left Sidebar</a></li>
-                            <li><a href="blog-list-right.html">Right Sidebar</a></li>
-                          </ul> -->
-                        </li>
-                        <li><a routerLink = "/process">Process</a></li>
-                      </ul>
-                    </li>
-                    <li class="dropdown ">
-                      <a routerLink = "/community">Community</a>
-                      <!-- <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="team.html">Our Teacher</a></li>
-                        <li><a href="team-detail.html">Teacher Detail</a></li>
-                        <li><a href="join.html">Become Teacher</a></li>
-                        <li><a href="gallery.html">Gallery 1</a></li>
-                        <li><a href="gallery.html">Gallery 2</a></li>
-                        <li><a href="faq.html">Faq's</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Register</a></li>
-                      </ul> -->
-                    </li>
-                    <li><a routerLink="/contact-us">Contact Us</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="main-menu__right">
-                <a href="#" class="main-menu__search search-toggler">
-                  <i class="fal fa-search"></i>
-                </a>
-                <a href="login.html" class="main-menu__login">
-                  <i class="fal fa-user"></i>
-                </a>
-                <a routerLink="/loan-journey" class="educate-btn sm d-flex"><span
-                    class="educate-btn__curve"></span>Enroll Now</a>
-                <a href="#" class="main-menu__toggler mobile-nav__toggler">
-                  <i class="fa fa-bars"></i>
-                </a>
-              </div>
-            </div>
+<header>
+  <nav class="main-menu">
+    <div class="container">
+      <div class="main-menu__block">
+        <div class="main-menu__left">
+          <div class="main-menu__logo">
+            <a routerLink="/index">
+              <img src="../../../assets/media/logo.png" alt="Educate">
+            </a>
           </div>
-        </nav>
-      </header>
-      <!-- Sticky Header -->
-      <div class="stricky-header stricked-menu main-menu">
-        <div class="sticky-header__content"></div>
+          <div class="main-menu__nav">
+            <ul class="main-menu__list">
+              <li class="dropdown">
+                <a routerLink="/home" routerLinkActive="active">Home</a>
+              </li>
+              <li class="dropdown">
+                <a routerLink="/about-us" routerLinkActive="active">About Us</a>
+              </li>
+              <li class="dropdown" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: false }">
+                <a href="javascript:void(0);">Resources</a>
+                <ul class="sub-menu">
+                  <li class="dropdown">
+                    <a routerLink="/blogs" routerLinkActive="active">Blogs</a>
+                  </li>
+                  <li class="dropdown">
+                    <a routerLink="/faq" routerLinkActive="active">FAQs</a>
+                  </li>
+                  <li>
+                    <a routerLink="/process" routerLinkActive="active">Process</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a routerLink="/community" routerLinkActive="active">Community</a>
+              </li>
+              <li>
+                <a routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="main-menu__right">
+          <a href="#" class="main-menu__search search-toggler">
+            <i class="fal fa-search"></i>
+          </a>
+          <a routerLink="/login" class="main-menu__login">
+            <i class="fal fa-user"></i>
+          </a>
+          <a routerLink="/contact" class="educate-btn sm d-flex">
+            <span class="educate-btn__curve"></span>Enroll Now
+          </a>
+          <a href="#" class="main-menu__toggler mobile-nav__toggler">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
       </div>
-      <!-- Header Area End  -->
+    </div>
+  </nav>
+</header>
+<div class="stricky-header stricked-menu main-menu">
+  <div class="sticky-header__content"></div>
+</div>
