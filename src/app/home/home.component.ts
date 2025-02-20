@@ -6,10 +6,9 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive,CommonModule
-  ],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
 })
-export class HomeComponent implements  OnInit {
+export class HomeComponent  {
   textBlocks: string[] = [
     'First text section',
     'Second text section',
@@ -19,9 +18,7 @@ export class HomeComponent implements  OnInit {
 
   activeIndex = 0;
 
-  ngOnInit() {
-    this.startAutoSwitch();
-  }
+
 
   startAutoSwitch() {
     setInterval(() => {
@@ -29,5 +26,3 @@ export class HomeComponent implements  OnInit {
     }, 2000); // Switch every 2 seconds
   }
 }
-
-
