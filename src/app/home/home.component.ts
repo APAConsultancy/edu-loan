@@ -12,17 +12,15 @@ export class HomeComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
-    // Call initializeSlick once the view is initialized
+    // Initialize both slick sliders and countdown timer
     this.initializeSlick();
-    //this.initializeCountdown();
+    this.initializeCountdown();
   }
 
   initializeSlick() {
-    // Check if the code is running in the browser environment
     if (typeof window !== 'undefined') {
       const $ = (window as any).$;
 
-      // Initialize slick sliders
       if ($(".brands-slider").length) {
         $(".brands-slider").slick({
           slidesToShow: 6,
@@ -45,7 +43,6 @@ export class HomeComponent implements AfterViewInit {
         });
       }
 
-      // Add other sliders similarly
       if ($(".courses-slider").length) {
         $(".courses-slider").slick({
           slidesToShow: 3,
@@ -72,6 +69,7 @@ export class HomeComponent implements AfterViewInit {
           autoplaySpeed: 3000
         });
       }
+
       if ($(".testimonials_slider").length) {
         $(".testimonials_slider").slick({
           slidesToShow: 1,
@@ -85,13 +83,12 @@ export class HomeComponent implements AfterViewInit {
           responsive: [
             {
               breakpoint: 575,
-              settings: {
-                slidesToShow: 1,
-              },
-            },
-          ],
+              settings: { slidesToShow: 1 }
+            }
+          ]
         });
       }
+
       if ($(".testimonials_slider_2").length) {
         $(".testimonials_slider_2").slick({
           slidesToShow: 2,
@@ -112,25 +109,47 @@ export class HomeComponent implements AfterViewInit {
                 slidesToShow: 1,
                 centerMode: true,
                 centerPadding: "0%",
-                variableWidth: true,
-              },
-            },
-          ],
+                variableWidth: true
+              }
+            }
+          ]
         });
       }
     }
   }
 
   initializeCountdown() {
-    // Check if the code is running in the browser environment
-    if (typeof window !== 'undefined') {
-      const $ = (window as any).$;
-
-      // Initialize countdown
-      if (typeof (window as any).Init !== 'undefined' && typeof (window as any).Init.countdownInit === 'function') {
-        (window as any).Init.countdownInit(".countdown", "2025/12/01");
+    const $ = (window as any).$;
+    setTimeout(() => {
+      if ($(".countdown").length) {
+        $(".countdown").countdown("2025/12/01", (event: any) => {
+          const past = event.offset.seconds + 3;
+          let remainHtml = "";
+          for (let i = past; i > event.offset.seconds; i--) {
+            remainHtml += `<li>${i < 10 ? "0" + i : i}</li>`;
+          }
+          $(".top-remain").html(remainHtml);
+  
+          const start = event.offset.seconds - 1;
+          const max = event.offset.seconds - 3;
+          let comingHtml = "";
+          for (let bi = start; bi >= max; bi--) {
+            comingHtml += `<li>${bi < 10 ? "0" + bi : bi}</li>`;
+          }
+          $(".top-coming").html(comingHtml);
+  
+          $(".countdown").html(
+            event.strftime(
+              `<li><h2>%D</h2><h6>Days</h6></li>
+               <li><h2>%H</h2><h6>Hrs</h6></li>
+               <li><h2>%M</h2><h6>Min</h6></li>
+               <li><h2><span>%S</span></h2><h6>Sec</h6></li>`
+            )
+          );
+        });
       }
-    }
+    }, 100);
   }
+  
 
 }
