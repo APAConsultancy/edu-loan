@@ -18,7 +18,7 @@ import {ProcessComponent} from './process/process.component';
 import {BlogsComponent} from './blogs/blogs.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     {path: 'loan-journey', component: LoanJourneyComponent},
     {path: 'step1', component: Step1Component},
