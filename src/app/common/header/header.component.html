@@ -48,10 +48,10 @@
           </a>
           <a routerLink="/contact" class="educate-btn sm d-flex">
             <span class="educate-btn__curve"></span>Enroll Now
-          </a>
-          <a href="#" class="main-menu__toggler mobile-nav__toggler">
+            </a>
+            <a href="javascript:void(0);" class="main-menu__toggler mobile-nav__toggler" (click)="searchToggle()">
             <i class="fa fa-bars"></i>
-          </a>
+            </a>
         </div>
       </div>
     </div>
@@ -60,3 +60,120 @@
 <div class="stricky-header stricked-menu main-menu">
   <div class="sticky-header__content"></div>
 </div>
+ <!-- Mobile Menu Start -->
+ <!-- <div class="mobile-nav__wrapper">
+  <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+  <div class="mobile-nav__content">
+      <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+      <div class="logo-box">
+          <a href="index.html" aria-label="logo image"><img src="../../assets/media/logo-light.png" alt="educate"></a>
+      </div>
+      <div class="mobile-nav__container"></div>
+      <ul class="mobile-nav__contact list-unstyled">
+          <li>
+              <i class="fas fa-envelope"></i>
+              <a href="">mail sample</a>
+          </li>
+          <li>
+              <i class="fa fa-phone-alt"></i>
+              <a href="tel:+12345678">+123 (4567) -890</a>
+          </li>
+      </ul>
+      <div class="mobile-nav__social">
+          <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.pinterest.com/"><i class="fab fa-pinterest-p"></i></a>
+          <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+      </div>
+  </div>
+</div> -->
+<!-- Mobile Menu End -->
+<div class="mobile-nav__wrapper">
+  <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+  <div class="mobile-nav__content">
+    <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times" (click)="searchToggle()"></i></span>
+    <div class="logo-box">
+      <a href="index.html" aria-label="logo image"><img src="assets/media/logo-light.png" alt="educate"></a>
+    </div>
+    <div class="mobile-nav__container">
+              <ul class="main-menu__list">
+                <li class="dropdown current">
+                  <a href="javascript:void(0);" class="active">Home<button aria-label="dropdown toggler" fdprocessedid="o36d0m"><i class="fa fa-angle-down"></i></button></a>
+                  <ul>
+                    <li class="current"><a href="index.html" class="active">Home 1</a></li>
+                    <li><a href="index-2.html">Home 2</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="javascript:void(0);">Course<button aria-label="dropdown toggler" fdprocessedid="3osyvg"><i class="fa fa-angle-down"></i></button></a>
+                  <ul>
+                    <li><a href="courses.html">Courses Page</a></li>
+                    <li><a href="course-detail.html">Course Detail</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="javascript:void(0);">Blog<button aria-label="dropdown toggler" fdprocessedid="70zo9s"><i class="fa fa-angle-down"></i></button></a>
+                  <ul class="sub-menu">
+                    <li class="dropdown">
+                      <a href="javascript:void(0);">Blog Grid<button aria-label="dropdown toggler"><i class="fa fa-angle-down"></i></button></a>
+                      <ul class="sub-menu">
+                        <li><a href="blog-grid.html">No Sidebar</a></li>
+                        <li><a href="blog-grid-left.html">Left Sidebar</a></li>
+                        <li><a href="blog-grid-right.html">Right Sidebar</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0);">Blog List<button aria-label="dropdown toggler"><i class="fa fa-angle-down"></i></button></a>
+                      <ul class="sub-menu">
+                        <li><a href="blog-list-left.html">Left Sidebar</a></li>
+                        <li><a href="blog-list-right.html">Right Sidebar</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="blog-detail.html">Blog Detail</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown ">
+                  <a href="javascript:void(0);">Pages<button aria-label="dropdown toggler" fdprocessedid="js1yxl"><i class="fa fa-angle-down"></i></button></a>
+                  <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="team.html">Our Teacher</a></li>
+                    <li><a href="team-detail.html">Teacher Detail</a></li>
+                    <li><a href="join.html">Become Teacher</a></li>
+                    <li><a href="gallery.html">Gallery 1</a></li>
+                    <li><a href="gallery.html">Gallery 2</a></li>
+                    <li><a href="faq.html">Faq's</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                  </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+    <ul class="mobile-nav__contact list-unstyled">
+      <li>
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:example&#64;company.com">example&#64;company.com</a>
+      </li>
+      <li>
+        <i class="fa fa-phone-alt"></i>
+        <a href="tel:+12345678">+123 (4567) -890</a>
+      </li>
+    </ul>
+    <div class="mobile-nav__social">
+      <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.pinterest.com/"><i class="fab fa-pinterest-p"></i></a>
+      <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</div>
+<div class="search-popup">
+  <div class="search-popup__overlay search-toggler"></div>
+  <div class="search-popup__content">
+      <form role="search" method="get" class="search-popup__form" action="index.html">
+          <input type="text" id="search" placeholder="Search Here...">
+          <button type="submit"><i class="fal fa-search"></i></button>
+      </form>
+  </div>
+</div>
+<!-- search-popup -->
