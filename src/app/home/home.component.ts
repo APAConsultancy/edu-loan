@@ -58,15 +58,57 @@ export class HomeComponent implements AfterViewInit {
           ]
         });
       }
-
+      
       if ($(".team-slider").length) {
         $(".team-slider").slick({
           slidesToShow: 3,
+          slideToScroll: 1,
           arrows: false,
           dots: true,
           infinite: true,
+          cssEase: "linear",
           autoplay: false,
-          autoplaySpeed: 3000
+          autoplaySpeed: 3000,
+          variableWidth: true,
+          variableHeight: true,
+          responsive: [
+            {
+              breakpoint: 1599,
+              settings: {
+                slidesToShow: 3,
+              },
+            },
+            {
+              breakpoint: 1399,
+              settings: {
+                slidesToShow: 2,
+              },
+            },
+            {
+              breakpoint: 1199,
+              settings: {
+                slidesToShow: 3,
+              },
+            },
+            {
+              breakpoint: 900,
+              settings: {
+                slidesToShow: 2,
+              },
+            },
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 2,
+              },
+            },
+            {
+              breakpoint: 575,
+              settings: {
+                slidesToShow: 1,
+              },
+            },
+          ],
         });
       }
 
