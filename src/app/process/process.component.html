@@ -1,1 +1,25 @@
-<p>process works!</p>
+<section class="py-60">
+<div class="background-section">
+    <!-- Background Image -->
+    <div class="image-container"></div>
+  
+    <div class="text-container left">
+        <div *ngFor="let item of leftTextBlocks; let i = index" 
+             class="text-box"
+             [class.active]="activeIndex === i">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    
+      <!-- Right Side Text Blocks -->
+      <div class="text-container right">
+        <div *ngFor="let item of rightTextBlocks; let i = index" 
+             class="text-box"
+             [class.active]="activeIndex === i + leftTextBlocks.length">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+  </div>
+</section>

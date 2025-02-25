@@ -1,12 +1,12 @@
 <!-- Hero Banner Start -->
 <section class="hero-banner-1">
     <div class="container">
-      <div class="icons">
+      <!-- <div class="icons">
         <img src="assets/media/shapes/dollar.png" alt="" class="dollar wow zoomIn" data-wow-delay="400ms">
         <img src="assets/media/shapes/mic.png" alt="" class="mic wow zoomIn" data-wow-delay="500ms">
         <img src="assets/media/shapes/light.png" alt="" class="light wow zoomIn" data-wow-delay="600ms">
         <img src="assets/media/shapes/camera.png" alt="" class="camera wow zoomIn" data-wow-delay="700ms">
-      </div>
+      </div> -->
       <div class="content">
         <div class="text_block wow fadeInUp" data-wow-delay="800ms">
           <div class="row">
@@ -17,12 +17,17 @@
                 <img src="assets/media/shapes/rocket.png" alt="" cl  ass="rocket wow zoomIn"
                     data-wow-delay="700ms"></span> -->
                   </h3>
+                  <p style="font-style: italic;font-size: 25px;">Education Loan + Rewards = You Win
+                     <!-- <span class="fm-sec"> 
+                <img src="assets/media/shapes/rewards.jpg" alt="" cl  ass="rocket wow zoomIn"
+                    data-wow-delay="700ms"></span> -->
+                  </p>
               <h4 class="mb-80"></h4>
               <div class="btn_block">
                 <a routerLink="/loan-journey" routerLinkActive="active" class="educate-btn" style="text-decoration:none;color:white "><span class="educate-btn__curve"></span>Start Your Loan Journey Now</a>
                 <img src="assets/media/shapes/arrow.png" alt="" class="arrow">
               </div>
-              <div class="video-btn wow zoomIn" data-wow-delay="700ms">
+              <div class="video-btn wow zoomIn" data-wow-delay="700ms" style="margin-top: 40px;">
                 <img src="assets/media/banners/hero-banner-1/round-text.png" alt="" class="text-vector">
                 <a href="https://www.youtube.com/watch?v=8nXX1WOuvrk" class="play-btn video-popup"><i
                     class="fas fa-play"></i></a>
@@ -31,13 +36,13 @@
           </div>
         </div>
       </div>
-      <div class="banner_feature_card">
+      <!-- <div class="banner_feature_card">
         <div class="card_block">
           <h6 class="mb-4p">Award Winning Courses</h6>
           <p>Based on Latest Knowledge</p>
           <img src="assets/media/shapes/target-2.png" alt="" class="target_icon">
         </div>
-      </div>
+      </div> -->
       <img src="assets/media/banners/hero-banner-1/main-img.png" alt="" class="main-img">
     </div>
   </section>
@@ -145,6 +150,71 @@
     </div> -->
   </section>
   <!-- About Area End -->
+  <div class="calculator-container">
+    <!-- Left Side: Input Section -->
+    <div class="calculator-input">
+      <h5>Tax Saving Calculator</h5>
+      <p>Fill in your assumed loan details below to know your estimated annual tax savings.</p>
+  
+      <!-- Education Loan Amount -->
+      <label for="loanAmount" style="margin-top: 30px;">Education Loan Amount</label>
+      <div class="slider-wrapper">
+        <div class="slider-header" style="float: right;">
+          <span></span> <!-- Empty space to balance layout -->
+          <input type="number" class="slider-textbox" [value]="loanAmount" (input)="updateLoanValue($event)">
+        </div>
+        <input type="range" id="loanAmount" min="100000" max="10000000" step="100000" 
+               [value]="loanAmount" (input)="updateLoanValue($event)">
+        <div class="range-labels">
+          <span>1 Lakh</span>
+          <span>1 Crore</span>
+        </div>
+      </div>
+  
+      <!-- Interest Rate -->
+      <label style="margin-top: 35px;" for="interestRate">Interest Rate</label>
+      <div class="slider-wrapper">
+        <div class="slider-header" style="float: right;">
+          <span></span> <!-- Empty space for alignment -->
+          <input type="number" class="slider-textbox" [value]="interestRate" (input)="updateRateValue($event)">
+        </div>
+        <input type="range" id="interestRate" min="7" max="15" step="0.5" 
+               [value]="interestRate" (input)="updateRateValue($event)">
+        <div class="range-labels">
+          <span>7%</span>
+          <span>15%</span>
+        </div>
+      </div>
+  
+      <!-- Tax Slab -->
+      <label>Tax Slab</label>
+      <div class="tax-buttons">
+        <button [class.active]="selectedTaxSlab === 5" (click)="selectTax(5)">5%</button>
+        <button [class.active]="selectedTaxSlab === 20" (click)="selectTax(20)">20%</button>
+        <button [class.active]="selectedTaxSlab === 30" (click)="selectTax(30)">30%</button>
+      </div>
+  
+      <button class="calculate-btn" (click)="calculateTax()">CALCULATE SAVINGS</button>
+    </div>
+  
+    <!-- Right Side: Output Section -->
+    <div class="calculator-output">
+      <div class="output-header">
+        <h5>Tax Saved</h5>
+        <button class="reset-btn" (click)="resetCalculator()">🔄 RESET</button>
+      </div>
+  
+      <p>Interest Paid Per Year <span>{{ interestPaid | currency:'INR' }}</span></p>
+      <p>Effective Interest Paid <span>{{ (interestPaid * 0.8) | currency:'INR' }}</span></p>
+      <p>Effective Interest Rate <span>{{ effectiveRate }}%</span></p>
+  
+      <h5>Here’s what you’ll save</h5>
+      <h5>{{ taxSavings | currency:'INR' }} in taxes</h5>
+  
+      <button class="apply-btn">APPLY FOR LOAN</button>
+    </div>
+  </div>
+  <!-- Calculator End -->  
 
   <!-- Brands Area Start -->
   <div class="py-80 bg-white">
@@ -243,7 +313,7 @@
             <img src="assets/media/courses/categories/c-4.png" alt="" class="image">
           </div>
         </div>
-        <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="600ms">
+        <!-- <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="600ms">
           <div class="course__category__card_1 mb-24 mb-xl-0">
             <div class="course__category__card_text">
               <a href="courses.html" class="course__category__card_title h4 mb-16">Graphic Design</a>
@@ -256,8 +326,8 @@
             </div>
             <img src="assets/media/courses/categories/c-3.png" alt="" class="image">
           </div>
-        </div>
-        <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="750ms">
+        </div> -->
+        <!-- <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="750ms">
           <div class="course__category__card_1 mb-24 mb-xl-0">
             <div class="course__category__card_text">
               <a href="courses.html" class="course__category__card_title h4 mb-16">Artificial Intelligence</a>
@@ -270,8 +340,8 @@
             </div>
             <img src="assets/media/courses/categories/c-5.png" alt="" class="image">
           </div>
-        </div>
-        <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="900ms">
+        </div> -->
+        <!-- <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="900ms">
           <div class="course__category__card_1 mb-24 mb-xl-0">
             <div class="course__category__card_text">
               <a href="courses.html" class="course__category__card_title h4 mb-16">Computer Sciences</a>
@@ -284,7 +354,7 @@
             </div>
             <img src="assets/media/courses/categories/c-6.png" alt="" class="image">
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -295,7 +365,7 @@
     <div class="container">
       <div class="section-title mb-48">
         <div class="heading">
-          <h6 class="color-primary mb-8">–––– Popular Courses</h6>
+          <h6 class="color-primary mb-8">–––– Testimonials</h6>
           <h2>Courses Presented To <br> You By <span class="fm-sec">Experts</span></h2>
         </div>
         <a href="courses.html" class="educate-btn d-md-block d-none"><span class="educate-btn__curve"></span>View
@@ -518,7 +588,7 @@
   <!-- Courses Area End -->
 
   <!-- Team Area Start -->
-  <section class="team py-60">
+  <!-- <section class="team py-60">
     <img src="assets/media/shapes/dots-1.png" alt="" class="dots">
     <img src="assets/media/icons/3dtag.png" alt="" class="tag">
     <div class="row align-items-center">
@@ -638,7 +708,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- Team Area End -->
 
   <!-- Discount Banner Area Start -->
@@ -701,7 +771,7 @@
   </section>
   <!-- Discount Banner Area End -->
    <!-- Testimonials Area Start -->
-    <section class="testimonials py-60">
+    <!-- <section class="testimonials py-60">
       <div class="container">
         <div class="row">
           <div class="col-xl-5">
@@ -793,11 +863,11 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- Testimonials Area End -->
 
     <!-- Blogs Area Start -->
-    <section class="py-60 ">
+    <!-- <section class="py-60 ">
       <div class="container">
         <div class="section-title mb-48">
           <div class="heading">
@@ -873,7 +943,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- Blogs Area End -->
 
     <!-- Contact Banner Area Start -->
