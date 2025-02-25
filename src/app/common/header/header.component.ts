@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
   activeSubMenu: string = '';
 
   toggleSubMenu(subMenu: string) {
@@ -17,5 +17,26 @@ export class HeaderComponent {
 
     setActiveSubMenu(subMenu: string) {
     this.activeSubMenu = subMenu;
+  }
+
+  toggleMobileNav() {}
+
+  ngAfterViewInit(): void {
+    // Call searchToggle once the view is initialized
+    this.searchToggle();
+  }
+
+
+  searchToggle() {
+    if (typeof window !== 'undefined') {
+        const $ = (window as any).$;
+        if ($(".mobile-nav__toggler")) {
+          // $(".mobile-nav__toggler").on("click", function (e: any) {
+            // e.preventDefault();
+            $(".mobile-nav__wrapper").toggleClass("expanded");
+            $("body").toggleClass("locked");
+          // });
+        }
+    }
   }
 }
