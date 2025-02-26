@@ -10,7 +10,7 @@ import{TaxsavingcalcpopupComponent} from '../taxsavingcalcpopup/taxsavingcalcpop
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [RouterOutlet, RouterLink, RouterLinkActive,FormsModule, CommonModule]
+  imports: [RouterLink, RouterLinkActive,FormsModule, CommonModule]
 })
 export class HomeComponent implements AfterViewInit {
 
@@ -248,7 +248,7 @@ export class HomeComponent implements AfterViewInit {
   activeIndex = 0;
 
   ngOnInit() {
-    this.autoActivateBlocks();
+    //this.autoActivateBlocks();
   }
 
   autoActivateBlocks() {
