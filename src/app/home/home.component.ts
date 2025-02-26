@@ -1,7 +1,10 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet,Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { JoincommunityComponent } from '../joincommunity/joincommunity.component';
+import{TaxsavingcalcpopupComponent} from '../taxsavingcalcpopup/taxsavingcalcpopup.component';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent implements AfterViewInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog, private router:Router) { }
 
   ngAfterViewInit(): void {
     // Initialize both slick sliders and countdown timer
@@ -163,6 +166,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   initializeCountdown() {
+    if (typeof window !== 'undefined') {
     const $ = (window as any).$;
     setTimeout(() => {
       if ($(".countdown").length) {
@@ -193,6 +197,7 @@ export class HomeComponent implements AfterViewInit {
         });
       }
     }, 100);
+  }
   }
   
 
@@ -230,6 +235,51 @@ export class HomeComponent implements AfterViewInit {
     this.effectiveRate = 0;
     this.taxSavings = 0;
     this.selectedTaxSlab = 5;
+  }
+
+  textBlocks = [
+    { title: 'Loan Eligibility Checker', text: 'Find Out if You’re Loan-Ready in a Few Clicks!' },
+    { title: 'EMI Calculator', text: 'No more guessing, No more stress,    Plan your finances and stay on track' },
+    { title: 'Required Loan Amount', text: 'Enter your tuition fees, living expenses, and other costs, and there you go!' },
+    { title: 'Tax Saving Calculator', text: 'Your education loan could help you save on taxes!' },
+    // { title: 'Block 5', text: 'This is block 5' }
+  ];
+
+  activeIndex = 0;
+
+  ngOnInit() {
+    this.autoActivateBlocks();
+  }
+
+  autoActivateBlocks() {
+    setInterval(() => {
+      this.activeIndex = (this.activeIndex + 1) % this.textBlocks.length;
+    }, 2000);
+  }
+
+  setActive(index: number) {
+    this.activeIndex = index;
+  }
+  openPopup(index: number) {
+this.dialog.open(TaxsavingcalcpopupComponent, {
+      width: '900px', // Adjust size
+      height: '80%' // Adjust size
+    });
+  }
+
+  goToTools(index: number): void {
+    if(index === 0) {
+      this.router.navigate(['/loan-journey']);
+    } else if(index === 1) {
+      this.router.navigate(['/emicalc']);
+    }
+    else if(index === 2) {
+      this.router.navigate(['/loanamountcalc']);
+    }
+    else if(index === 3) {  
+      this.router.navigate(['/taxcalc']);
+    }
+   
   }
 
 }

@@ -1,0 +1,41 @@
+<section class="py-60">
+    <div class="loan-calculator-container">
+        <div class="calculator-left">
+          <h4>Cost of Education Calculator</h4>
+          <p>Just enter your details in the education loan calculator and we’ll give you an estimate of your total cost of education.</p>
+      
+          <label>Tuition & Other Fees</label>
+          <input type="number" [(ngModel)]="tutionFee" (input)="calculateLoanAmount()">
+      
+          <label>Accomodation</label>
+          <input type="number" [(ngModel)]="accomodation" (input)="calculateLoanAmount()">
+      
+          <label>Books & Other Supplies</label>
+          <input type="number" [(ngModel)]="booksOther" (input)="calculateLoanAmount()">
+      
+          <label>Travel & Insurance</label>
+          <input type="number" [(ngModel)]="travelInsurance" (input)="calculateLoanAmount()">
+      
+          <label>Miscellaneous</label>
+          <input type="number" [(ngModel)]="miscellaneous" (input)="calculateLoanAmount()">
+      
+          <button class="buttonCalc" (click)="resetValues()">RESET</button>
+          <button class="educate-btn sm d-flex" style="width: 100%; justify-content: center;" (click)="calculateLoanAmount()"><span class="educate-btn__curve"></span>CALCULATE</button>
+        </div>
+      
+        <div class="calculator-right">
+          <!-- <h3>What is Already Covered</h3>
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="coveredPercentage">{{ coveredPercentage }}% Covered</div>
+          </div> -->
+      
+          <p>Total Cost of Education: <strong>₹ {{ totalCost | number }}</strong></p>
+          <!-- <p>Other Funding: <strong>₹ {{ totalFunding | number }}</strong></p> -->
+      
+          <h3>Loan Amount Required</h3>
+          <h1>₹ {{ loanAmountRequired | number }}</h1>
+        </div>
+      </div>
+      
+  
+</section>

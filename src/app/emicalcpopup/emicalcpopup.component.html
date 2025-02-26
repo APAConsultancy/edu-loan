@@ -1,0 +1,50 @@
+<section class="py-60">
+<div class="emi-container">
+    <!-- Left Section: Inputs -->
+    <div class="emi-left">
+      <h4>Calculate your Education Loan EMIs</h4>
+      <br>
+      <label class="font-weight-bold">Loan Amount</label>
+      <input type="number" [(ngModel)]="loanAmount" placeholder="Enter amount">
+  
+      <label class="font-weight-bold">Course Duration (in Months)</label>
+      <input type="number" [(ngModel)]="courseDuration" placeholder="Enter duration">
+  
+      <label class="font-weight-bold">Loan Tenure (years)</label>
+      <input type="range" min="1" max="15" [(ngModel)]="loanTenure" style="margin-bottom: -12px;">
+      <span>{{ loanTenure }} years</span>
+  <br>
+  <br>
+      <label class="font-weight-bold">Rate of Interest</label>
+      <input type="range" min="5" max="20" [(ngModel)]="interestRate" style="margin-bottom: -12px;">
+      <span>{{ interestRate }}%</span>
+  
+      <!-- <label>Grace Period (months)</label>
+      <input type="range" min="0" max="12" [(ngModel)]="gracePeriod">
+      <span>{{ gracePeriod }} months</span> -->
+  
+      <button class="educate-btn sm d-flex" style="width: 100%; justify-content: center; margin-top:20px;" (click)="calculateEMI()"><span class="educate-btn__curve"></span>Calculate</button>
+    </div>
+  
+    <!-- Right Section: Results -->
+    <div class="emi-right">
+      <canvas id="emiChart"></canvas>
+      
+      <div class="emi-results">
+        <h5>Your EMI per month will be</h5>
+        <h4>{{ emi | number }}</h4>
+  
+        <div class="emi-summary">
+          <div>
+            <h5>Total Interest</h5>
+            <p>{{ totalInterest | number }}</p>
+          </div>
+          <div>
+            <h5>Total Payment</h5>
+            <p>{{ totalPayment | number }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

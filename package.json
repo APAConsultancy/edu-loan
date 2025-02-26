@@ -27,6 +27,7 @@
     "angular-ng-autocomplete": "^2.0.12",
     "angular-ng-stepper": "^2.0.0",
     "bootstrap": "^5.0.0-beta3",
+    "chart.js": "^4.4.8",
     "edu-loan": "file:",
     "esbuild-wasm": "^0.24.2",
     "express": "^4.18.2",

@@ -16,6 +16,9 @@ import {CommunityComponent} from './community/community.component';
 import {FaqComponent} from './faq/faq.component';
 import {ProcessComponent} from './process/process.component';
 import {BlogsComponent} from './blogs/blogs.component';
+import {TaxsavingcalcpopupComponent} from './taxsavingcalcpopup/taxsavingcalcpopup.component';
+import { EmicalcpopupComponent } from './emicalcpopup/emicalcpopup.component';
+import{ LoanamountcalcpopupComponent} from './loanamountcalcpopup/loanamountcalcpopup.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -35,5 +38,9 @@ export const routes: Routes = [
     {path:'community', component:CommunityComponent},
     {path:'faq', component:FaqComponent},
     {path:'process', component:ProcessComponent},
-    {path:'blogs', component:BlogsComponent}
+    {path:'blogs', component:BlogsComponent},
+    {path:'taxcalc', component:TaxsavingcalcpopupComponent},
+    {path:'emicalc', component:EmicalcpopupComponent},
+    {path:'loanamountcalc', component:LoanamountcalcpopupComponent}
+
 ];

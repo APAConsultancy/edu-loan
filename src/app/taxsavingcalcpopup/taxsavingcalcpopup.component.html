@@ -1,0 +1,67 @@
+<section class="py-60">
+<div class="calculator-container">
+    <!-- Left Side: Input Section -->
+    <div class="calculator-input">
+      <h5>Tax Saving Calculator</h5>
+      <p>Fill in your assumed loan details below to know your estimated annual tax savings.</p>
+  
+      <!-- Education Loan Amount -->
+      <label for="loanAmount" style="margin-top: 30px;">Education Loan Amount</label>
+      <div class="slider-wrapper">
+        <div class="slider-header" style="float: right;">
+          <span></span> <!-- Empty space to balance layout -->
+          <input type="number" class="slider-textbox" [value]="loanAmount" (input)="updateLoanValue($event)">
+        </div>
+        <input type="range" id="loanAmount" min="100000" max="10000000" step="100000" 
+               [value]="loanAmount" (input)="updateLoanValue($event)">
+        <div class="range-labels">
+          <span>1 Lakh</span>
+          <span>1 Crore</span>
+        </div>
+      </div>
+  
+      <!-- Interest Rate -->
+      <label style="margin-top: 35px;" for="interestRate">Interest Rate</label>
+      <div class="slider-wrapper">
+        <div class="slider-header" style="float: right;">
+          <span></span> <!-- Empty space for alignment -->
+          <input type="number" class="slider-textbox" [value]="interestRate" (input)="updateRateValue($event)">
+        </div>
+        <input type="range" id="interestRate" min="7" max="15" step="0.5" 
+               [value]="interestRate" (input)="updateRateValue($event)">
+        <div class="range-labels">
+          <span>7%</span>
+          <span>15%</span>
+        </div>
+      </div>
+  
+      <!-- Tax Slab -->
+      <label>Tax Slab</label>
+      <div class="tax-buttons">
+        <button [class.active]="selectedTaxSlab === 5" (click)="selectTax(5)">5%</button>
+        <button [class.active]="selectedTaxSlab === 20" (click)="selectTax(20)">20%</button>
+        <button [class.active]="selectedTaxSlab === 30" (click)="selectTax(30)">30%</button>
+      </div>
+  
+      <button class="educate-btn sm d-flex" style="width: 100%; justify-content: center;" (click)="calculateTax()"><span class="educate-btn__curve"></span>CALCULATE SAVINGS</button>
+    </div>
+  
+    <!-- Right Side: Output Section -->
+    <div class="calculator-output">
+      <div class="output-header">
+        <h5>Tax Saved</h5>
+        <button class="reset-btn" (click)="resetCalculator()">🔄 RESET</button>
+      </div>
+  
+      <p>Interest Paid Per Year <span>{{ interestPaid | currency:'INR' }}</span></p>
+      <p>Effective Interest Paid <span>{{ (interestPaid * 0.8) | currency:'INR' }}</span></p>
+      <p>Effective Interest Rate <span>{{ effectiveRate }}%</span></p>
+  
+      <h5>Here’s what you’ll save</h5>
+      <h5>{{ taxSavings | currency:'INR' }} in taxes</h5>
+  
+      <a class="educate-btn sm d-flex" href="/loan-journey" style="width: 100%; justify-content: center;"><span class="educate-btn__curve"></span>APPLY FOR LOAN</a>
+    </div>
+  </div>
+  <!-- Calculator End --> 
+</section>

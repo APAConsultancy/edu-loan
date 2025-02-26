@@ -1,0 +1,78 @@
+.loan-calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top:30px;
+  }
+  
+  .calculator-left, .calculator-right {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .calculator-left label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .calculator-left input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .buttonCalc {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  /* .buttonCalc button:first-of-type {
+    background: #ddd;
+  }
+  
+  .buttonCalc button:last-of-type {
+    background: #0056b3;
+    color: white;
+  } */
+  
+  .calculator-right {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 30px;
+    background: #ddd;
+    border-radius: 15px;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background: #6c63ff;
+    border-radius: 15px;
+    transition: width 0.5s ease-in-out;
+  }
+  

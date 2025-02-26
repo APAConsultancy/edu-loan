@@ -27,8 +27,12 @@
                 <a routerLink="/loan-journey" routerLinkActive="active" class="educate-btn" style="text-decoration:none;color:white "><span class="educate-btn__curve"></span>Start Your Loan Journey Now</a>
                 <img src="assets/media/shapes/arrow.png" alt="" class="arrow">
               </div>
+              <div>
+              <p>Get a glimps of education loan journey</p>
+            </div>
               <div class="video-btn wow zoomIn" data-wow-delay="700ms" style="margin-top: 40px;">
-                <img src="assets/media/banners/hero-banner-1/round-text.png" alt="" class="text-vector">
+               
+                <img src="../../assets/media/banners/hero-banner-1/round-text new.png" alt="" class="text-vector">
                 <a href="https://www.youtube.com/watch?v=8nXX1WOuvrk" class="play-btn video-popup"><i
                     class="fas fa-play"></i></a>
               </div>
@@ -51,15 +55,21 @@
   <!-- Features Area Start -->
   <section class="py-60">
     <div class="container">
-      <div class="row row-gap-4">
+      <div class="section-title mb-48 justify-content-center">
+        <div class="heading ">
+          <h4 class="color-primary mb-8 justify-content-center"> Easy Education Loans For Global Learning</h4>
+        </div>
+        
+      </div>
+      <div class="row row-gap-4 justify-content-center">
         <div class="col-xl-3 col-sm-6 wow fadeInUp" data-wow-delay="200ms">
           <div class="feature__card mb-24 mb-xl-0">
             <div class="feature__icon">
-              <img src="assets/media/icons/Pricing.png" alt="">
+              <img src="../../assets/media/icons/simplicity.png" alt="">
             </div>
             <div class="feature__content">
-              <h5 class="mb-8">Education Loans</h5>
-              <p>Loans tailored for various levels of study, from undergraduate programs to specialized postgraduate courses.</p>
+              <h5 class="mb-8">Simplified Process</h5>
+              <p>With our dedicated support team, we aim to make the loan process seamless for you.</p>
               <img src="assets/media/shapes/feture-bg-shape.png" alt="" class="feature-bg-shape">
             </div>
           </div>
@@ -67,11 +77,11 @@
         <div class="col-xl-3 col-sm-6 wow fadeInUp" data-wow-delay="400ms">
           <div class="feature__card mb-24 mb-xl-0">
             <div class="feature__icon">
-              <img src="assets/media/icons/Quality.png" alt="">
+              <img src="../../assets/media/icons/discount.png" alt="">
             </div>
             <div class="feature__content">
-              <h5 class="mb-8">Flexible Loan Terms</h5>
-              <p>Offering competitive interest rates,loan amounts and post admission services to accommodate individual needs.</p>
+              <h5 class="mb-8">Low-Rate Options</h5>
+              <p>Find most competitive rates starting &#64; 8.99% * from our network of top Lender Institutions.</p>
               <img src="assets/media/shapes/feture-bg-shape.png" alt="" class="feature-bg-shape">
             </div>
           </div>
@@ -79,11 +89,25 @@
         <div class="col-xl-3 col-sm-6 wow fadeInUp" data-wow-delay="600ms">
           <div class="feature__card mb-24 mb-sm-0">
             <div class="feature__icon">
-              <img src="assets/media/icons/Check-mark.png" alt="">
+              <img src="../../assets/media/icons/collateral.png" alt="">
             </div>
             <div class="feature__content">
-              <h5 class="mb-8">Partnerships with Leading Institutions</h5>
-              <p>Collaborations with top global universities and banks to ensure students have access to a variety of funding options.</p>
+              <h5 class="mb-8">Non-Collateral Loan</h5>
+              <p>Apply for unsecured loans,upto 2 Cr. without worrying about collateral securities. </p>
+              <img src="assets/media/shapes/feture-bg-shape.png" alt="" class="feature-bg-shape">
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="row row-gap-4 justify-content-center">
+        <div class="col-xl-3 col-sm-6 wow fadeInUp" data-wow-delay="800ms">
+          <div class="feature__card">
+            <div class="feature__icon">
+              <img src="../../assets/media/icons/nohiddencost.png" alt="">
+            </div>
+            <div class="feature__content">
+              <h5 class="mb-8">No Hidden Costs</h5>
+              <p>At UniFund, we believe in transparently sharing every detail with our students without any charge.</p>
               <img src="assets/media/shapes/feture-bg-shape.png" alt="" class="feature-bg-shape">
             </div>
           </div>
@@ -94,8 +118,20 @@
               <img src="assets/media/icons/Support.png" alt="">
             </div>
             <div class="feature__content">
-              <h5 class="mb-8">Easy Application Process</h5>
-              <p>A user-friendly, digital platform that simplifies the loan process and helps students navigate through the necessary documentation.</p>
+              <h5 class="mb-8">Continuous Updates</h5>
+              <p>A dedicated support team provides you constant updates about the loan process. </p>
+              <img src="assets/media/shapes/feture-bg-shape.png" alt="" class="feature-bg-shape">
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 wow fadeInUp" data-wow-delay="800ms">
+          <div class="feature__card">
+            <div class="feature__icon">
+              <img src="../../assets/media/icons/pig.png" alt="">
+            </div>
+            <div class="feature__content">
+              <h5 class="mb-8">Tax Savings</h5>
+              <p> Under Section 80E, receive unlimited tax savings on the interest amounts paid upto 8 years.</p>
               <img src="assets/media/shapes/feture-bg-shape.png" alt="" class="feature-bg-shape">
             </div>
           </div>
@@ -150,17 +186,43 @@
     </div> -->
   </section>
   <!-- About Area End -->
-  <div class="calculator-container">
-    <!-- Left Side: Input Section -->
+<!-- Tools utility section starts -->
+  <section class="py-60" style="margin-bottom: 4%;" >
+    <div class="circle-container">
+      <div class="center-image">
+        <img src="../../assets/media/backgrounds/boy1.png" alt="Center Image">
+      </div>
+      <!-- <div *ngFor="let block of textBlocks; let i = index" 
+           class="text-block" 
+           [class.active]="activeIndex === i" 
+           (click)="setActive(i)"
+           [style.transform]="'rotate(' + (i * 72) + 'deg) translate(300px) rotate(-' + (i * 72) + 'deg)'">
+        <h3>{{ block.title }}</h3>
+        <p>{{ block.text }}</p>
+      </div> -->
+      <div *ngFor="let block of textBlocks; let i = index" 
+      class="text-block" 
+      [class.active]="activeIndex === i" 
+      (click)="goToTools(i)"
+      [style.transform]="'rotate(' + (i * 100) + 'deg) translate(240px) rotate(-' + (i * 100) + 'deg)'">
+   <h4>{{ block.title }}</h4>
+   <p style="font-style: italic;">{{ block.text }}</p>
+ </div>
+    </div>
+
+  </section>
+  <!-- Tools utility section End -->
+  <!-- <div class="calculator-container">
+    
     <div class="calculator-input">
       <h5>Tax Saving Calculator</h5>
       <p>Fill in your assumed loan details below to know your estimated annual tax savings.</p>
   
-      <!-- Education Loan Amount -->
+      
       <label for="loanAmount" style="margin-top: 30px;">Education Loan Amount</label>
       <div class="slider-wrapper">
         <div class="slider-header" style="float: right;">
-          <span></span> <!-- Empty space to balance layout -->
+          <span></span> 
           <input type="number" class="slider-textbox" [value]="loanAmount" (input)="updateLoanValue($event)">
         </div>
         <input type="range" id="loanAmount" min="100000" max="10000000" step="100000" 
@@ -171,11 +233,11 @@
         </div>
       </div>
   
-      <!-- Interest Rate -->
+      
       <label style="margin-top: 35px;" for="interestRate">Interest Rate</label>
       <div class="slider-wrapper">
         <div class="slider-header" style="float: right;">
-          <span></span> <!-- Empty space for alignment -->
+          <span></span> 
           <input type="number" class="slider-textbox" [value]="interestRate" (input)="updateRateValue($event)">
         </div>
         <input type="range" id="interestRate" min="7" max="15" step="0.5" 
@@ -186,7 +248,7 @@
         </div>
       </div>
   
-      <!-- Tax Slab -->
+      
       <label>Tax Slab</label>
       <div class="tax-buttons">
         <button [class.active]="selectedTaxSlab === 5" (click)="selectTax(5)">5%</button>
@@ -197,7 +259,7 @@
       <button class="calculate-btn" (click)="calculateTax()">CALCULATE SAVINGS</button>
     </div>
   
-    <!-- Right Side: Output Section -->
+   
     <div class="calculator-output">
       <div class="output-header">
         <h5>Tax Saved</h5>
@@ -213,7 +275,7 @@
   
       <button class="apply-btn">APPLY FOR LOAN</button>
     </div>
-  </div>
+  </div> -->
   <!-- Calculator End -->  
 
   <!-- Brands Area Start -->
