@@ -21,8 +21,8 @@ import { EmicalcpopupComponent } from './emicalcpopup/emicalcpopup.component';
 import{ LoanamountcalcpopupComponent} from './loanamountcalcpopup/loanamountcalcpopup.component';
 
 export const routes: Routes = [
-    //{ path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: '', component: HomeComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    //{ path: '', component: HomeComponent },
     { path: 'home', component: HomeComponent },
     {path: 'loan-journey', component: LoanJourneyComponent},
     {path: 'step1', component: Step1Component},
