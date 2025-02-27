@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, NgZone } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet,Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,7 @@ import{TaxsavingcalcpopupComponent} from '../taxsavingcalcpopup/taxsavingcalcpop
 })
 export class HomeComponent implements AfterViewInit {
 
-  constructor(private dialog: MatDialog, private router:Router) { }
+  constructor(private dialog: MatDialog, private router:Router, private ngZone: NgZone) { }
 
   ngAfterViewInit(): void {
     // Initialize both slick sliders and countdown timer
@@ -28,7 +28,7 @@ export class HomeComponent implements AfterViewInit {
 
       if ($(".brands-slider").length) {
         $(".brands-slider").slick({
-          slidesToShow: 6,
+          slidesToShow: 12,
           arrows: false,
           dots: false,
           infinite: true,
@@ -247,25 +247,39 @@ export class HomeComponent implements AfterViewInit {
 
   activeIndex = 0;
 
-  ngOnInit() {
-    //this.autoActivateBlocks();
-  }
-
-  autoActivateBlocks() {
-    setInterval(() => {
-      this.activeIndex = (this.activeIndex + 1) % this.textBlocks.length;
-    }, 2000);
-  }
-
-  setActive(index: number) {
-    this.activeIndex = index;
-  }
-  openPopup(index: number) {
-this.dialog.open(TaxsavingcalcpopupComponent, {
-      width: '900px', // Adjust size
-      height: '80%' // Adjust size
+  // ngOnInit() {
+  //   this.autoActivateBlocks();
+  // }
+  intervalId: any;
+  ngOnInit(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.intervalId = setInterval(() => {
+        this.ngZone.run(() => {
+          this.activeIndex = (this.activeIndex + 1) % this.textBlocks.length;
+        });
+      }, 2000); // Switch text every 2 seconds
     });
   }
+  ngOnDestroy(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId); // Clean up the interval
+    }
+  }
+  // autoActivateBlocks() {
+  //   setInterval(() => {
+  //     this.activeIndex = (this.activeIndex + 1) % this.textBlocks.length;
+  //   }, 2000);
+  // }
+
+  // setActive(index: number) {
+  //   this.activeIndex = index;
+  // }
+//   openPopup(index: number) {
+// this.dialog.open(TaxsavingcalcpopupComponent, {
+//       width: '900px', // Adjust size
+//       height: '80%' // Adjust size
+//     });
+//   }
 
   goToTools(index: number): void {
     if(index === 0) {

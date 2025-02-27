@@ -109,13 +109,13 @@ export class Step1Component  implements OnInit {
     this.correctOtp = Math.floor(10000 + Math.random() * 90000).toString();
     const textInput = `Your OTP for Account Login is ${this.correctOtp}`; 
     console.log(this.correctOtp);
-  //   this.loanJourneyService.sendMessage(mobileNumber, textInput).subscribe(
-  //     (response) => {
-  //       console.log(response);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  // });
+    this.loanJourneyService.sendMessage(mobileNumber, textInput).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+  });
   }
 
   savePreDetails(mobileNumber: any, status: any, hearAboutUs: any): void { 
