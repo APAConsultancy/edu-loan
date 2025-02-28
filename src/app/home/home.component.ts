@@ -170,7 +170,7 @@ export class HomeComponent implements AfterViewInit {
     const $ = (window as any).$;
     setTimeout(() => {
       if ($(".countdown").length) {
-        $(".countdown").countdown("2025/12/01", (event: any) => {
+        $(".countdown").countdown("2025/08/01", (event: any) => {
           const past = event.offset.seconds + 3;
           let remainHtml = "";
           for (let i = past; i > event.offset.seconds; i--) {
