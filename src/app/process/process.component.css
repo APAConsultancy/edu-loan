@@ -2,7 +2,7 @@
  .background-section {
     position: relative;
     width: 100%;
-    height: 1200px; 
+    height: 950px; 
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,9 +13,10 @@
     /* Background Image */
   .image-container {
     position: absolute;
-    margin-left: 20%;
-    width: 50%;
-    height: 70%;
+    margin-left: 34%;
+    margin-top: -25%;
+    width: 30%;
+    height: 50%;
     background: url('../../assets/media/backgrounds/girl.png') no-repeat center center/cover;
   }
   /* Text Container - Positioned to the Left */
@@ -34,11 +35,13 @@
   .text-container.left {
     align-items: flex-start; /* Align left */
     transform: translateY(-100px);
+    padding-left: 10%;
   }
   
   .text-container.right {
     align-items: flex-end; /* Align right */
     transform: translateY(-100px); /* Moves up */
+    padding-right: 10%;
   }
   /* Individual Text Box - Default State */
   .text-box {
@@ -52,7 +55,7 @@
     /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); */
     opacity: 0.5; /* Make all text visible but faded */
     transition: all 0.5s ease-in-out;
-    width: 80%;
+    width: 75%;
   }
     
   
@@ -68,14 +71,14 @@
     
   /* Heading Style */
   .text-box h3 {
-    font-size: 22px;
+    font-size: 15px;
     font-weight: bold;
     margin-bottom: 5px;
   }
   
   /* Normal Text Style */
   .text-box p {
-    font-size: 16px;
+    font-size: 10px;
     font-weight: normal;
     margin: 0;
   }
@@ -143,7 +146,7 @@
     /* Adjust image */
     .image-container {
       height: 250px;
-      top: 80px; /* Moves image further down */
+      top: 250px; /* Moves image further down */
     }
   
     /* Reduce spacing and adjust width */

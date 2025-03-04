@@ -19,6 +19,12 @@ import {BlogsComponent} from './blogs/blogs.component';
 import {TaxsavingcalcpopupComponent} from './taxsavingcalcpopup/taxsavingcalcpopup.component';
 import { EmicalcpopupComponent } from './emicalcpopup/emicalcpopup.component';
 import{ LoanamountcalcpopupComponent} from './loanamountcalcpopup/loanamountcalcpopup.component';
+import { Blogdetails1Component } from './blogDetails/blogdetails-1/blogdetails-1.component';
+import { Blogdetails2Component } from './blogDetails/blogdetails-2/blogdetails-2.component';
+import { Blogdetails3Component } from './blogDetails/blogdetails-3/blogdetails-3.component';
+import { Blogdetails4Component } from './blogDetails/blogdetails-4/blogdetails-4.component';
+import { Blogdetails5Component } from './blogDetails/blogdetails-5/blogdetails-5.component';
+import { Blogdetails6Component } from './blogDetails/blogdetails-6/blogdetails-6.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -42,6 +48,11 @@ export const routes: Routes = [
     {path:'blogs', component:BlogsComponent},
     {path:'taxcalc', component:TaxsavingcalcpopupComponent},
     {path:'emicalc', component:EmicalcpopupComponent},
-    {path:'loanamountcalc', component:LoanamountcalcpopupComponent}
+    {path:'blogdetails1', component:Blogdetails1Component},
+    {path:'blogdetails2', component:Blogdetails2Component},
+    {path:'blogdetails3', component:Blogdetails3Component},
+    {path:'blogdetails4', component:Blogdetails4Component},
+    {path:'blogdetails5', component:Blogdetails5Component},
+    {path:'blogdetails6', component:Blogdetails6Component}
 
 ];

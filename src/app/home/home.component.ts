@@ -192,7 +192,7 @@ export class HomeComponent implements AfterViewInit {
       const $ = (window as any).$;
       setTimeout(() => {
         if ($(".countdown").length) {
-          $(".countdown").countdown("2025/12/01", (event: any) => {
+          $(".countdown").countdown("2025/08/01", (event: any) => {
             const past = event.offset.seconds + 3;
             let remainHtml = "";
             for (let i = past; i > event.offset.seconds; i--) {
@@ -222,42 +222,7 @@ export class HomeComponent implements AfterViewInit {
     }
   }
 
-  loanAmount: number = 100000;
-  interestRate: number = 7;
-  interestPaid: number = 0;
-  effectiveRate: number = 0;
-  taxSavings: number = 0;
-  selectedTaxSlab: number = 5;
-
-  updateLoanValue(event: Event) {
-    const target = event.target as HTMLInputElement;
-    this.loanAmount = Math.max(100000, Math.min(10000000, parseInt(target.value || '100000')));
-  }
-
-  updateRateValue(event: Event) {
-    const target = event.target as HTMLInputElement;
-    this.interestRate = Math.max(7, Math.min(15, parseFloat(target.value || '7')));
-  }
-
-  selectTax(tax: number) {
-    this.selectedTaxSlab = tax;
-  }
-
-  calculateTax() {
-    this.interestPaid = (this.loanAmount * this.interestRate) / 100;
-    this.effectiveRate = this.interestRate * 0.8; // Example formula
-    this.taxSavings = this.interestPaid * (this.selectedTaxSlab / 100);
-  }
-
-  resetCalculator() {
-    this.loanAmount = 100000;
-    this.interestRate = 7;
-    this.interestPaid = 0;
-    this.effectiveRate = 0;
-    this.taxSavings = 0;
-    this.selectedTaxSlab = 5;
-  }
-
+  
   textBlocks = [
     { title: 'Loan Eligibility Checker', text: 'Find Out if You’re Loan-Ready in a Few Clicks!' },
     { title: 'EMI Calculator', text: 'No more guessing, No more stress,    Plan your finances and stay on track' },
