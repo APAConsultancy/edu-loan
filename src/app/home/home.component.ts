@@ -6,13 +6,14 @@ import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { JoincommunityComponent } from '../joincommunity/joincommunity.component';
 import { TaxsavingcalcpopupComponent } from '../taxsavingcalcpopup/taxsavingcalcpopup.component';
+import { ProcessComponent } from '../process/process.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   host: { ngSkipHydration: 'true' },
-  imports: [RouterLink, RouterLinkActive, FormsModule, CommonModule]
+  imports: [RouterLink, RouterLinkActive, FormsModule, CommonModule,ProcessComponent]
 })
 export class HomeComponent implements AfterViewInit {
 
