@@ -26,13 +26,15 @@ export class HomeComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      // Initialize both slick sliders and countdown timer
-      this.ngZone.runOutsideAngular(() => {
-        this.initializeSlick();
-        this.initializeCountdown();
-      });
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   // Initialize both slick sliders and countdown timer
+    //   this.ngZone.runOutsideAngular(() => {
+    //     this.initializeSlick();
+    //     this.initializeCountdown();
+    //   });
+    // }
+    this.initializeSlick();
+    this.initializeCountdown();
   }
 
   initializeSlick() {
@@ -236,13 +238,14 @@ export class HomeComponent implements AfterViewInit {
 
   intervalId: any;
   ngOnInit(): void {
-    this.ngZone.runOutsideAngular(() => {
-      this.intervalId = setInterval(() => {
-        this.ngZone.run(() => {
-          this.activeIndex = (this.activeIndex + 1) % this.textBlocks.length;
-        });
-      }, 2000); // Switch text every 2 seconds
-    });
+    this.activeIndex = (this.activeIndex + 1) % this.textBlocks.length;
+    // this.ngZone.runOutsideAngular(() => {
+    //   this.intervalId = setInterval(() => {
+    //     this.ngZone.run(() => {
+    //       this.activeIndex = (this.activeIndex + 1) % this.textBlocks.length;
+    //     });
+    //   }, 2000); // Switch text every 2 seconds
+    // });
   }
   ngOnDestroy(): void {
     if (this.intervalId) {

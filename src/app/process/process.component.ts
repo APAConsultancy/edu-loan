@@ -31,14 +31,14 @@ export class ProcessComponent implements OnInit, OnDestroy {
   constructor(private ngZone: NgZone,private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.ngZone.runOutsideAngular(() => {
+    // this.ngZone.runOutsideAngular(() => {
       this.intervalId = setInterval(() => {
         this.ngZone.run(() => {
           this.activeIndex = (this.activeIndex + 1) % 8;
           this.cd.detectChanges(); 
         });
       }, 2000); // Switch text every 2 seconds
-    });
+    // });
   }
 
   ngOnDestroy(): void {

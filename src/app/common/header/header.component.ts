@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent implements AfterViewInit {
   activeSubMenu: string = '';
+  isResourcesMenuOpen = false;
 
   toggleSubMenu(subMenu: string) {
     this.activeSubMenu = this.activeSubMenu === subMenu ? '' : subMenu;
@@ -38,5 +39,9 @@ export class HeaderComponent implements AfterViewInit {
           // });
         }
     }
+  }
+
+  toggleResourcesMenu() {
+    this.isResourcesMenuOpen = !this.isResourcesMenuOpen;
   }
 }
