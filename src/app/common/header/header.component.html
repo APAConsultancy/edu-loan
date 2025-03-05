@@ -89,7 +89,7 @@
   </div>
 </div> -->
 <!-- Mobile Menu End -->
-<!-- <div class="mobile-nav__wrapper">
+<div class="mobile-nav__wrapper">
   <div class="mobile-nav__overlay mobile-nav__toggler"></div>
   <div class="mobile-nav__content">
     <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times" (click)="searchToggle()"></i></span>
@@ -98,12 +98,45 @@
     </div>
     <div class="mobile-nav__container">
               <ul class="main-menu__list">
-                <li class="dropdown current">
-                  <a href="javascript:void(0);" class="active">Home<button aria-label="dropdown toggler" fdprocessedid="o36d0m"><i class="fa fa-angle-down"></i></button></a>
-                  <ul>
-                    <li class="current"><a href="index.html" class="active">Home 1</a></li>
-                    <li><a href="index-2.html">Home 2</a></li>
+                <!-- Our Chages Start -->
+                <li class="dropdown">
+                  <a routerLink="/home" routerLinkActive="active">Home</a>
+                </li>
+                <li class="dropdown">
+                  <a routerLink="/about-us" routerLinkActive="active">About Us</a>
+                </li>
+                <li class="dropdown" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: false }">
+                  <a href="javascript:void(0);">Resources
+                    <button (click)="toggleResourcesMenu()" fdprocessedid="3osyvg">
+                      <i class="fa" [ngClass]="{'fa-angle-down': !isResourcesMenuOpen, 'fa-angle-up': isResourcesMenuOpen}"></i>
+                    </button>
+                  </a>
+                  <!-- *ngIf="isResourcesMenuOpen" -->
+                  <ul class="sub-menu" *ngIf="isResourcesMenuOpen">
+                    <li class="dropdown">
+                      <a routerLink="/blogs">Blogs</a>
+                    </li>
+                    <li class="dropdown">
+                      <a routerLink="/faq">FAQs</a>
+                    </li>
+                    <li>
+                      <a routerLink="/process">Process</a>
+                    </li>
                   </ul>
+                </li>
+                <li class="dropdown">
+                  <a routerLink="/community" routerLinkActive="active">Community</a>
+                </li>
+                <li>
+                  <a routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
+                </li> 
+
+                <!-- Our Chages End -->
+
+
+                <!-- <li class="dropdown current">
+                  <a href="javascript:void(0);" class="active">Home<button aria-label="dropdown toggler" fdprocessedid="o36d0m"><i class="fa fa-angle-down"></i></button></a>
+                  
                 </li>
                 <li class="dropdown">
                   <a href="javascript:void(0);">Course<button aria-label="dropdown toggler" fdprocessedid="3osyvg"><i class="fa fa-angle-down"></i></button></a>
@@ -147,7 +180,7 @@
                     <li><a href="register.html">Register</a></li>
                   </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li> -->
               </ul>
             </div>
     <ul class="mobile-nav__contact list-unstyled">
@@ -167,7 +200,7 @@
       <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
-</div> -->
+</div>
 <div class="search-popup">
   <div class="search-popup__overlay search-toggler"></div>
   <div class="search-popup__content">
