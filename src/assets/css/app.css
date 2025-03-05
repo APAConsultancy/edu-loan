@@ -2688,7 +2688,7 @@ input[type=search]::-webkit-search-results-decoration {
   list-style-type: none;
 }
 .mobile-nav__wrapper .mobile-nav__content .main-menu__list ul {
-  display: none;
+  /* display: none; */
   border-top: 1px solid RGBA(255, 255, 255, 0.1);
 }
 .mobile-nav__wrapper .mobile-nav__content .main-menu__list ul li > a {
