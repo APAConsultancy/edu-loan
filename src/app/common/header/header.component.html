@@ -109,8 +109,12 @@
                   </a>
                 </li>
                 <li class="dropdown">
-                  <a href="javascript:void(0);">Resources<button aria-label="dropdown toggler" fdprocessedid="70zo9s"><i class="fa fa-angle-down"></i></button></a>
-                  <ul class="sub-menu">
+                  <a href="javascript:void(0);">Resources
+                    <button (click)="toggleResourcesMenu()" fdprocessedid="3osyvg">
+                      <i class="fa" [ngClass]="{'fa-angle-down': !isResourcesMenuOpen, 'fa-angle-left': isResourcesMenuOpen}"></i>
+                    </button>
+                  </a>
+                  <ul class="sub-menu" *ngIf="isResourcesMenuOpen">
                     <li class="dropdown">
                       <a routerLink="/blogs">Blogs</a>
                     </li>
