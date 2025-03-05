@@ -24,7 +24,7 @@ export class HeaderComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     // Call searchToggle once the view is initialized
-    this.searchToggle();
+    // this.searchToggle();
   }
 
 
