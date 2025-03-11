@@ -4,20 +4,31 @@
       <!-- <button class="educate-btn sm d-flex ml-auto" (click)="nextStep()">
         <span class="educate-btn__curve"></span>Next
       </button> -->
-      <p class="fancy-text">If your file will qualify for login and sanction you will get rewarded.</p>
+      <!-- <p class="fancy-text">Upon successful login & sanction of your file, enjoy free 
+        <span style="font-weight: bold;font-size: 22px;">  Rewards</span> and 
+        <span style="font-weight: bold;font-size: 22px;">Perks</span>.
+       
+      </p> -->
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-10 text-center">
+    <div class="col-6 text-center">
+      <img src="../../assets/media/backgrounds/step1bg.png" >
+    </div>
+    <div class="col-6 text-start" style="padding-top:8%;">
+      <p class="fancy-text" style="font-size: 22px;">Upon successful login & sanction of your file, 
+        <br>enjoy free <span style="font-weight: bold;font-size: 26px;">  Rewards</span> and 
+        <span style="font-weight: bold;font-size: 26px;">Perks</span>.
+      </p>
       <!-- <p class="fancy-text">If your file will qualify for login and sanction you will get rewarded.</p> -->
       <form [formGroup]="stepOneForm"
             (ngSubmit)="stepOneSubmit()"
             autocomplete="off"
             novalidate
             #formRef="ngForm"
-            class="d-flex flex-column align-items-center">
+            class="d-flex flex-column align-items-center" style="padding-top:2%;">
         
-        <div class="col-12 col-sm-4 col-md-3">
+        <div class="col-12 col-sm-4 col-md-">
           
           <div class="mb-3 d-flex flex-column align-items-center">
             <input type="text" 
@@ -54,7 +65,7 @@
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" formControlName="source" name="source" value="paper_media" id="paper" style="border-radius: 50%;">
-              <label class="form-check-label" for="paper">Paper Media</label>
+              <label class="form-check-label" for="paper">Newspapers/Magazines</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" formControlName="source" name="source" value="friends" id="friends" style="border-radius: 50%;">
