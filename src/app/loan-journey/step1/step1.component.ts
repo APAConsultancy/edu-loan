@@ -108,16 +108,16 @@ export class Step1Component  implements OnInit {
     const mobileNumber = '91' + this.stepOneForm.get('mobileno')?.value;
     this.correctOtp = Math.floor(10000 + Math.random() * 90000).toString();
     //const textInput = `Your OTP for Account Login is ${this.correctOtp}`; 
-    console.log(this.correctOtp);
+    //console.log(this.correctOtp);
     const textInput = `Your OTP for account login is ${this.correctOtp}, please do not share it with anyone. SmartTech Messaging.`;
     const encodedText = encodeURIComponent(textInput);
-  //   this.loanJourneyService.sendMessage(mobileNumber, encodedText).subscribe(
-  //     (response) => {
-  //       console.log(response);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  // });
+    this.loanJourneyService.sendMessage(mobileNumber, encodedText).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+  });
   }
 
   savePreDetails(mobileNumber: any, status: any, hearAboutUs: any): void { 

@@ -6,7 +6,7 @@ import { SessionService } from '../../common/services/session.service';
 import { NgModule } from '@angular/core';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 import { LoanJourneyService } from '../loan-journey.service';
-
+import { TransitionService } from '../../services/transition.service';
 @Component({
   selector: 'app-step2',
   imports: [ReactiveFormsModule, FormsModule, CommonModule, ProgressBarComponent],
@@ -17,6 +17,8 @@ import { LoanJourneyService } from '../loan-journey.service';
 export class Step2Component  implements OnInit {
   public stepOneForm: FormGroup;
   currentStep: number = 1;
+  isTransitioning = false;
+  
   countries = [
     { name: 'UK', image: 'assets/media/images/uk.png' },
     { name: 'US', image: 'assets/media/images/us.png' },
@@ -37,11 +39,15 @@ export class Step2Component  implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private sessionService: SessionService,
-    private loanJourneyService: LoanJourneyService
+    private loanJourneyService: LoanJourneyService,
+    private transitionService: TransitionService
   ) {
     this.stepOneForm = this.fb.group({
       mobileno: this.fb.control('', Validators.required)
     });
+    this.transitionService.isTransitioning$.subscribe(
+      (status) => (this.isTransitioning = status)
+    );
   }
 
   ngOnInit(): void {
@@ -74,7 +80,10 @@ export class Step2Component  implements OnInit {
   }
 
   nextStep() {
+    this.transitionService.startTransition();
+    setTimeout(() => {
     this.router.navigate(['/step3']);
+  }, 2000);
   }
 
   previousStep() {
@@ -82,7 +91,10 @@ export class Step2Component  implements OnInit {
   }
 
   goToStep3(): void {
-      this.router.navigate(['/step3']);
+    this.transitionService.startTransition();
+    setTimeout(() => {
+    this.router.navigate(['/step3']);
+  }, 2000);
   }
 
   getUniversityDetails(countryName: string): void {

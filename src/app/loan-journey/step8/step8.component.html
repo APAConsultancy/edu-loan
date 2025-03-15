@@ -1,3 +1,7 @@
+<div *ngIf="isTransitioning" class="transition-screen">
+  <img src="assets\media\backgrounds\transitionimage.png" alt="Loading..." class="transition-image"/>
+  <p class="transition-text">Yippee, let's turn your passport into your new best friend!</p>
+</div>
 <div class="container main">
   <app-progress-bar [currentStep]="8"></app-progress-bar>
   <div class="mt-3 d-flex justify-content-between align-items-center">
@@ -6,7 +10,7 @@
           class="educate-btn__curve"></span>Previous</button>
     </div>
     <div class="flex-grow-1">
-      <h5>How Should Our Loan Experts Contact you?</h5>
+      <h4>Contact Details</h4>
     </div>
     <div [ngClass]="{'flex-grow-0': selectedName && selectedEmail && selectedMobile && selectedPinCode && selectedCityName && selectedFamilyIncome && selectedGender}">
       <button *ngIf="selectedName && selectedEmail && selectedMobile && selectedPinCode && selectedCityName && selectedFamilyIncome && selectedGender" class="educate-btn sm d-flex" (click)="nextStep()"><span
@@ -59,7 +63,7 @@
             <div class="">
               <input class="radio-checkbox" type="checkbox" formControlName="whatsappCheckbox" id="whatsappCheckbox">
               <label class="form-check-label" for="whatsappCheckbox">
-                <strong>If this is not the Whatsapp number, please click here</strong>
+                <strong>If this number is not on Whatsapp, please click here</strong>
               </label>
             </div>
           </div>
@@ -128,7 +132,7 @@
 
         <!-- Co Applicant's Mobile Number -->
         <div class="form-group row align-items-center ">
-          <label class="col-sm-4 col-form-label">Co Applicant's Mobile Number</label>
+          <label class="col-sm-4 col-form-label">Co-Applicant's Mobile Number</label>
           <div class="col-sm-8">
             <input type="text" class="form-control" formControlName="coApplicantMobile">
             <!-- <div *ngIf="submitted && contactForm?.get('coApplicantMobile')?.invalid" class="text-danger">

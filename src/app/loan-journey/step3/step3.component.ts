@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
-
+import { TransitionService } from '../../services/transition.service';
 
 @Component({
   selector: 'app-step3',
@@ -14,7 +14,7 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 })
 export class Step3Component implements OnInit {
   @ViewChildren('scoreInput') scoreInputs: QueryList<ElementRef> | undefined;
-  
+  isTransitioning = false;
   testScores = [
     { name: 'GRE', selected: 'Not Applicable', score: '', touched: false },
     { name: 'GMAT', selected: 'Not Applicable', score: '', touched: false },
@@ -25,8 +25,13 @@ export class Step3Component implements OnInit {
   ];
 
   constructor(private router: Router,
-    private sessionService: SessionService
-  ) { }
+    private sessionService: SessionService,
+    private transitionService: TransitionService
+  ) { 
+    this.transitionService.isTransitioning$.subscribe(
+      (status) => (this.isTransitioning = status)
+    );
+  }
   
   ngOnInit(): void {
     const testScoresString = this.sessionService.getItem('testScores');
@@ -39,15 +44,19 @@ export class Step3Component implements OnInit {
       test.score = '';
       test.touched = false;
     });
+    this.nextStep();
   }
 
   nextStep() {
+    this.transitionService.startTransition();
+    setTimeout(() => {
     this.sessionService.setItem('testScores', JSON.stringify(this.testScores));
     if (this.isFormValid()){
       this.router.navigate(['/step4']);
     } else {
       this.markAllAsTouched();
     }
+  }, 2000);
   }
 
   isFormValid(): boolean {

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import { CommonModule } from '@angular/common';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
+import { TransitionService } from '../../services/transition.service';
 
 @Component({
   selector: 'app-step4',
@@ -15,7 +16,7 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 export class Step4Component {
 
   selectedAdmissionStatus='';
-
+  isTransitioning = false;
   admissionStatuses = [
     'Confirmed',
     'Applied',
@@ -25,8 +26,13 @@ export class Step4Component {
     constructor(
       private fb: FormBuilder,
       private router: Router,
-      private sessionService: SessionService
-    ) {  }
+      private sessionService: SessionService,
+      private transitionService: TransitionService
+    ) { 
+      this.transitionService.isTransitioning$.subscribe(
+      (status) => (this.isTransitioning = status)
+    ); 
+  }
   
     ngOnInit(): void {
       if (this.sessionService) {
@@ -38,7 +44,10 @@ export class Step4Component {
     }
 
     nextStep() {
+      this.transitionService.startTransition();
+    setTimeout(() => {
       this.router.navigate(['/step5']);
+    }, 2000);
     }
   
     previousStep() {
@@ -46,9 +55,12 @@ export class Step4Component {
     }
 
     selectStatus(status: any) {
+      this.transitionService.startTransition();
+      setTimeout(() => {
       this.selectedAdmissionStatus = status;
       this.sessionService.setItem('selectedAdmissionStatus', this.selectedAdmissionStatus);
       this.router.navigate(['/step5']);
+    }, 2000);
     }
   
 }

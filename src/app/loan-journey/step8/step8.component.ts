@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import { LoanJourneyService } from '../loan-journey.service';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
-
+import { TransitionService } from '../../services/transition.service';
 @Component({
   selector: 'app-step8',
   templateUrl: './step8.component.html',
@@ -31,11 +31,12 @@ export class Step8Component implements OnInit {
   selectedFamilyIncome: string = '';
   selectedGender: string = '';
   selectedCoApplicantMobile: string = '';
-  
+  isTransitioning = false;
 
   constructor(private fb: FormBuilder, private router: Router,
     private sessionService: SessionService,
-    private loanJourneyService: LoanJourneyService
+    private loanJourneyService: LoanJourneyService,
+    private transitionService: TransitionService
   ) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
@@ -49,6 +50,9 @@ export class Step8Component implements OnInit {
       gender: ['', Validators.required],
       coApplicantMobile: ['']
     });
+    this.transitionService.isTransitioning$.subscribe(
+      (status) => (this.isTransitioning = status)
+    ); 
   }
 
   ngOnInit(): void {
@@ -143,14 +147,18 @@ export class Step8Component implements OnInit {
       this.selectedGender = this.contactForm.value.gender ? this.contactForm.value?.gender : '';
       this.selectedCoApplicantMobile = this.contactForm.value.coApplicantMobile ? this.contactForm.value?.coApplicantMobile : '';
       this.submitCustomerDetails();
-      this.router.navigate(['/step9']);
+      //this.router.navigate(['/step9']);
+      this.nextStep();
     } else {
       this.submitted = true;
     }
   }
 
   nextStep() {
+    this.transitionService.startTransition();
+    setTimeout(() => {
     this.router.navigate(['/step9']);
+  }, 2000);
   }
 
   previousStep() {

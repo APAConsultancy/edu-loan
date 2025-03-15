@@ -1,3 +1,9 @@
+<div *ngIf="isTransitioning" class="transition-screen">
+  <img src="assets\media\backgrounds\transitionimage6.png" alt="Loading..." class="transition-image"/>
+  <p class="transition-text">
+    Just a last click and treasure chest of rewards is wihtin reach!
+  </p>
+</div>
 <div class="container main">
   <app-progress-bar [currentStep]="7"></app-progress-bar>
   <div class="mt-3 d-flex justify-content-between align-items-center">
@@ -7,7 +13,7 @@
       </button>
     </div>
     <div class="flex-grow-1">
-      <h3><strong>Course Details</strong></h3>
+      <h4>Course Details</h4>
     </div>
     <div [ngClass]="{
     'flex-grow-0': selectedIntake && selectedStartMonth && selectedLoanAmount && selectedLoanType  && selectedStartYear}">
@@ -21,7 +27,7 @@
     <div class="col-md-6">
       <form [formGroup]="questionnaireForm" (ngSubmit)="onSubmit()" style="max-width: 600px;">
         <!-- Question 1 -->
-        <div class="form-group row align-items-center">
+        <div class="form-group row align-items-center" style="padding-bottom: 12px;">
           <label class="col-sm-4 col-form-label text-sm-right">What's your intake? <span
               class="text-danger">*</span></label>
           <div class="col-sm-8 d-flex justify-content-start">
@@ -54,12 +60,12 @@
           </div>
         </div> -->
 
-        <div class="form-group row align-items-center">
-          <label class="col-sm-4 col-form-label text-sm-right">When are you starting your program? <span
+        <div class="form-group row align-items-center" style="padding-bottom: 12px;">
+          <label class="col-sm-4 col-form-label text-sm-right">Starting Year <span
               class="text-danger">*</span></label>
           <div class="col-sm-8 d-flex justify-content-start">
             <select class="form-control" formControlName="startYear">
-              <option value="" disabled selected style="color: gray;">Select a Year</option>
+              <option value="" disabled selected style="color: gray;">Select Starting Year</option>
               <option *ngFor="let year of years" [value]="year">{{ year }}</option>
             </select>
           </div>
@@ -70,12 +76,12 @@
         </div>
 
         <!-- Question 5 -->
-        <div class="form-group row align-items-center">
-          <label class="col-sm-4 col-form-label text-sm-right">Course Start Month <span
+        <div class="form-group row align-items-center" style="padding-bottom: 12px;">
+          <label class="col-sm-4 col-form-label text-sm-right">Starting Month <span
               class="text-danger">*</span></label>
           <div class="col-sm-8 d-flex justify-content-start">
             <select class="form-control" formControlName="startMonth">
-              <option value="" disabled selected>Select a course start month</option>
+              <option value="" disabled selected>Select Starting Month</option>
               <option *ngFor="let sm of courseStartMonth" [value]="sm">{{ sm }}</option>
             </select>
           </div>
@@ -86,12 +92,12 @@
         </div>
 
         <!-- Question 3 -->
-        <div class="form-group row align-items-center">
-          <label class="col-sm-4 col-form-label text-sm-right">What's the loan amount you are looking for? <span
+        <div class="form-group row align-items-center" style="padding-bottom: 12px;">
+          <label class="col-sm-4 col-form-label text-sm-right">Loan Amount <span
               class="text-danger">*</span></label>
           <div class="col-sm-8 d-flex justify-content-start">
             <select class="form-control" formControlName="loanAmount">
-              <option value="" disabled selected>Select a loan amount</option>
+              <option value="" disabled selected>Select Loan Amount</option>
               <option *ngFor="let amount of loanAmounts" [value]="amount">{{ amount }}</option>
             </select>
           </div>

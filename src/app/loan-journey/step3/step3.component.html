@@ -1,3 +1,7 @@
+<div *ngIf="isTransitioning" class="transition-screen">
+  <img src="..\..\..\assets\media\backgrounds\transitionimage2.png" alt="Loading..." class="transition-image"/>
+  <p class="transition-text">Another step closer to hopping on a plane & making your study abroad dreams come true!</p>
+</div>
 <div class="container main">
   <app-progress-bar [currentStep]="3"></app-progress-bar>
   <div class="mt-3 d-flex justify-content-between" style="padding-bottom: 15px;">

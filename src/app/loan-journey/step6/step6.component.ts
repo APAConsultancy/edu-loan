@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
-
+import { TransitionService } from '../../services/transition.service';
 @Component({
   selector: 'app-step6',
   imports: [ReactiveFormsModule, CommonModule, ProgressBarComponent],
@@ -12,7 +12,7 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
   styleUrl: './step6.component.css'
 })
 export class Step6Component implements OnInit {
-
+  isTransitioning = false;
   programForm: FormGroup;
   degrees: string[] = [
     'UG',
@@ -39,13 +39,17 @@ export class Step6Component implements OnInit {
 
   constructor(private router: Router,
     private fb: FormBuilder,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private transitionService: TransitionService
   ) {
     this.programForm = this.fb.group({
       degree: ['', Validators.required],
       programName: ['', Validators.required],
       courseDuration: ['', Validators.required]
 });
+this.transitionService.isTransitioning$.subscribe(
+  (status) => (this.isTransitioning = status)
+); 
    }
 
   ngOnInit() {
@@ -81,8 +85,11 @@ export class Step6Component implements OnInit {
   }
 
   nextStep() {
+    this.transitionService.startTransition();
+    setTimeout(() => {
     this.sessionService.setItem('programDetails', JSON.stringify(this.programForm.value));
     this.router.navigate(['/step7']);
+    }, 2000);
   }
 
   previousStep() {
@@ -90,6 +97,8 @@ export class Step6Component implements OnInit {
   }
 
   onSubmit() {
+    this.transitionService.startTransition();
+    setTimeout(() => {
     if (this.programForm.valid) {
       console.log(this.programForm.value);
       this.sessionService.setItem('programDetails', JSON.stringify(this.programForm.value));
@@ -97,5 +106,6 @@ export class Step6Component implements OnInit {
     } else {
       this.submitted = true;
     }
+  }, 2000);
   }
 }

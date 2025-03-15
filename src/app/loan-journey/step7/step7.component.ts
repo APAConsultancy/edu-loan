@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
-
+import { TransitionService } from '../../services/transition.service';
 @Component({
   selector: 'app-step7',
   templateUrl: './step7.component.html',
@@ -24,9 +24,10 @@ export class Step7Component implements OnInit {
   selectedLoanAmount: any;
   selectedLoanType: any;
   selectedStartYear: any;
-
+  isTransitioning = false;
   constructor(private fb: FormBuilder, private router: Router,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private transitionService: TransitionService
   ) {
     this.questionnaireForm = this.fb.group({
       intake: ['', Validators.required],
@@ -36,6 +37,9 @@ export class Step7Component implements OnInit {
       startMonth: ['', Validators.required],
       startYear: ['', Validators.required],
     });
+    this.transitionService.isTransitioning$.subscribe(
+      (status) => (this.isTransitioning = status)
+    ); 
   }
 
   ngOnInit(): void {
@@ -93,7 +97,10 @@ export class Step7Component implements OnInit {
   }
 
   nextStep() {
+    this.transitionService.startTransition();
+    setTimeout(() => {
     this.router.navigate(['/step8']);
+  }, 2000);
   }
 
   previousStep() {

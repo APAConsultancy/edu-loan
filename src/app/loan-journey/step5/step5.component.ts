@@ -6,6 +6,7 @@ import { SessionService } from '../../common/services/session.service';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { LoanJourneyService } from '../loan-journey.service';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
+import { TransitionService } from '../../services/transition.service';
 
 @Component({
   selector: 'app-step5',
@@ -17,13 +18,18 @@ export class Step5Component implements OnInit {
   UniversityName = 'UniversityName';
   Universities: { Id: number; UniversityName: string; }[] =[];
   country = sessionStorage.getItem('selectedCountry');
-
+  isTransitioning = false;
   selectedUniversity: string = '';
 
   constructor(private router: Router,
     private sessionService: SessionService,
-    private loanJourneyService: LoanJourneyService
-  ) { }
+    private loanJourneyService: LoanJourneyService,
+    private transitionService: TransitionService
+  ) { 
+    this.transitionService.isTransitioning$.subscribe(
+      (status) => (this.isTransitioning = status)
+    ); 
+  }
 
   ngOnInit(): void {
     if (this.sessionService) {
@@ -44,7 +50,10 @@ export class Step5Component implements OnInit {
   }
 
   nextStep() {
+    this.transitionService.startTransition();
+    setTimeout(() => {
     this.router.navigate(['/step6']);
+    }, 2000);
   }
 
   previousStep() {
@@ -52,10 +61,13 @@ export class Step5Component implements OnInit {
   }
 
   selectEvent(item: any) {
+    this.transitionService.startTransition();
+    setTimeout(() => {
     console.log('Selected item:', item);
     this.selectedUniversity = item.UniversityName;
     this.sessionService.setItem('selectedUniversity', this.selectedUniversity);
     this.router.navigate(['/step6']);
+  }, 2000);
   }
 
   onChangeSearch(val: string) {
