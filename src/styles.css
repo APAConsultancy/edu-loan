@@ -2740,7 +2740,7 @@ input[type=search]::-webkit-search-results-decoration {
 }
 .mobile-nav__wrapper .mobile-nav__close {
   position: absolute;
-  top: 20px;
+  top: 100px;
   right: 15px;
   font-size: 18px;
   color: #fefcfb;
