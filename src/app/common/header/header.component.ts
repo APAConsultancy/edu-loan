@@ -31,11 +31,11 @@ export class HeaderComponent implements AfterViewInit {
     if (typeof window !== 'undefined') {
         const $ = (window as any).$;
         if ($(".mobile-nav__toggler")) {
-          // $(".mobile-nav__toggler").on("click", function (e: any) {
-            // e.preventDefault();
+           $(".mobile-nav__toggler").on("click", function (e: any) {
+             e.preventDefault();
             $(".mobile-nav__wrapper").toggleClass("expanded");
             $("body").toggleClass("locked");
-          // });
+           });
         }
     }
   }

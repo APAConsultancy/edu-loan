@@ -29,7 +29,7 @@ export class HomeComponent implements AfterViewInit {
     if (isPlatformBrowser(this.platformId)) {
       // Initialize both slick sliders and countdown timer
       this.ngZone.runOutsideAngular(() => {
-        this.initializeSlick();
+        //this.initializeSlick();
         this.initializeCountdown();
       });
     }
