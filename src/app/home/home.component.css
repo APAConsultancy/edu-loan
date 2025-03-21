@@ -308,7 +308,9 @@
     border-radius: 50%;
     margin-right: 10px;
   }
-  
+  .margintop{
+    margin-top: -110px;
+  }
   /* @keyframes marquee {
     0% {
       transform: translateX(0);
@@ -328,4 +330,116 @@
     
   }
 
+  .circle-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Center Image */
+.center-image {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    z-index: 1; /* Keep image behind */
+}
+
+/* Text Block Styling */
+.text-block {
+    position: absolute;
+    width: 330px;
+    text-align: center;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    z-index: 2; /* Keep text blocks on top */
+    background: rgb(255, 250, 250); /* Light transparent background */
+    border-left: 5px solid rgba(255, 255, 255, 0.3); /* Light border */
+    border: 1px solid #747373; /* Highlight border */
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.5; /* Make all text visible but faded */
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Positioning for 5 evenly spaced blocks in a circular layout */
+.text-block:nth-child(1) { transform: rotate(0deg) translate(160px) rotate(0deg); }
+.text-block:nth-child(2) { transform: rotate(100deg) translate(160px) rotate(-100deg); }
+.text-block:nth-child(3) { transform: rotate(200deg) translate(160px) rotate(-200deg); }
+.text-block:nth-child(4) { transform: rotate(300deg) translate(160px) rotate(-300deg); }
+/* .text-block:nth-child(5) { transform: rotate(288deg) translate(160px) rotate(-288deg); } */
+
+/* Active state */
+.text-block.active {
+    background: rgba(255, 251, 251, 0.6); /* Dark background for active text */
+    border: 1px solid #0e0e0e; /* Highlight border */
+    color: rgb(0, 0, 0);
+    opacity: 1; /* Fully visible */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* ✅ RESPONSIVE: Switch to background image and normal layout on small screens */
+@media (max-width: 768px) {
+  .circle-container {
+      width: 100%;
+      height: 400px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+  }
+
+  /* ✅ Center image becomes a background */
+  .center-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url('../../assets/media/backgrounds/boy1.png'); /* Set background */
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0; /* Move it behind the text blocks */
+  }
+  .margintop{
+    margin-top: -90px;
+  }
+  /* ✅ Change text block layout (STACKED instead of circular) */
+  .text-block {
+      position: relative;
+      width: 80%;
+      max-width: 300px;
+      font-size: 14px;
+      padding: 12px;
+      margin: 10px 0; /* Stack them vertically */
+      transform: none !important;
+     
+  }
+  .text-block.active {
+    background: white !important; /* ✅ White background only on small screens */
+    border: 1px solid #0e0e0e;
+    color: black;
+    opacity: 1;
+    transform: scale(1.05);
+}
+}
+
+@media (max-width: 480px) {
+  .circle-container {
+      height: auto;
+  }
+
+  .text-block {
+      width: 90%;
+      font-size: 12px;
+      padding: 8px;
+     
+  }
+
+}
   

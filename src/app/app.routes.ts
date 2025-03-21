@@ -53,6 +53,6 @@ export const routes: Routes = [
     {path:'blogdetails3', component:Blogdetails3Component},
     {path:'blogdetails4', component:Blogdetails4Component},
     {path:'blogdetails5', component:Blogdetails5Component},
-    {path:'blogdetails6', component:Blogdetails6Component}
-
+    {path:'blogdetails6', component:Blogdetails6Component},
+    {path:'loanamountcalc', component:LoanamountcalcpopupComponent}
 ];

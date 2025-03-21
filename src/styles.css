@@ -3037,9 +3037,10 @@ footer .copyright_row P {
   right: 13%;
   z-index: 20;
 }
-@media only screen and (min-width: 1400px) and (max-width: 1799px) {
+@media only screen and (min-width: 1400px) and (max-width: 2399px) {
   .hero-banner-1 .main-img {
-    right: 7%;
+    right: 14%;
+    bottom: 22%;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1399px) {
@@ -3070,7 +3071,7 @@ footer .copyright_row P {
   z-index: 999;
   bottom: 100px;
 }
-@media only screen and (min-width: 1400px) and (max-width: 1799px) {
+@media only screen and (min-width: 1400px) and (max-width: 2399px) {
   .hero-banner-1 .banner_feature_card {
     right: 22%;
   }
@@ -3123,15 +3124,15 @@ footer .copyright_row P {
   top: 88px;
   right: 615px;
 }
-@media only screen and (min-width: 1400px) and (max-width: 1799px) {
+@media only screen and (min-width: 1400px) and (max-width: 2399px) {
   .hero-banner-1 .icons img:nth-child(1) {
-    right: 505px;
+    right: 19%;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1399px) {
   .hero-banner-1 .icons img:nth-child(1) {
-    right: 240px;
-    top: 120px;
+    right: 19%;
+    top: 15%;
     width: 40px;
   }
 }
@@ -3139,9 +3140,9 @@ footer .copyright_row P {
   top: 120px;
   right: 778px;
 }
-@media only screen and (min-width: 1400px) and (max-width: 1799px) {
+@media only screen and (min-width: 1400px) and (max-width: 2399px) {
   .hero-banner-1 .icons img:nth-child(2) {
-    right: 668px;
+    right: 35%;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1399px) {
@@ -3155,9 +3156,9 @@ footer .copyright_row P {
   top: 195px;
   right: 534px;
 }
-@media only screen and (min-width: 1400px) and (max-width: 1799px) {
+@media only screen and (min-width: 1400px) and (max-width: 2399px) {
   .hero-banner-1 .icons img:nth-child(3) {
-    right: 424px;
+    right: 15%;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1399px) {
@@ -3171,9 +3172,9 @@ footer .copyright_row P {
   top: 215px;
   right: 671px;
 }
-@media only screen and (min-width: 1400px) and (max-width: 1799px) {
+@media only screen and (min-width: 1400px) and (max-width: 2399px) {
   .hero-banner-1 .icons img:nth-child(4) {
-    right: 561px;
+    right: 33%;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1399px) {
@@ -3187,9 +3188,9 @@ footer .copyright_row P {
   top: 315px;
   right: 671px;
 }
-@media only screen and (min-width: 1400px) and (max-width: 1799px) {
+@media only screen and (min-width: 1400px) and (max-width: 2399px) {
   .hero-banner-1 .icons img:nth-child(5) {
-    right: 561px;
+    right: 38%;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1399px) {
@@ -3203,9 +3204,9 @@ footer .copyright_row P {
   top: 295px;
   right: 371px;
 }
-@media only screen and (min-width: 1400px) and (max-width: 1799px) {
+@media only screen and (min-width: 1400px) and (max-width: 2399px) {
   .hero-banner-1 .icons img:nth-child(6) {
-    right: 261px;
+    right: 12%;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1399px) {

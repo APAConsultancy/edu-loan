@@ -16,6 +16,7 @@
     overflow-x: hidden;
 }
 
+
     /* Background Image */
   .image-container {
     position: absolute;
@@ -102,6 +103,7 @@
     .image-container {
       height: 100%;
       top: 60px; /* Push image further down */
+      margin-left: 0%;
     }
   
     /* Reduce space between text blocks */
@@ -122,6 +124,20 @@
       font-size: 14px;
       padding: 10px;
     }
+    .text-container.left {
+      align-items: center; /* Align left */
+      /* transform: translateY(30px); */
+      padding-left: 10%;
+      margin-top: 25%;
+    }
+    
+    .text-container.right {
+      align-items: flex-end; /* Align right */
+      transform: translateY(10px); /* Moves up */
+      padding-right: 10%;
+      margin-left: 12%;
+        margin-top: -17%;
+    }
   }
   
   @media (max-width: 768px) {
@@ -132,8 +148,9 @@
   
     /* Move text further down */
     .text-container {
-      margin-top: 70px;
+      
       gap: 5px;
+      margin-left: 0%;
     }
   
     /* Reduce width for better fit */
@@ -141,6 +158,13 @@
       width: 90%;
       font-size: 14px;
       padding: 8px;
+    }
+    .text-box.active {
+      background: white !important; /* Dark background for active text */
+      border: 1px solid #0e0e0e; /* Highlight border */
+      color: rgb(0, 0, 0);
+      opacity: 1; /* Fully visible */
+      transform: scale(1.05); /* Slight zoom effect */
     }
   }
   
@@ -153,6 +177,7 @@
     .image-container {
       height: 250px;
       top: 250px; /* Moves image further down */
+      margin-left: 0%;
     }
   
     /* Reduce spacing and adjust width */
@@ -160,11 +185,21 @@
       margin-top: 160px;
       gap: 3px;
     }
+    .text-container.left {
+      align-items: center; /* Align left */
+      /* transform: translateY(30px); */
+      padding-left: 10%;
+      margin-top: 40%;
+    }
   .text-container.right{
-    margin-top: 3px;
+    margin-top: -103px;
     padding-right: 0%;
     padding-left: 10%;
+    /* transform: translateY(35px);  */
+    margin-left: 0%;
+    margin-bottom: 2%;
   }
+  
     .text-box {
       width: 95%;
       padding: 6px;
