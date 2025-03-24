@@ -83,7 +83,7 @@ export class Step2Component  implements OnInit {
     this.transitionService.startTransition();
     setTimeout(() => {
     this.router.navigate(['/step3']);
-  }, 2000);
+  }, 3500);
   }
 
   previousStep() {
@@ -94,7 +94,7 @@ export class Step2Component  implements OnInit {
     this.transitionService.startTransition();
     setTimeout(() => {
     this.router.navigate(['/step3']);
-  }, 2000);
+  }, 3500);
   }
 
   getUniversityDetails(countryName: string): void {

@@ -85,3 +85,11 @@
     background-color: #86b7fe;
     border-color: #86b7fe;
   }
+  @media (max-width: 480px) {
+    h4, .h4 {
+        font-size: 17px;
+    }
+    .form-control {
+      width: 100% !important;
+    }
+  }

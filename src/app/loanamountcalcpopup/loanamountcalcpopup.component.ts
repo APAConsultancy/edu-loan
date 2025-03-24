@@ -9,7 +9,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './loanamountcalcpopup.component.css'
 })
 export class LoanamountcalcpopupComponent {
-  
+  ngOnInit() {
+    if(window !== undefined){
+    window.scrollTo(0, 0); // Ensure the page scrolls to top on load
+    }
+  }
   tutionFee: number = 0;
   accomodation: number = 0;
   booksOther: number = 0;

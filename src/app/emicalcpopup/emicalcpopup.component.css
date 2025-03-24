@@ -54,15 +54,27 @@
     flex: 1;
     margin: 5px;
   }
+  .margin-top-10{
+    margin-top: 2%;
+  }
   
   @media (max-width: 768px) {
     .emi-container {
       flex-direction: column;
       width: 90%;
     }
-  
+    .margin-top-10{
+      margin-top: 8%;
+    }
     .left-section {
       border-right: none;
       border-bottom: 1px solid #ddd;
+    }
+  }
+ 
+
+  @media (max-width: 480px) {
+    .margin-top-10{
+      margin-top: 8%;
     }
   }

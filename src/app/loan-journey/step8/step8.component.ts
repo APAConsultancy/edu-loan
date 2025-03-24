@@ -158,7 +158,7 @@ export class Step8Component implements OnInit {
     this.transitionService.startTransition();
     setTimeout(() => {
     this.router.navigate(['/step9']);
-  }, 2000);
+  }, 3500);
   }
 
   previousStep() {

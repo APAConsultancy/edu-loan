@@ -89,7 +89,7 @@ this.transitionService.isTransitioning$.subscribe(
     setTimeout(() => {
     this.sessionService.setItem('programDetails', JSON.stringify(this.programForm.value));
     this.router.navigate(['/step7']);
-    }, 2000);
+    }, 3500);
   }
 
   previousStep() {
@@ -106,6 +106,6 @@ this.transitionService.isTransitioning$.subscribe(
     } else {
       this.submitted = true;
     }
-  }, 2000);
+  }, 3500);
   }
 }

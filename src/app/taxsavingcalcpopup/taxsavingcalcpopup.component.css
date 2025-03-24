@@ -99,4 +99,16 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
+  .margin-top-10{
+    margin-top: 2%;
+  }
+  @media (max-width: 767px) {
+    .margin-top-10{
+      margin-top: 5%;
+    }
+  }
+  @media (max-width: 480px) {
+    .margin-top-10{
+      margin-top: 5%;
+    }
+  }

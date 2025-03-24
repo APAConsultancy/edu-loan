@@ -56,7 +56,7 @@ export class Step3Component implements OnInit {
     } else {
       this.markAllAsTouched();
     }
-  }, 2000);
+  }, 3500);
   }
 
   isFormValid(): boolean {

@@ -53,7 +53,7 @@ export class Step5Component implements OnInit {
     this.transitionService.startTransition();
     setTimeout(() => {
     this.router.navigate(['/step6']);
-    }, 2000);
+    }, 3500);
   }
 
   previousStep() {
@@ -67,7 +67,7 @@ export class Step5Component implements OnInit {
     this.selectedUniversity = item.UniversityName;
     this.sessionService.setItem('selectedUniversity', this.selectedUniversity);
     this.router.navigate(['/step6']);
-  }, 2000);
+  }, 3500);
   }
 
   onChangeSearch(val: string) {

@@ -12,7 +12,7 @@ export class TransitionService {
     this.transitioning.next(true);
     setTimeout(() => {
       this.transitioning.next(false);
-    }, 2000); // Show transition for 2 seconds
+    }, 3500); // Show transition for 2 seconds
   }
   constructor() { }
 }

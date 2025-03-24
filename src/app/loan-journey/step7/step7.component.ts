@@ -100,7 +100,7 @@ export class Step7Component implements OnInit {
     this.transitionService.startTransition();
     setTimeout(() => {
     this.router.navigate(['/step8']);
-  }, 2000);
+  }, 3500);
   }
 
   previousStep() {

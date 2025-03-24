@@ -35,3 +35,11 @@
   .align-items-center {
     align-items: normal;
 }
+@media (max-width: 480px) {
+  h4, .h4 {
+      font-size: 17px;
+  }
+  .form-control {
+    width: 100% !important;
+  }
+}

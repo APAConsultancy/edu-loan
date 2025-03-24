@@ -6,3 +6,19 @@ a {
     .text-danger {
         font-size: 0.55em;
       }
+      .padding8-150{
+        padding: 8px 150px;
+      }
+      @media (max-width: 480px) {
+        h4, .h4 {
+            font-size: 17px;
+        }
+        .padding8-150{
+          padding: 0px 0px;
+          min-width: 206px;
+          justify-content: center;
+        }
+        .justify-content-center {
+          justify-content: left !important;
+      }
+    }    

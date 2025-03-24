@@ -73,3 +73,13 @@
   background-color:#0aa6d7;
   color: white
 }
+.headingtext{
+  font-size: 20px;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .headingtext{
+    font-size: 17px;
+    text-align: center;
+  }
+}

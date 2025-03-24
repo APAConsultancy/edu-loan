@@ -47,7 +47,7 @@ export class Step4Component {
       this.transitionService.startTransition();
     setTimeout(() => {
       this.router.navigate(['/step5']);
-    }, 2000);
+    }, 3500);
     }
   
     previousStep() {
@@ -60,7 +60,7 @@ export class Step4Component {
       this.selectedAdmissionStatus = status;
       this.sessionService.setItem('selectedAdmissionStatus', this.selectedAdmissionStatus);
       this.router.navigate(['/step5']);
-    }, 2000);
+    }, 3500);
     }
   
 }

@@ -47,3 +47,21 @@
       box-shadow: unset;
       max-width: 500px;
     }
+    .headingtext{
+      font-size: 20px;
+      text-align: center;
+    }
+    
+
+  
+  @media screen and (max-width: 480px) {
+    ::ng-deep .ng-autocomplete .autocomplete-container .input-container input  {
+      /* Your CSS styles here */
+      border: 1px solid gray;
+      width: 70%;
+      }
+      .headingtext{
+        font-size: 17px;
+        text-align: center;
+      }
+}
