@@ -1,6 +1,6 @@
 <div *ngIf="isTransitioning" class="transition-screen">
   <img src="assets\media\backgrounds\transitionimage.png" alt="Loading..." class="transition-image"/>
-  <p class="transition-text">Yippee, let's turn your passport into your new best friend!</p>
+  <p class="transition-text">Yippee! You've made it to the final step - let's match you with the ideal bank for your loan!</p>
 </div>
 <div class="container main">
   <app-progress-bar [currentStep]="8"></app-progress-bar>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="row mt-3 justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <!-- <h5 class="text-center">How Should Our Loan Experts Contact you?</h5> -->
       <form [formGroup]="contactForm" style="max-width: 600px;" (ngSubmit)="onSubmit()">
         <!-- Name -->

@@ -21,8 +21,8 @@ export class Step9Component {
   ShowFilter = false;
   limitSelection = false;
   dropdownSettings: any = {};
-  showBankImage = false;
-  showQuestionDiv = true;
+  showBankImage = true;
+  showQuestionDiv = false;
   bankList: any= [];
   bankLogoList: any = [];
   originalBankList: any = [];
@@ -116,6 +116,7 @@ export class Step9Component {
         this.bankList = response.map((bank: any) => bank.BankName1);
         // this.bankLogoList = response.map((bank: any) => bank.BankLogoUrl);
         this.originalBankList = response;
+        this.showBankImageWithDelay();
       },
       (error) => {
         console.error('Error fetching bank names', error);
@@ -134,6 +135,6 @@ export class Step9Component {
       this.isLoading = false;
       // this.showBankImage = true;
       this.showQuestionDiv = false;
-    }, 10000); // 3 seconds delay
+    }, 1000); // 3 seconds delay
   }
 }

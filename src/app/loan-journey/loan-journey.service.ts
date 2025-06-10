@@ -14,7 +14,7 @@ export class LoanJourneyService {
 
     // Method to send message with dynamic 'to' and 'text' parameters
     sendMessage(to: string, text: string): Observable<any> {
-      const url = `https://api.st-messaging.com/fe/api/v1/send?username=smtdsy54.trans&password=xlVJu&unicode=false&from=STMREG&to=${to}&text=${text}&dltContentId=1207173253232223351&dltPrincipalEntityId=1201170019608954004`;
+      const url = `https://api.st-messaging.com/fe/api/v1/send?username=Unifnd60.trans&password=F4cH8&unicode=false&from=UNIFNS&to=${to}&text=${text}&dltContentId=1007277823304675946&dltPrincipalEntityId=1001665167758700932`;
   
       //const url = `https://api.st-messaging.com/fe/api/v1/send?username=smtdsy54.trans&password=xlVJu&unicode=false&from=STMREG&to=${to}&text=${encodeURIComponent(text)}&dltContentId=1207173253232223351&dltPrincipalEntityId=1201170019608954004`;
       return this.httpService.getOTP<any>(url);

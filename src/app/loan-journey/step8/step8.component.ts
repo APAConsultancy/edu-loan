@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { SessionService } from '../../common/services/session.service';
 import { LoanJourneyService } from '../loan-journey.service';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
-import { TransitionService } from '../../services/transition.service';
+import { Transition10Service } from '../../services/transition10.service';
 @Component({
   selector: 'app-step8',
   templateUrl: './step8.component.html',
@@ -36,7 +36,7 @@ export class Step8Component implements OnInit {
   constructor(private fb: FormBuilder, private router: Router,
     private sessionService: SessionService,
     private loanJourneyService: LoanJourneyService,
-    private transitionService: TransitionService
+    private transitionService: Transition10Service
   ) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
@@ -158,7 +158,7 @@ export class Step8Component implements OnInit {
     this.transitionService.startTransition();
     setTimeout(() => {
     this.router.navigate(['/step9']);
-  }, 3500);
+  }, 10000);
   }
 
   previousStep() {

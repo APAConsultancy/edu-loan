@@ -139,7 +139,17 @@
         margin-top: -17%;
     }
   }
-  
+  @media only screen and (min-width: 1400px) and (max-width: 2399px) {
+    /* Background Image */
+    .image-container {
+      position: absolute;
+      margin-left: 34%;
+      width: 30%;
+      height: 104%;
+      margin-top:10%;
+      background: url('../../assets/media/backgrounds/girl.png') no-repeat center center/cover;
+    }
+  }
   @media (max-width: 768px) {
     .background-section {
       height: auto;
