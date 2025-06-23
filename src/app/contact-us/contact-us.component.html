@@ -35,17 +35,17 @@
                      <h2 class="mb-16">We Would Love To Hear From <span
                              class="fm-sec">You!</span></h2>
                      <p class="mb-32">Have questions or need assistance? We're here to help you every step of the way – reach out to us!</p>
-                     <form method="post" action="contact.html" class="contact-form form-validator">
+                     <form class="contact-form form-validator">
                          <div class="row">
                              <div class="col-sm-6">
                                  <div class="mb-24">
-                                     <input type="text" class="form-control p_lg" id="name" name="name" required
+                                     <input type="text" class="form-control p_lg" id="name" name="firstName"  [(ngModel)]="form.firstName" required
                                          placeholder="First Name">
                                  </div>
                              </div>
                              <div class="col-sm-6">
                                  <div class="mb-24">
-                                     <input type="text" class="form-control p_lg" id="last-name" name="last-name"
+                                     <input type="text" class="form-control p_lg" id="last-name" name="last-name" [(ngModel)]="form.lastName" 
                                          required placeholder="Last Name">
                                  </div>
                              </div>
@@ -53,23 +53,23 @@
                          <div class="row">
                              <div class="col-sm-6">
                                  <div class="mb-24">
-                                     <input type="email" class="form-control p_lg" id="email" name="email" required
+                                     <input type="email" class="form-control p_lg" id="email" name="email" [(ngModel)]="form.email" required
                                          placeholder="Email">
                                  </div>
                              </div>
                              <div class="col-sm-6">
                                  <div class="mb-24">
-                                     <input type="text" class="form-control p_lg" id="subject" name="subject"
+                                     <input type="text" class="form-control p_lg" id="subject" name="subject" [(ngModel)]="form.subject"
                                          required placeholder="Subject">
                                  </div>
                              </div>
                          </div>
                          <div class="mb-24">
-                             <textarea class="form-control p_lg" id="detail-message" name="message" rows="5" required
+                             <textarea class="form-control p_lg" id="detail-message" name="message" rows="5" [(ngModel)]="form.message" required
                                  placeholder="Message"></textarea>
                          </div>
                          <div class="text-end">
-                             <button type="submit" class="educate-btn"><span class="educate-btn__curve"></span>Send
+                             <button class="educate-btn" (click)="onSubmit()"><span class="educate-btn__curve"></span>Send
                                  Message</button>
                          </div>
                          <!-- Alert Message -->
@@ -90,7 +90,7 @@
                              <div class="icon">
                                  <i class="fal fa-map-marker-alt"></i>
                              </div>
-                             <h6 class="dark-gray">123 Gaur City Mall, Noida, IND.</h6>
+                             <h6 class="dark-gray">T21/2305,Nirala Estate, Noida, IND.</h6>
                          </div>
                      </div>
                      <div class="col-lg-4">
@@ -98,7 +98,7 @@
                              <div class="icon">
                                  <i class="fal fa-phone-alt"></i>
                              </div>
-                             <span class="h6">+91 999 567 890</span>
+                             <span class="h6">+91 783 800 800 6</span>
                          </a>
                      </div>
                      <div class="col-lg-4">

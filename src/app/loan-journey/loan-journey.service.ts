@@ -31,7 +31,10 @@ export class LoanJourneyService {
       const endpoint = `CustomerDetails/AddCustomerDetails`;
       return this.httpService.post<any>(endpoint, data);
     }
-
+    sendContactUsEmail(data: any): Observable<any> {
+      const endpoint = `CustomerDetails/SendContactUsEmail`;
+      return this.httpService.post<any>(endpoint, data);
+    }
     // Method to add already applied details with dynamic parameters
   addAlreadyAppliedDetails(phoneNumber: string, bankName: string[]): Observable<any> {
     const url = `CustomerDetails/AddAlreadyAppliedDetails?phoneNumber=${phoneNumber}&bankName=${bankName.join(',')}`;
