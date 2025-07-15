@@ -101,6 +101,7 @@ export class Step5Component implements OnInit {
         this.loanJourneyService.getUniversityDetailsByCountryName(this.country).subscribe(
         (response) => {
           this.Universities = response;
+          this.Universities.push({ Id: -1, UniversityName: 'Other' });
           this.sessionService.setItem('universities', JSON.stringify(this.Universities));
         },
         (error) => {

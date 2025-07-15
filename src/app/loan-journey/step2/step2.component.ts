@@ -102,6 +102,7 @@ export class Step2Component  implements OnInit {
       (response) => {
         console.log('University details:', response);
         this.Universities = response;
+        this.Universities.push({ Id: -1, UniversityName: 'Other' }); // Add default option
         this.sessionService.setItem('universities', JSON.stringify(this.Universities)); // Store universities data
       },
       (error) => {

@@ -57,7 +57,7 @@ export class Step1Component  implements OnInit {
   validateOtp(): void {
     if (this.otp === this.correctOtp) {
       this.showMobileComponent = true;
-      this.savePreDetails(this.mobile, null, null);
+     
     } else {
       alert('Invalid OTP. Please try again.');
     }
@@ -86,6 +86,8 @@ export class Step1Component  implements OnInit {
   }
  
   nextStep() {
+    const selectedValue = this.stepOneForm.get('source')?.value;
+    this.savePreDetails(this.mobile, 'Verified', selectedValue);
     this.router.navigate(['/step2']);
   }
 
