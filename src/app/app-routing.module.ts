@@ -13,13 +13,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
+import { TermsComponent } from './terms/terms.component';
+import { PolicyComponent} from './policy/policy.component';
 
 const routes: Routes = [
   
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent,ContactUsComponent, AboutUsComponent],
+  declarations: [AppComponent, HomeComponent,ContactUsComponent, AboutUsComponent,PolicyComponent, TermsComponent],
   imports: [RouterModule.forRoot(routes), 
      MatDialogModule,
      BrowserModule,

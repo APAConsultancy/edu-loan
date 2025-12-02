@@ -13,6 +13,8 @@ import { Step9Component } from './loan-journey/step9/step9.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent} from './contact-us/contact-us.component';
 import {CommunityComponent} from './community/community.component';
+import { TermsComponent} from './terms/terms.component';
+import {PolicyComponent} from './policy/policy.component';
 import {FaqComponent} from './faq/faq.component';
 import {ProcessComponent} from './process/process.component';
 import {BlogsComponent} from './blogs/blogs.component';
@@ -54,5 +56,7 @@ export const routes: Routes = [
     {path:'blogdetails4', component:Blogdetails4Component},
     {path:'blogdetails5', component:Blogdetails5Component},
     {path:'blogdetails6', component:Blogdetails6Component},
-    {path:'loanamountcalc', component:LoanamountcalcpopupComponent}
+    {path:'loanamountcalc', component:LoanamountcalcpopupComponent},
+    {path:'terms', component:TermsComponent},
+    {path:'policy', component:PolicyComponent}
 ];
