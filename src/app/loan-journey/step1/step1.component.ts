@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { NgOtpInputModule } from 'ng-otp-input';
@@ -27,7 +28,8 @@ export class Step1Component  implements OnInit {
     public dialog: MatDialog,
     private router: Router,
     private loanJourneyService: LoanJourneyService,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.stepOneForm = this.fb.group({
       //mobileno: this.fb.control('', Validators.required)
@@ -64,10 +66,10 @@ export class Step1Component  implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sessionService.removeAll();
-    if(window !== undefined){
+    if (isPlatformBrowser(this.platformId)) {
+      this.sessionService.removeAll();
       window.scrollTo(0, 0); // Ensure the page scrolls to top on load
-      }
+    }
   }
 
   stepOneSubmit() {

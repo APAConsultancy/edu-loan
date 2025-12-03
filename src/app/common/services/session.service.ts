@@ -1,26 +1,36 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
 
-  constructor() { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   setItem(key: string, value: string) {
-    sessionStorage.setItem(key, value);
+    if (isPlatformBrowser(this.platformId)) {
+      sessionStorage.setItem(key, value);
+    }
   }
 
   getItem(key: string) {
-    const value = sessionStorage.getItem(key);
-    return value ? value : null;
+    if (isPlatformBrowser(this.platformId)) {
+      const value = sessionStorage.getItem(key);
+      return value ? value : null;
+    }
+    return null;
   }
 
   removeItem(key: string) {
-    sessionStorage.removeItem(key);
+    if (isPlatformBrowser(this.platformId)) {
+      sessionStorage.removeItem(key);
+    }
   }
 
   removeAll() {
-    sessionStorage.clear();
+    if (isPlatformBrowser(this.platformId)) {
+      sessionStorage.clear();
+    }
   }
 }
