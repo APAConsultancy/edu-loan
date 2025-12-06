@@ -53,8 +53,10 @@
                          <div class="row">
                              <div class="col-sm-6">
                                  <div class="mb-24">
-                                     <input type="email" class="form-control p_lg" id="email" name="email" [(ngModel)]="form.email" required
-                                         placeholder="Email">
+                                     <input type="text" class="form-control p_lg" id="mobile" name="mobile" 
+                                      (keypress)="allowOnlyNumbers($event)" maxlength="10"
+                                     [(ngModel)]="form.mobile" required
+                                         placeholder="Mobile">
                                  </div>
                              </div>
                              <div class="col-sm-6">

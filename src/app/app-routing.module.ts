@@ -15,13 +15,14 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { TermsComponent } from './terms/terms.component';
 import { PolicyComponent} from './policy/policy.component';
+import { ConnectWithUsComponent } from './connect-with-us/connect-with-us.component';
 
 const routes: Routes = [
   
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent,ContactUsComponent, AboutUsComponent,PolicyComponent, TermsComponent],
+  declarations: [AppComponent, HomeComponent,ContactUsComponent, AboutUsComponent,PolicyComponent, TermsComponent, ConnectWithUsComponent],
   imports: [RouterModule.forRoot(routes), 
      MatDialogModule,
      BrowserModule,
@@ -32,7 +33,6 @@ const routes: Routes = [
      MatButtonModule,
      FormsModule,
      MatRadioModule
-        
     ],
     
   exports: [RouterModule],

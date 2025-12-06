@@ -27,6 +27,7 @@ import { Blogdetails3Component } from './blogDetails/blogdetails-3/blogdetails-3
 import { Blogdetails4Component } from './blogDetails/blogdetails-4/blogdetails-4.component';
 import { Blogdetails5Component } from './blogDetails/blogdetails-5/blogdetails-5.component';
 import { Blogdetails6Component } from './blogDetails/blogdetails-6/blogdetails-6.component';
+import { ConnectWithUsComponent } from './connect-with-us/connect-with-us.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -58,5 +59,6 @@ export const routes: Routes = [
     {path:'blogdetails6', component:Blogdetails6Component},
     {path:'loanamountcalc', component:LoanamountcalcpopupComponent},
     {path:'terms', component:TermsComponent},
-    {path:'policy', component:PolicyComponent}
+    {path:'policy', component:PolicyComponent},
+    {path:'connect', component:ConnectWithUsComponent}
 ];

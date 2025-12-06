@@ -17,24 +17,25 @@ export class ContactUsComponent {
   form = {
     firstName: '',
     lastName: '',
-    email: '',
+    mobile: '',
     subject: '',
     message: ''
   };
 onSubmit() {
-  if (!this.form.firstName || !this.form.lastName || !this.form.email || !this.form.subject) {
+  if (!this.form.firstName || !this.form.lastName || !this.form.mobile || !this.form.subject) {
     alert('All fields are required');
     return;
    
   }
-  if (!this.validateEmail(this.form.email)) {
-    alert('Please enter a valid email id');
+  if (!this.validateMobile(this.form.mobile)) {
+    alert('Please enter a valid mobile');
     return;
   }
+  
   const data= {
     FirstName: this.form.firstName,
     LastName: this.form.lastName,
-    Email: this.form.email,
+    Email: this.form.mobile,
     Subject: this.form.subject +"Message: - "+ this.form.message, 
     Message: ""
   };
@@ -60,11 +61,23 @@ validateEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
+
+validateMobile(mobile: string): boolean {
+  const mobileRegex = /^[6-9]\d{9}$/;  // Valid for India (10 digits, starts with 6–9)
+  return mobileRegex.test(mobile);
+}
+allowOnlyNumbers(event: KeyboardEvent) {
+  const charCode = event.which ? event.which : event.keyCode;
+  // Allow only digits (0-9)
+  if (charCode < 48 || charCode > 57) {
+    event.preventDefault();
+  }
+}
 clearForm()
 {
 this.form.firstName="";
  this.form.lastName="";
-this.form.email="";
+this.form.mobile="";
  this.form.subject ="";
  this.form.message ="";
 }
