@@ -36,8 +36,8 @@ onSubmit() {
     FirstName: this.form.firstName,
     LastName: this.form.lastName,
     Email: this.form.mobile,
-    Subject: this.form.subject +"Message: - "+ this.form.message, 
-    Message: ""
+    Subject: this.form.subject, 
+    Message: this.form.message
   };
   debugger
   this.loanJourneyService.sendContactUsEmail(data)

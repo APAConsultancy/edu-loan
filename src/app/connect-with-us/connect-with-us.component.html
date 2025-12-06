@@ -1,1 +1,321 @@
-<p>connect-with-us works!</p>
+ <nav class="main-menu">
+<div class="container">
+          <div class="main-menu__block">
+            <div class="main-menu__left">
+
+<div class="main-menu__logo">
+                <a href="index.html">
+                  <img src="assets/media/logo.png" alt="Educate">
+                </a>
+              </div>
+               </div>
+                </div>
+                 </div>
+                </nav>
+<!-- Hero Banner Start -->
+     <section class="hero-banner-2">
+        
+      <div class="container">
+        <div class="row align-items-start">
+        
+           <div class="col-xl-4 col-lg-4 col-md-12">
+           
+       <div class="text_block connect-form-block">
+
+     <h4 class="form-title">Start your journey now</h4>
+     <p class="form-messageLine">Help us with a few details.</p>
+
+     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="connect-form">
+
+      <div class="form-row">
+        <div class="form-group col-12">
+          <input type="text" formControlName="fullName" placeholder="Full Name" required>
+          <div class="error" *ngIf="isInvalid('fullName')">
+    Full Name is required
+  </div>
+        </div>
+      </div>
+        <div class="form-row">
+        <div class="form-group col-12">
+          <input type="email" formControlName="email" placeholder="Email Address" required>
+          <div class="error" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['required']">
+    Email is required
+  </div>
+  <div class="error" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['email']">
+    Enter a valid email address
+  </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-12">
+          <input type="text" (keydown)="allowOnlyNumbers($event)"
+          (paste)="preventPasteNonNumeric($event)"
+          maxlength="10"formControlName="phoneNo" placeholder="Phone Number" required>
+           <!-- Required error -->
+  <div class="error" *ngIf="contactForm.get('phoneNo')?.touched && contactForm.get('phoneNo')?.errors?.['required']">
+    Phone number is required
+  </div>
+
+  <!-- Pattern error (must be exactly 10 digits) -->
+  <div class="error" *ngIf="contactForm.get('phoneNo')?.touched && contactForm.get('phoneNo')?.errors?.['pattern']">
+    Phone number must be 10 digits
+  </div>
+        </div>
+        </div>
+       <div class="form-row">
+        <div class="form-group col-12">
+          <select formControlName="loanAmount" required>
+    <option value="" disabled selected>Select Loan Amount</option>
+    <option value="₹8 Lakhs - 20 Lakhs">₹8 Lakhs - 20 Lakhs</option>
+    <option value="₹20 Lakhs">₹20 Lakhs +</option>
+  </select>
+<div class="error" *ngIf="isInvalid('loanAmount')">
+    Please select a loan amount
+  </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-6">
+           <input type="text" formControlName="permanentCity" placeholder="Permanent City" required>
+        <div class="error" *ngIf="isInvalid('fullName')">
+    Permanent City is required
+  </div>
+        </div>
+        <div class="form-group col-6">
+           <input type="text" formControlName="countryOfStudy" placeholder="Country of study" required>
+        <div class="error" *ngIf="isInvalid('fullName')">
+    Please fill the Country of study
+  </div>
+        </div>
+      </div>
+     <div class="form-row">
+        <div class="form-group col-6">
+            <select formControlName="admissionStatus" required>
+    <option value="" disabled selected>Admission Status</option>
+    <option value="Not Applied">Not Applied</option>
+    <option value="Applied">Applied</option>
+    <option value="Confirmed">Confirmed</option>
+  </select>
+  <div class="error" *ngIf="isInvalid('loanAmount')">
+    Please select a Admission Status
+  </div>
+        </div>
+        <div class="form-group col-6">
+           <input type="text" formControlName="targetIntake" placeholder="Target Intake" required>
+  <!-- Error Message -->
+  <div class="error"
+       *ngIf="contactForm.get('targetIntake')?.touched &&
+              contactForm.get('targetIntake')?.invalid">
+    Please enter intake month year
+  </div>
+        </div>
+      </div>
+      <button type="submit" class="educate-btn sec">
+        <span class="educate-btn__curve"></span>Send Message
+      </button>
+
+     </form>
+
+      </div>
+
+
+          </div>
+        <div class="col-xl-8 col-lg-8 col-md-12">
+        
+        <div class="top-text-section">
+          <h4 class="top-text-title">Abroad Education <br>
+            Loans starting at 
+            <br>
+            <span style="color: green;">8.33&#37;&#42;</span></h4>
+          <p class="top-text-desc">
+           Get up to ₹1.5 Cr Collateral-Free Loan
+          </p>
+           <p class="top-text-desc">
+           Sanctioned in 48 Hours&#42;
+          </p>
+           <p class="top-text-desc">
+           Apply to 25+ Banks in 2 Minutes
+          </p>
+           <p class="top-text-desc">
+          Savings up to ₹15,00,000
+          </p>
+        </div>
+
+        
+        <div class="img_block">
+          <div>
+            <img src="assets/media/banners/hero-banner-2/main-img.png" alt="" class="banner_main_img">
+          </div>
+          <a href="https://youtube.com/shorts/evqNfSX9_Mo?si=LHfHZflVUH9Y_LVr" class="play-btn video-popup" target="_blank"><i
+              class="fas fa-play"></i></a>
+          
+        </div>
+    </div>
+</div>
+
+        <div class="row">
+          <div class="col-xxl-6 col-xl-8 col-lg-10">
+            <div class="row features_row">
+              <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="200ms">
+                <div class="feature__card">
+                  <div class="feature__icon">
+                    <img src="assets/media/icons/Support.png" alt="">
+                  </div>
+                  <div class="feature__content">
+                    <h5 class="mb-8">Best Support</h5>
+                    <p>Our Support Team handle your all process.</p>
+                    <img src="assets/media/shapes/feture-bg-shape.png" alt="" class="feature-bg-shape">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="400ms">
+                <div class="feature__card">
+                  <div class="feature__icon">
+                    <img src="assets/media/icons/Check-mark.png" alt="">
+                  </div>
+                  <div class="feature__content">
+                    <h5 class="mb-8">Amount Disbursed</h5>
+                    <p> Unifund get disbursed for ₹ 2,000 Cr+</p>
+                    <img src="assets/media/shapes/feture-bg-shape.png" alt="" class="feature-bg-shape">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 d-md-block d-none wow fadeInUp" data-wow-delay="600ms">
+                <div class="feature__card">
+                  <div class="feature__icon">
+                    <img src="assets/media/icons/Quality.png" alt="">
+                  </div>
+                  <div class="feature__content">
+                    <h5 class="mb-8">Assured gift</h5>
+                    <p>Get assured gift on disbursed of your loan.</p>
+                    <img src="assets/media/shapes/feture-bg-shape.png" alt="" class="feature-bg-shape">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Hero Banner End -->
+
+    <section class="partners-section">
+  <h2 class="partners-title">Our Loan Partners</h2>
+
+  <div class="partners-grid">
+
+    <div class="partner-item"><img src="assets/media/brand/barnd-2.png" alt="ICICI Bank"></div>
+    <div class="partner-item"><img src="assets/media/brand/barnd-12.png" alt="Axis Bank"></div>
+    <div class="partner-item"><img src="assets/media/brand/barnd-1.png" alt="Credila"></div>
+    <div class="partner-item"><img src="assets/media/brand/barnd-5.png" alt="PNB"></div>
+    <div class="partner-item"><img src="assets/media/brand/barnd-7.png" alt="Union Bank"></div>
+
+    <div class="partner-item"><img src="assets/media/brand/barnd-10.png" alt="Yes Bank"></div>
+    <div class="partner-item"><img src="assets/media/brand/barnd-6.png" alt="Avanse"></div>
+    <div class="partner-item"><img src="assets/media/brand/barnd-3.png" alt="Tata Capital"></div>
+    <div class="partner-item"><img src="assets/media/brand/barnd-11.png" alt="Auxilo"></div>
+    <div class="partner-item"><img src="assets/media/brand/barnd-9.png" alt="Prodigy Finance"></div>
+
+  </div>
+</section>
+
+ <!-- Footer Area Start -->
+    <footer>
+      <div class="footer_main py-60">
+        <img src="assets/media/shapes/vector-7.png" alt="" class="vector_shape">
+        <img src="assets/media/shapes/dots-1.png" alt="" class="dots">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-3 ">
+              <div class="footer_widget">
+                <a href="/connect" class="mb-8"><img src="assets/media/logo.png" alt=""></a>
+               
+              </div>
+            </div>
+            <!-- <div class="col-xl-2 col-lg-3 col-sm-6">
+              <div class="footer_widget">
+                <h5 class="medium-black mb-16">Quick Links</h5>
+                <ul class="unstyled list">
+                  <li><a href=""><i class="fad fa-chevron-right"></i>Courses</a></li>
+                  <li><a href=""><i class="fad fa-chevron-right"></i>Join a Career</a></li>
+                  <li><a href=""><i class="fad fa-chevron-right"></i>Upcoming Events</a></li>
+                </ul>
+              </div>
+            </div> -->
+            <!-- <div class="col-xl-2 col-lg-3 col-sm-6">
+              <div class="footer_widget">
+                <h5 class="medium-black mb-16">Explore</h5>
+                <ul class="unstyled list">
+                  <li><a href="about.html"><i class="fad fa-chevron-right"></i>About Us</a></li>
+                  <li><a href="gallery.html"><i class="fad fa-chevron-right"></i>Gallery</a></li>
+                  <li><a href="team-detail.html"><i class="fad fa-chevron-right"></i>Teachers Detail</a></li>
+                </ul>
+              </div>
+            </div> -->
+            <!-- <div class="col-xl-2 col-lg-3 col-sm-6">
+              <div class="footer_widget">
+                <h5 class="medium-black mb-16">Information</h5>
+                <ul class="unstyled list">
+                  <li><a href="login.html"><i class="fad fa-chevron-right"></i>Login</a></li>
+                  <li><a href="register.html"><i class="fad fa-chevron-right"></i>Register</a></li>
+                  <li><a href="contact.html"><i class="fad fa-chevron-right"></i>Contact Us</a></li>
+                </ul>
+              </div>
+            </div> -->
+            <div class="col-lg-3 col-sm-6">
+              <div class="footer_widget">
+                <h5 class="medium-black mb-16">Contact Us</h5>
+                  <ul class="unstyled list">
+                    <li class="mb-16"><i class="fal fa-map-marker-alt"></i>Office No TS-1027, 10th Floor, Galaxy Blue Sapphire Plaza, Greater Noida West</li>
+                    <li class="mb-16"><a href="mailto:official@theunifund.com"><i
+                          class="fal fa-envelope"></i>official&#64;theunifund.com</a></li>
+                    <li><a href="tel:+917838008006"><i class="fal fa-phone-alt"></i>+91 783 800 800 6</a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-row">
+            <ul class="unstyled social_icons_list">
+              <li>
+                <a href="https://www.instagram.com/the_uni.fund?igsh=MXdmZjA2M3l4OW02dA%3D%3D&utm_source=qr" target="_blank">
+                    <img src="assets/media/icons/brands/Instagram.png" alt="">
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=61577865923613&rdid=DtD8NqlataeRXwVI" target="_blank">
+                  <img src="assets/media/icons/brands/Facebook.png" alt="">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="assets/media/icons/brands/Twitter.png" alt="">
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/the-unifund/" target="_blank">
+                    <img src="assets/media/icons/brands/Linkedin.png" alt="">
+                  </a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+      <div class="copyright_row">
+        <p>©{{currentYear}} The UniFund All Rights Reserved.
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/policy" target="_blank"> <span>Privacy Policy</span></a> ||
+            <a href="/terms" target="_blank"><span> Terms & Conditions</span></a>
+        </p>
+      </div>
+    </footer>
+    <!-- Footer Area End -->
+
+     <!-- back-to-top-start -->
+  <a href="/connect" class="scroll-top">
+    <svg class="scroll-top__circle" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </a>

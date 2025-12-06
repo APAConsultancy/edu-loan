@@ -32,7 +32,8 @@ export class LoanJourneyService {
       return this.httpService.post<any>(endpoint, data);
     }
     sendContactUsEmail(data: any): Observable<any> {
-      const endpoint = `CustomerDetails/SendContactUsEmail`;
+      //const endpoint = `CustomerDetails/SendContactUsEmail`;
+     const endpoint = `api/connect/SendContactUsEmail`;
       return this.httpService.post<any>(endpoint, data);
     }
     sendContactUsEmailNew(data: any): Observable<any> {

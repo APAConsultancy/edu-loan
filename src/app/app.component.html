@@ -1,8 +1,10 @@
   <!-- Main Wrapper Start -->
 <div id="main-wrapper" class="main-wrapper">
-<app-header></app-header>
-
+<ng-container *ngIf="!hideLayout">
+  <app-header></app-header>
+</ng-container>
 <router-outlet></router-outlet>
-
-<app-footer></app-footer>
+<ng-container *ngIf="!hideLayout">
+  <app-footer></app-footer>
+</ng-container>
 </div>
