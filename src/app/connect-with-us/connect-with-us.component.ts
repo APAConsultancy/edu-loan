@@ -38,7 +38,8 @@ ngOnInit(): void {
       permanentCity: ['', Validators.required],
       countryOfStudy: ['', Validators.required],
       admissionStatus: ['', Validators.required],
-      targetIntake: ['', Validators.required]
+      targetIntake: ['', Validators.required],
+      instituteName: ['', Validators.required]
     });
   }
 
@@ -85,7 +86,7 @@ updateMonthDisplay(event: any) {
       return;
     }
 
-    this.http.post('https://devapi.theunifund.com/api/connect/submit', this.contactForm.value)
+    this.http.post('https://theunifund.com/unifundapi/api/connect/submit', this.contactForm.value)
       .subscribe({
         next: (res: any) => {
           Swal.fire({
@@ -103,7 +104,8 @@ updateMonthDisplay(event: any) {
           permanentCity: '',
           countryOfStudy: '',
           admissionStatus: '',     // default dropdown value
-          targetIntake: ''
+          targetIntake: '',
+          instituteName:''
         });
         },
         error: (err) => {

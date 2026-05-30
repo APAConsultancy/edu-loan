@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  private apiUrl = 'https://devapi.theunifund.com'; // Replace with your API URL
+   //private apiUrl = 'https://devapi.theunifund.com'; // Replace with your API URL
+  private apiUrl = 'https://theunifund.com/unifundapi'; 
   //private apiUrl = 'https://localhost:44365/';
   //private apiUrlEduLoan = 'http://ecommapi.eduloanexpert.com';
   private apiUrlEduLoan = 'https://localhost:44367';
